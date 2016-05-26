@@ -1,24 +1,39 @@
 var osc = require('osc-min'),
     dgram = require('dgram'),
-    omx = require('omxcontrol'),
     remote;
+    
+var udp = dgram.createSocket("udp4");
 
-// listen for OSC messages and print them to the console
-var udp = dgram.createSocket('udp4', function(msg, rinfo) {
+function send() {
+  var x = osc.toBuffer({
+    oscType: 'message',
+    address: '/omxplayer',
+    args: [{
+      type: 'integer',
+      value: 1
+    }]
+  });
+  udp.send(x, 0, x.length, 9998, "192.168.1.189");
+  udp.send(x, 0, x.length, 9998, "192.168.1.159");
+  udp.send(x, 0, x.length, 9998, "192.168.1.160");
+}
 
-  // save the remote address
-  remote = rinfo.address;
-
-  try {
+var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
+  try 
+  {
     console.log(osc.fromBuffer(msg));
-    omx.start('/home/pi/SyncPi8/Final.mp4')
-  } catch (err) {
-    console.log('Could not decode OSC message');
+    console.log("get omx callback");
+    send();
+  } 
+  catch (err) {
+    console.log('could not decode OSC message');
   }
-
 });
 
 
 
-udp.bind(9998);
-console.log('Listening for OSC messages on port 9998');
+omxcallback.bind(9999);
+
+// setInterval(send, 4000);
+
+send();
