@@ -1,0 +1,35 @@
+omx.start = function(fn) {
+    if (!pipe) {
+        pipe = 'omxcontrol';
+        exec('mkfifo '+pipe);
+    }
+    if (map) {
+        map(fn,cb);
+    } else {
+        cb(fn);
+    }
+
+    function cb(fn) {
+        console.log(fn);
+        exec('omxplayer -o hdmi -b "'+fn+'" < '+pipe,function(error, stdout, stderr) {
+            console.log(stdout);
+
+            var udp = dgram.createSocket("udp4");
+
+            var x = osc.toBuffer({
+                oscType: 'message',
+                address: '/omxcallback',
+                args: [{
+                  type: 'integer',
+                  value: 5
+                }]
+              });
+            udp.send(x, 0, x.length, 9999, "192.168.1.189");
+
+
+
+
+        });
+        exec('echo . > '+pipe);
+    }
+};
