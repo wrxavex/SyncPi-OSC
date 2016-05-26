@@ -1,6 +1,5 @@
 var osc = require('osc-min'),
     dgram = require('dgram'),
-    omx = require('omxcontrol'),
     remote;
 
 function send() {
