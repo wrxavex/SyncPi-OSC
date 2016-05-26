@@ -1,0 +1,27 @@
+{
+  "name": "SyncPi-OSC",
+  "version": "0.0.1",
+  "description": "Raspberry Pi Video Sync with OSC"
+  "main": "print.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wrxavex/SyncPi-OSC"
+  },
+  "keywords": [
+    "osc"
+  ],
+  "author": "wrxavex <wrxavex@gmail.com>",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/wrxavex/SyncPi-OSC/issues"
+  },
+  "homepage": "https://github.com/wrxavex/SyncPi-OSC",
+  "dependencies": {
+    "osc-min": "^0.2.0",
+    "socket.io": "^1.3.5",
+    "omxcontrol":"^0.0.1",
+  }
+}
