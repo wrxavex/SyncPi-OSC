@@ -18,4 +18,5 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
 
 });
 
-omxcallback.bind(9998);
+udp.bind(9998);
+console.log('Listening for OSC messages on port 9998');
