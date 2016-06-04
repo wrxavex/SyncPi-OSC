@@ -11,7 +11,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
 
   try {
     console.log(osc.fromBuffer(msg));
-    omx.start('/home/pi/SyncPi8/synctest.mp4')
+    omx.start('/home/pi/SyncPi8/SyncVideo.mp4')
   } catch (err) {
     console.log('Could not decode OSC message');
   }
