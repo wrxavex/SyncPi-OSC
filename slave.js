@@ -5,7 +5,7 @@ var osc = require('osc-min'),
     remote;
 
 var video_id = fs.readFileSync('/boot/set_id', 'utf8');
-video_id = video.replace(/(\r\n|\n|\r)/gm,"");
+video_id = video_id.replace(/(\r\n|\n|\r)/gm,"");
 
     
 // listen for OSC messages and print them to the console
