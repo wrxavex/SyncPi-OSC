@@ -1,3 +1,8 @@
+// add osc & dgram require
+
+var osc = require('osc-min');
+var dgram = require('dgram');
+
 omx.start = function(fn) {
     if (!pipe) {
         pipe = 'omxcontrol';

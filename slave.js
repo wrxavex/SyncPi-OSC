@@ -1,7 +1,11 @@
 var osc = require('osc-min'),
     dgram = require('dgram'),
     omx = require('omxcontrol'),
+    fs = require('fs')
     remote;
+
+var video_id = fs.readFileSync('/boot/set_id', 'utf8');
+
     
 // listen for OSC messages and print them to the console
 var udp = dgram.createSocket('udp4', function(msg, rinfo) {
@@ -11,7 +15,8 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
 
   try {
     console.log(osc.fromBuffer(msg));
-    omx.start('/home/pi/SyncPi8/SyncVideo.mp4')
+
+    omx.start('/home/pi/nmh/v-'+video_id+'.mp4')
   } catch (err) {
     console.log('Could not decode OSC message');
   }
