@@ -1,7 +1,7 @@
 var osc = require('osc-min'),
     dgram = require('dgram'),
     omx = require('omxcontrol'),
-    fs = require('fs')
+    fs = require('fs'),
     remote;
 
 var video_id = fs.readFileSync('/boot/set_id', 'utf8');
