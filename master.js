@@ -19,7 +19,8 @@ function send() {
   });
 
   play_count = play_count + 1;
-  console.log(time.toLocaleTimeString());
+
+  console.log('Playing'+play_count+'times at '+time.toLocaleTimeString());
 
 
   udp.send(x, 0, x.length, 9998, "192.168.1.201");
