@@ -4,7 +4,7 @@ var osc = require('osc-min'),
     
 var udp = dgram.createSocket("udp4");
 
-var time = new Date();
+
 
 var play_count = 0;
 
@@ -19,7 +19,7 @@ function send() {
   });
 
   play_count = play_count + 1;
-
+  var time = new Date();
   console.log('Playing '+play_count+' times at '+time.toLocaleTimeString());
 
 
