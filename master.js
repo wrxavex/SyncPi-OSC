@@ -4,15 +4,24 @@ var osc = require('osc-min'),
     
 var udp = dgram.createSocket("udp4");
 
+var time = new Date();
+
+var play_count = 0;
+
 function send() {
   var x = osc.toBuffer({
     oscType: 'message',
     address: '/omxplayer',
     args: [{
-      type: 'string',
+      type: 'integer',
       value: 1
     }]
   });
+
+  play_count = play_count + 1;
+  console.log(time.toLocaleTimeString());
+
+
   udp.send(x, 0, x.length, 9998, "192.168.1.201");
   udp.send(x, 0, x.length, 9998, "192.168.1.202");
   udp.send(x, 0, x.length, 9998, "192.168.1.203");
