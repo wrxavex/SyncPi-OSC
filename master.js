@@ -9,7 +9,7 @@ function send() {
     oscType: 'message',
     address: '/omxplayer',
     args: [{
-      type: 'integer',
+      type: 'string',
       value: 1
     }]
   });
