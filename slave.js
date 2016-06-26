@@ -22,7 +22,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
     var time = new Date();
     omx.quit()
 
-    omx.start('/home/pi/pier2/v-'+video_id+'.mp4');
+    omx.start('/home/pi/nmh/v-'+video_id+'.mp4');
 
     exec('/opt/vc/bin/vcgencmd measure_temp', function(error, stdout, stderr) {
         console.log('stdout: ' + stdout);
