@@ -20,7 +20,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
 
     play_count = play_count + 1;
     var time = new Date();
-    omx.quit()
+    omx.quit();
 
     omx.start('/home/pi/nmh/v-'+video_id+'.mp4');
 
