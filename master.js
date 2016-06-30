@@ -58,7 +58,7 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
     var osc_message;
     osc_message = osc.fromBuffer(msg);
     if (parseInt(osc_message.args[0].value) == 1) {
-      console.log("get slave no.12 callback");
+      console.log("get slave no.1 callback");
     }
     if (parseInt(osc_message.args[0].value) == 2) {
       console.log("get slave no.2 callback");
@@ -67,13 +67,13 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
       console.log("get slave no.12 callback");
     }
     if (parseInt(osc_message.args[0].value) == 13) {
-      console.log("get slave no.12 callback");
+      console.log("get slave no.13 callback");
     }
     if (parseInt(osc_message.args[0].value) == 255) {
       console.log("get omx callback");
       send();
     }
-    
+
 
   } 
   catch (err) {
