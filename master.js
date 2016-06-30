@@ -50,6 +50,7 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
   {
     console.log(osc.fromBuffer(msg));
     var osc_message;
+    osc_message = osc.fromBuffer(msg);
     if (parseInt(osc_message.args[0].value) == 2) {
       console.log("get slave no.2 callback");
     }
