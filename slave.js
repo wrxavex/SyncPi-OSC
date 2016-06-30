@@ -19,7 +19,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
     osc_message = osc.fromBuffer(msg);
     console.log('args[0]= '+osc_message.args[0].value);
     console.log('args[1]= '+osc_message.args[1].value);
-    if (parseInt(osc_message.args[0]) == 1) {
+    if (osc_message.args[0] == "1") {
         console.log('it\'s master\'s message');
     }
     play_count = play_count + 1;
