@@ -12,10 +12,16 @@ function send() {
   var x = osc.toBuffer({
     oscType: 'message',
     address: '/omxplayer',
-    args: [{
-      type: 'integer',
-      value: 1
-    }]
+    args: [
+        {
+          type: 'integer',
+          value: 1
+        },
+        {
+            type: 'integer',
+            value: 2
+        }
+    ]
   });
 
   play_count = play_count + 1;
