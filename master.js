@@ -42,6 +42,10 @@ function send() {
   udp.send(x, 0, x.length, 9998, "192.168.1.211");
   udp.send(x, 0, x.length, 9998, "192.168.1.212");
   udp.send(x, 0, x.length, 9998, "192.168.1.213");
+  udp.send(x, 0, x.length, 9998, "192.168.1.168");
+  udp.send(x, 0, x.length, 9998, "192.168.1.150");
+
+
 
   }, 3000);
 
@@ -50,11 +54,20 @@ function send() {
 var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
   try 
   {
-    console.log(osc.fromBuffer(msg));
+    //console.log(osc.fromBuffer(msg));
     var osc_message;
     osc_message = osc.fromBuffer(msg);
+    if (parseInt(osc_message.args[0].value) == 1) {
+      console.log("get slave no.12 callback");
+    }
     if (parseInt(osc_message.args[0].value) == 2) {
       console.log("get slave no.2 callback");
+    }
+    if (parseInt(osc_message.args[0].value) == 12) {
+      console.log("get slave no.12 callback");
+    }
+    if (parseInt(osc_message.args[0].value) == 13) {
+      console.log("get slave no.12 callback");
     }
     if (parseInt(osc_message.args[0].value) == 255) {
       console.log("get omx callback");
