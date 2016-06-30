@@ -49,7 +49,13 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
   try 
   {
     console.log(osc.fromBuffer(msg));
-    console.log("get omx callback");
+    var osc_message;
+    if (parseInt(osc_message.args[0].value) == 2) {
+      console.log("get slave no.2 callback");
+    }
+    if (parseInt(osc_message.args[0].value) == 255) {
+      console.log("get omx callback");
+    }
     send();
   } 
   catch (err) {

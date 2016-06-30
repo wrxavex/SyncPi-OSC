@@ -19,11 +19,11 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
     args: [
         {
           type: 'integer',
-          value: 1
+          value: 2
         },
         {
             type: 'integer',
-            value: 2
+            value: 1
         }
     ]
     });
