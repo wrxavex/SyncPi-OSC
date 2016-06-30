@@ -56,8 +56,9 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
     }
     if (parseInt(osc_message.args[0].value) == 255) {
       console.log("get omx callback");
+      send();
     }
-    send();
+
   } 
   catch (err) {
     console.log('could not decode OSC message');
