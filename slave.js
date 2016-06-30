@@ -9,10 +9,24 @@ var video_id = fs.readFileSync('/boot/set_id', 'utf8');
 video_id = video_id.replace(/(\r\n|\n|\r)/gm,"");
 
 var play_count = 0;
-    
+
 // listen for OSC messages and print them to the console
 var udp = dgram.createSocket('udp4', function(msg, rinfo) {
-  var osc_message;
+    var osc_message;
+    var x = osc.toBuffer({
+    oscType: 'message',
+    address: '/omxplayer',
+    args: [
+        {
+          type: 'integer',
+          value: 1
+        },
+        {
+            type: 'integer',
+            value: 2
+        }
+    ]
+    });
   // save the remote address
   remote = rinfo.address;
   try {
@@ -21,6 +35,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
     console.log('args[1]= '+osc_message.args[1].value);
     if (parseInt(osc_message.args[0].value) == 1) {
         console.log('it\'s master\'s message');
+        udp.send(x, 0, x.length, 9999, "192.168.1.201");
     }
     play_count = play_count + 1;
     var time = new Date();
@@ -38,12 +53,12 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
 
 
     var playing_status = 'playing ' + play_count + ' times at ' + time.toLocaleTimeString();
-    
-    
+
+
     fs.writeFile('playing_status.txt', playing_status, (err) => {
       if (err){
           throw err;
-      } 
+      }
       console.log('It\'s saved!');
 });
   } catch (err) {
