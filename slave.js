@@ -18,6 +18,8 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
   try {
     osc_message = osc.fromBuffer(msg);
     console.log('args[0]= '+osc_message.args[0].value);
+    console.log('args[1]= '+osc_message.args[1].value);
+
     play_count = play_count + 1;
     var time = new Date();
 
