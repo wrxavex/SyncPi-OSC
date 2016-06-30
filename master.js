@@ -22,7 +22,7 @@ function send() {
   var time = new Date();
   console.log('Playing '+play_count+' times at '+time.toLocaleTimeString());
 
-
+  setTimeout(function(){
   udp.send(x, 0, x.length, 9998, "192.168.1.201");
   udp.send(x, 0, x.length, 9998, "192.168.1.202");
   udp.send(x, 0, x.length, 9998, "192.168.1.203");
@@ -35,6 +35,7 @@ function send() {
   udp.send(x, 0, x.length, 9998, "192.168.1.210");
   udp.send(x, 0, x.length, 9998, "192.168.1.211");
   udp.send(x, 0, x.length, 9998, "192.168.1.212");
+  }, 3000);
 
 }
 

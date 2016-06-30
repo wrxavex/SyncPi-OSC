@@ -12,18 +12,17 @@ var play_count = 0;
     
 // listen for OSC messages and print them to the console
 var udp = dgram.createSocket('udp4', function(msg, rinfo) {
-
+  var osc_message;
   // save the remote address
   remote = rinfo.address;
   try {
-    console.log(osc.fromBuffer(msg));
+    osc_message = osc.fromBuffer(msg);
+    console.log(osc_message.args[0].value);
 
     play_count = play_count + 1;
     var time = new Date();
-    omx.quit();
 
     omx.start('/home/pi/nmh/v-'+video_id+'.mp4');
-
     exec('/opt/vc/bin/vcgencmd measure_temp', function(error, stdout, stderr) {
         console.log('stdout: ' + stdout);
         console.log('stderr: ' + stderr);
