@@ -50,7 +50,6 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
         if (parseInt(osc_message.args[0].value) == 1) {
             console.log('it\'s master\'s message, play movie');
             omx.start('/home/pi/nmh/v-'+video_id+'.mp4');
-            console(omx.pipe());
 
             udp.send(x, 0, x.length, 9999, "192.168.1.213");
         }
