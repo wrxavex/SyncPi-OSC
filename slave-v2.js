@@ -13,6 +13,8 @@ var video_id = fs.readFileSync('/boot/set_id', 'utf8');
 
 video_id = video_id.replace(/(\r\n|\n|\r)/gm,"");
 
+var vp = new VideoPlayer(video_id);
+
 
 
 
@@ -20,7 +22,6 @@ video_id = video_id.replace(/(\r\n|\n|\r)/gm,"");
 var udp = dgram.createSocket('udp4', function(msg, rinfo) {
     var osc_message;
 
-    var vp = new VideoPlayer(video_id);
 
     var x = osc.toBuffer({
         oscType: 'message',
