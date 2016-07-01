@@ -42,13 +42,13 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
         console.log('args[1]= '+osc_message.args[1].value);
         if (parseInt(osc_message.args[0].value) == 1) {
             console.log('it\'s master\'s message, play movie');
-
+            vp.is_playing = true;
             omx.start('/home/pi/nmh/v-'+video_id+'.mp4');
 
 
             udp.send(x, 0, x.length, 9999, "192.168.1.213");
         }
-        vp.number = vp.number + 1
+        vp.number = vp.number + 1;
 
         var time = new Date();
 
