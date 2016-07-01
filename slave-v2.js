@@ -13,7 +13,6 @@ var video_id = fs.readFileSync('/boot/set_id', 'utf8');
 
 video_id = video_id.replace(/(\r\n|\n|\r)/gm,"");
 
-var vp = new VideoPlayer(video_id);
 
 
 
@@ -53,7 +52,6 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
 
             udp.send(x, 0, x.length, 9999, "192.168.1.213");
         }
-        vp.number = vp.number + 1;
 
         var time = new Date();
 
