@@ -44,10 +44,8 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
             console.log('it\'s master\'s message, play movie');
 
 
-            if(vp.is_playing == false){
-                vp.is_playing = true;
+
                 omx.start('/home/pi/nmh/v-'+video_id+'.mp4');
-            }
 
 
 
