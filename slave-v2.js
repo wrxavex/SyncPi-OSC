@@ -1,3 +1,5 @@
+var VideoPlayer = require('./playing_status');
+
 var osc = require('osc-min'),
     dgram = require('dgram'),
     omx = require('omxcontrol'),
@@ -5,7 +7,6 @@ var osc = require('osc-min'),
     exec = require('child_process').exec,
     remote;
 
-var VideoPlayer = require('./playing_status');
 
 
 var video_id = fs.readFileSync('/boot/set_id', 'utf8');
