@@ -34,13 +34,14 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
     console.log('args[0]= '+osc_message.args[0].value);
     console.log('args[1]= '+osc_message.args[1].value);
     if (parseInt(osc_message.args[0].value) == 1) {
-        console.log('it\'s master\'s message');
+        console.log('it\'s master\'s message, play movie');
+        omx.start('/home/pi/nmh/v-'+video_id+'.mp4');
         udp.send(x, 0, x.length, 9999, "192.168.1.213");
     }
     play_count = play_count + 1;
     var time = new Date();
 
-    omx.start('/home/pi/nmh/v-'+video_id+'.mp4');
+
     exec('/opt/vc/bin/vcgencmd measure_temp', function(error, stdout, stderr) {
         console.log('stdout: ' + stdout);
         console.log('stderr: ' + stderr);
@@ -66,6 +67,10 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
   }
 
 });
+
+
+
+
 
 udp.bind(9998);
 console.log('Listening for OSC messages on port 9998');
