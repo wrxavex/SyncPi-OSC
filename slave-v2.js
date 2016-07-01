@@ -19,6 +19,9 @@ video_id = video_id.replace(/(\r\n|\n|\r)/gm,"");
 // listen for OSC messages and print them to the console
 var udp = dgram.createSocket('udp4', function(msg, rinfo) {
     var osc_message;
+
+    var vp = new VideoPlayer(video_id);
+
     var x = osc.toBuffer({
         oscType: 'message',
         address: '/omxplayer',
@@ -52,6 +55,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
 
             udp.send(x, 0, x.length, 9999, "192.168.1.213");
         }
+        vp.number = vp.number + 1;
 
         var time = new Date();
 
@@ -64,10 +68,10 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
             }
         });
 
-        console.log('Playing '+play_count+' times at '+time.toLocaleTimeString());
+        console.log('Playing '+vp.number+' times at '+time.toLocaleTimeString());
 
 
-        var playing_status = 'playing ' + play_count + ' times at ' + time.toLocaleTimeString();
+        var playing_status = 'playing ' + vp.number + ' times at ' + time.toLocaleTimeString();
 
 
         fs.writeFile('playing_status.txt', playing_status, (err) => {
