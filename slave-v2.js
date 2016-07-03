@@ -31,7 +31,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
         args: [
             {
                 type: 'integer',
-                value: video_id
+                value: parseInt(video_id)
             },
             {
                 type: 'integer',
@@ -86,7 +86,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
                 console.log('video already playing pass the message')
             }
 
- 
+
         }
 
         if (parseInt(osc_message.args[0].value) == 168) {
