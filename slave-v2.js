@@ -1,11 +1,14 @@
 var VideoPlayer = require('./playing_status');
 
+
 var osc = require('osc-min'),
     dgram = require('dgram'),
     omx = require('omxcontrol'),
     fs = require('fs'),
     exec = require('child_process').exec,
     remote;
+
+
 
 
 
@@ -49,8 +52,9 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
         console.log('args[1]= '+osc_message.args[1].value);
         if (parseInt(osc_message.args[0].value) == 1) {
             console.log('it\'s master\'s message, play movie');
+            console.log(omx.start(pipe));
             omx.start('/home/pi/nmh/v-'+video_id+'.mp4');
-
+            console.log(omx.start(pipe));
             udp.send(x, 0, x.length, 9999, "192.168.1.213");
         }
         vp.number = vp.number + 1;
