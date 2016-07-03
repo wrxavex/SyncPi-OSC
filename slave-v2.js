@@ -31,7 +31,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
         args: [
             {
                 type: 'integer',
-                value: 2
+                value: video_id
             },
             {
                 type: 'integer',
