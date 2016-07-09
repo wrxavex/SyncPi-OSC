@@ -10,7 +10,7 @@ var osc = require('osc-min'),
 
 
 var video_id = fs.readFileSync('/boot/set_id', 'utf8');
-
+var master_id = "192.168.1.231";
 
 video_id = video_id.replace(/(\r\n|\n|\r)/gm,"");
 
@@ -69,7 +69,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
                 omx.start('/home/pi/nmh/v-'+video_id+'.mp4');
                 vp.is_playing = true;
                 console.log('video is playing , vp.is_playing = true');
-                udp.send(x, 0, x.length, 9999, "192.168.1.231");
+                udp.send(x, 0, x.length, 9999, master_id);
                 console.log('send osc message to master');
 
 
@@ -112,7 +112,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
             if(vp.is_playing == true){
                 vp.is_playing = false;
                 console.log('vp.is_playing = false');
-                udp.send(x_end, 0, x_end.length, 9999, "192.168.1.231");
+                udp.send(x_end, 0, x_end.length, 9999, master_id);
             }
             else{
                 console.log('something wrong');
