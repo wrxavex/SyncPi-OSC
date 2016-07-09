@@ -112,3 +112,4 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
 
 udp.bind(9998);
 console.log('Listening for OSC messages on port 9998');
+console.log('This Machine is:' + vp.video_id);
