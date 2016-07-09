@@ -38,6 +38,22 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
             }
         ]
     });
+
+    var x_end = osc.toBuffer({
+        oscType: 'message',
+        address: '/omxplayer',
+        args: [
+            {
+                type: 'integer',
+                value: parseInt(vp.video_id)
+            },
+            {
+                type: 'integer',
+                value: 2
+            }
+        ]
+    });
+
     // save the remote address
     remote = rinfo.address;
     try {
@@ -96,6 +112,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
             if(vp.is_playing == true){
                 vp.is_playing = false;
                 console.log('vp.is_playing = false');
+                udp.send(x_end, 0, x_end.length, 9999, "192.168.1.231");
             }
             else{
                 console.log('something wrong');
