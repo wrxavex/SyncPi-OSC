@@ -46,6 +46,19 @@ function send() {
   udp.send(x, 0, x.length, 9998, "192.168.1.150");
 
 
+  udp.send(x, 0, x.length, 9998, "192.168.1.231");
+  udp.send(x, 0, x.length, 9998, "192.168.1.232");
+  udp.send(x, 0, x.length, 9998, "192.168.1.233");
+  udp.send(x, 0, x.length, 9998, "192.168.1.234");
+  udp.send(x, 0, x.length, 9998, "192.168.1.235");
+  udp.send(x, 0, x.length, 9998, "192.168.1.236");
+  udp.send(x, 0, x.length, 9998, "192.168.1.237");
+  udp.send(x, 0, x.length, 9998, "192.168.1.238");
+  udp.send(x, 0, x.length, 9998, "192.168.1.239");
+
+
+
+
 
   }, 3000);
 

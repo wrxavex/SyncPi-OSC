@@ -30,7 +30,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
         args: [
             {
                 type: 'integer',
-                value: 4
+                value: vp.video_id
             },
             {
                 type: 'integer',
@@ -88,7 +88,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
 
         }
 
-        if (parseInt(osc_message.args[0].value) == 204) {
+        if (parseInt(osc_message.args[0].value) == 200 + vp.video_id) {
 
             console.log('it\'s myself\'s message, movie is end');
             if(vp.is_playing == true){
