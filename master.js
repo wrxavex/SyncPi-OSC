@@ -68,7 +68,7 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
   try 
   {
     var time = new Date();
-    //console.log(osc.fromBuffer(msg));
+    console.log(osc.fromBuffer(msg) + "\n");
     var osc_message;
     osc_message = osc.fromBuffer(msg);
     if (parseInt(osc_message.args[0].value) == 1) {
