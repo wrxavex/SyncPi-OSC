@@ -54,6 +54,8 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
                 vp.is_playing = true;
                 console.log('video is playing , vp.is_playing = true');
                 udp.send(x, 0, x.length, 9999, "192.168.1.231");
+                console.log('send osc message to master');
+
 
                 vp.number = vp.number + 1;
 
