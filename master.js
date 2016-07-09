@@ -79,6 +79,12 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
     }
     if (parseInt(osc_message.args[0].value) == 4) {
         console.log("get slave no.4 callback " + time.getTime());
+        if (parseInt(osc_message.args[1].value) == 1) {
+            console.log("no.4 is get master message");
+        }
+        if (parseInt(osc_message.args[1].value) == 2) {
+            console.log("no.4 movie is end ");
+        }
     }
     if (parseInt(osc_message.args[0].value) == 12) {
       console.log("get slave no.12 callback " + time.getTime());
