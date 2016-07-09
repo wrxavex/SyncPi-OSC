@@ -29,7 +29,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
         address: '/omxplayer',
         args: [
             {
-                type: 'integer',
+                type: 'string',
                 value: vp.video_id
             },
             {
