@@ -52,8 +52,8 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
 
                 omx.start('/home/pi/nmh/v-'+video_id+'.mp4');
                 vp.is_playing = true;
-                console.log('video is playing , vp.isplaying = true');
-                udp.send(x, 0, x.length, 9999, "192.168.1.213");
+                console.log('video is playing , vp.is_playing = true');
+                udp.send(x, 0, x.length, 9999, "192.168.1.231");
 
                 vp.number = vp.number + 1;
 
