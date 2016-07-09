@@ -78,6 +78,7 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
         }
         if (parseInt(osc_message.args[1].value) == 2) {
             console.log("no.1 movie is end");
+            send();
         }
     }
     if (parseInt(osc_message.args[0].value) == 2) {
