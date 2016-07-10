@@ -68,72 +68,99 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
   try 
   {
     var time = new Date();
-    console.log(osc.fromBuffer(msg) + "\n");
     var osc_message;
     osc_message = osc.fromBuffer(msg);
     if (parseInt(osc_message.args[0].value) == 1) {
-      console.log("get slave no.1 callback "+ time.getTime());
+      console.log("no.1 callback "+ time.getTime());
         if (parseInt(osc_message.args[1].value) == 1) {
-            console.log("no.1 is get master message");
+            console.log("no.1 is get master message\n");
         }
         if (parseInt(osc_message.args[1].value) == 2) {
-            console.log("no.1 movie is end");
+            console.log("no.1 movie is end\n");
             send();
         }
     }
     if (parseInt(osc_message.args[0].value) == 2) {
-      console.log("get slave no.2 callback " + time.getTime());
+      console.log("no.2 callback " + time.getTime());
         if (parseInt(osc_message.args[1].value) == 1) {
-            console.log("no.2 is get master message");
+            console.log("no.2 is get master message\n");
         }
         if (parseInt(osc_message.args[1].value) == 2) {
-            console.log("no.2 movie is end")
+            console.log("no.2 movie is end\n")
         }
     }
 
     if (parseInt(osc_message.args[0].value) == 3) {
-        console.log("get slave no.3 callback " + time.getTime());
+        console.log("no.3 callback " + time.getTime());
         if (parseInt(osc_message.args[1].value) == 1) {
-            console.log("no.3 is get master message");
+            console.log("no.3 is get master message\n");
         }
         if (parseInt(osc_message.args[1].value) == 2) {
-            console.log("no.3 movie is end")
+            console.log("no.3 movie is end\n")
         }
     }
 
 
 
     if (parseInt(osc_message.args[0].value) == 4) {
-        console.log("get slave no.4 callback " + time.getTime());
+        console.log("no.4 callback " + time.getTime());
         if (parseInt(osc_message.args[1].value) == 1) {
-            console.log("no.4 is get master message");
+            console.log("no.4 is get master message\n");
         }
         if (parseInt(osc_message.args[1].value) == 2) {
-            console.log("no.4 movie is end ");
+            console.log("no.4 movie is end \n");
         }
     }
 
-    if (parseInt(osc_message.args[0].value) == 4) {
-        console.log("get slave no.4 callback " + time.getTime());
-        if (parseInt(osc_message.args[1].value) == 1) {
-            console.log("no.4 is get master message");
-        }
-        if (parseInt(osc_message.args[1].value) == 2) {
-            console.log("no.4 movie is end ");
-        }
+    if (parseInt(osc_message.args[0].value) == 5) {
+      console.log("no.5 callback " + time.getTime());
+      if (parseInt(osc_message.args[1].value) == 1) {
+          console.log("no.5 is get master message\n");
+      }
+      if (parseInt(osc_message.args[1].value) == 2) {
+          console.log("no.5 movie is end \n");
+      }
     }
 
-    if (parseInt(osc_message.args[0].value) == 12) {
-      console.log("get slave no.12 callback " + time.getTime());
-    }
-    if (parseInt(osc_message.args[0].value) == 13) {
-      console.log("get slave no.13 callback " + time.getTime());
-    }
-    if (parseInt(osc_message.args[0].value) == 255) {
-      console.log("get omx callback " + time.getTime());
-      send();
+    if (parseInt(osc_message.args[0].value) == 6) {
+      console.log("no.6 callback " + time.getTime());
+      if (parseInt(osc_message.args[1].value) == 1) {
+          console.log("no.6 is get master message\n");
+      }
+      if (parseInt(osc_message.args[1].value) == 2) {
+          console.log("no.6 movie is end \n");
+      }
     }
 
+    if (parseInt(osc_message.args[0].value) == 7) {
+      console.log("no.7 callback " + time.getTime());
+      if (parseInt(osc_message.args[1].value) == 1) {
+          console.log("no.7 is get master message\n");
+      }
+      if (parseInt(osc_message.args[1].value) == 2) {
+          console.log("no.7 movie is end \n");
+      }
+    }
+
+      if (parseInt(osc_message.args[0].value) == 8) {
+          console.log("no.8 callback " + time.getTime());
+          if (parseInt(osc_message.args[1].value) == 1) {
+              console.log("no.8 is get master message\n");
+          }
+          if (parseInt(osc_message.args[1].value) == 2) {
+              console.log("no.8 movie is end \n");
+          }
+      }
+
+      if (parseInt(osc_message.args[0].value) == 9) {
+          console.log("no.9 callback " + time.getTime());
+          if (parseInt(osc_message.args[1].value) == 1) {
+              console.log("no.9 is get master message\n");
+          }
+          if (parseInt(osc_message.args[1].value) == 2) {
+              console.log("no.9 movie is end \n");
+          }
+      }
 
   } 
   catch (err) {
