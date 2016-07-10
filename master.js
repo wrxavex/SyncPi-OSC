@@ -74,6 +74,7 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
     osc_message = osc.fromBuffer(msg);
     if (parseInt(osc_message.args[0].value) == 1) {
       console.log("no.1 callback "+ time.getTime());
+      device_status.id_1_lasttime = time.getTime();
         if (parseInt(osc_message.args[1].value) == 1) {
             console.log("no.1 is get master message\n");
             device_status.id_1 = '1';
@@ -86,6 +87,7 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
     }
     if (parseInt(osc_message.args[0].value) == 2) {
       console.log("no.2 callback " + time.getTime());
+      device_status.id_2_lasttime = time.getTime();
         if (parseInt(osc_message.args[1].value) == 1) {
             console.log("no.2 is get master message\n");
             device_status.id_2 = '1';
@@ -98,6 +100,7 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
 
     if (parseInt(osc_message.args[0].value) == 3) {
         console.log("no.3 callback " + time.getTime());
+        device_status.id_3_lasttime = time.getTime();
         if (parseInt(osc_message.args[1].value) == 1) {
             console.log("no.3 is get master message\n");
             device_status.id_3 = '1';
@@ -112,6 +115,7 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
 
     if (parseInt(osc_message.args[0].value) == 4) {
         console.log("no.4 callback " + time.getTime());
+        device_status.id_4_lasttime = time.getTime();
         if (parseInt(osc_message.args[1].value) == 1) {
             console.log("no.4 is get master message\n");
             device_status.id_4 = '1';
@@ -124,6 +128,7 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
 
     if (parseInt(osc_message.args[0].value) == 5) {
       console.log("no.5 callback " + time.getTime());
+      device_status.id_5_lasttime = time.getTime();
       if (parseInt(osc_message.args[1].value) == 1) {
           console.log("no.5 is get master message\n");
           device_status.id_5 = '1';
@@ -136,6 +141,7 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
 
     if (parseInt(osc_message.args[0].value) == 6) {
       console.log("no.6 callback " + time.getTime());
+        device_status.id_6_lasttime = time.getTime();
       if (parseInt(osc_message.args[1].value) == 1) {
           console.log("no.6 is get master message\n");
           device_status.id_6 = '1';
@@ -148,6 +154,7 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
 
     if (parseInt(osc_message.args[0].value) == 7) {
       console.log("no.7 callback " + time.getTime());
+        device_status.id_7_lasttime = time.getTime();
       if (parseInt(osc_message.args[1].value) == 1) {
           console.log("no.7 is get master message\n");
           device_status.id_7 = '1';
@@ -160,6 +167,7 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
 
       if (parseInt(osc_message.args[0].value) == 8) {
           console.log("no.8 callback " + time.getTime());
+          device_status.id_8_lasttime = time.getTime();
           if (parseInt(osc_message.args[1].value) == 1) {
               console.log("no.8 is get master message\n");
               device_status.id_8 = '1';
@@ -172,6 +180,7 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
 
       if (parseInt(osc_message.args[0].value) == 9) {
           console.log("no.9 callback " + time.getTime());
+          device_status.id_9_lasttime = time.getTime();
           if (parseInt(osc_message.args[1].value) == 1) {
               console.log("no.9 is get master message\n");
               device_status.id_9 = '1';
