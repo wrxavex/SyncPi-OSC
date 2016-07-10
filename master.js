@@ -182,6 +182,15 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
           }
       }
       console.log (device_status);
+      console.log ('1:'+ device_status.id_1 +
+                    ' 2:' + device_status.id_2 +
+                    ' 3:' + device_status.id_3 +
+                    ' 4:' + device_status.id_4 +
+                    ' 5:' + device_status.id_5 +
+                    ' 6:' + device_status.id_6 +
+                    ' 7:' + device_status.id_7 +
+                    ' 8:' + device_status.id_8 +
+                    ' 9:' + device_status.id_9);
 
   } 
   catch (err) {
