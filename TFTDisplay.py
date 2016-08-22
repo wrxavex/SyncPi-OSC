@@ -3,7 +3,10 @@ import os
 import platform
 import time
 
-import get_ip
+try:
+    import get_ip
+except:
+    print ('no get_ip')
 
 try:
     my_ip = get_ip.myip
