@@ -41,12 +41,12 @@ font_myip = pygame.font.Font(font_file, 24)
 def tft_update(time_now):
 
     if control_status == 0:
-        display_main_info()
+        display_main_info(time_now)
 
     pygame.display.update()
 
 
-def display_main_info():
+def display_main_info(time_now):
     lcd.fill((0, 0, 0))
     text_surface_time = font_date.render(u'%s' % time_now, True, WHITE)
     text_surface_hostname = font_hostname.render(u'%s' % hostname, True, WHITE)
