@@ -14,6 +14,7 @@ try:
 except:
     my_ip = 'unknown'
 
+control_status = 0
 
 hostname = platform.node()
 os.environ['TZ'] = 'Asia/Taipei'
@@ -38,6 +39,14 @@ font_myip = pygame.font.Font(font_file, 24)
 
 
 def tft_update(time_now):
+
+    if control_status == 0:
+        display_main_info()
+
+    pygame.display.update()
+
+
+def display_main_info():
     lcd.fill((0, 0, 0))
     text_surface_time = font_date.render(u'%s' % time_now, True, WHITE)
     text_surface_hostname = font_hostname.render(u'%s' % hostname, True, WHITE)
@@ -51,7 +60,6 @@ def tft_update(time_now):
     lcd.blit(text_surface_hostname, rect_hostname)
     lcd.blit(text_surface_myip, rect_myip)
 
-    pygame.display.update()
 
 
 def main():
