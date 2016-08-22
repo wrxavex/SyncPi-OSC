@@ -3,7 +3,7 @@ import os
 import platform
 import time
 
-myip = '192.168.1.168'
+my_ip = '192.168.1.168'
 
 hostname = platform.node()
 os.environ['TZ'] = 'Asia/Taipei'
