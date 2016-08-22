@@ -1,5 +1,6 @@
 import pygame
 import os
+import time
 
 font_file = "/home/pi/SyncPi8/msjh.ttc"
 os.putenv('SDL_FBDEV', '/dev/fb1')
@@ -37,7 +38,7 @@ def tft_update(time_now):
 
 def main():
     while True:
-        sleep(0.1)
+        time.sleep(0.1)
         time_now = time.strftime('%X')
         tft_update(time_now)
 
