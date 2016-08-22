@@ -5,7 +5,11 @@ import time
 
 import get_ip
 
-my_ip = get_ip.myip
+try:
+    my_ip = get_ip.myip
+except:
+    my_ip = 'unknown'
+
 
 hostname = platform.node()
 os.environ['TZ'] = 'Asia/Taipei'
@@ -27,6 +31,7 @@ font_small = pygame.font.Font(font_file, 36)
 font_date = pygame.font.Font(font_file, 72)
 font_hostname = pygame.font.Font(font_file, 24)
 font_myip = pygame.font.Font(font_file, 24)
+
 
 def tft_update(time_now):
     lcd.fill((0, 0, 0))
