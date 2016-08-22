@@ -9,5 +9,7 @@ def get_ip_address(ifname):
         0x8915,  # SIOCGIFADDR
         struct.pack('256s', ifname[:15])
     )[20:24])
-
-myip = get_ip_address('eth0')
+try:
+    myip = get_ip_address('eth0')
+except:
+    myip = 'no lan'
