@@ -1,4 +1,6 @@
 import pygame
+import os
+
 font_file = "/home/pi/SyncPi8/msjh.ttc"
 os.putenv('SDL_FBDEV', '/dev/fb1')
 pygame.init()
