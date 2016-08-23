@@ -55,6 +55,7 @@ def btnevent1():
 def btnevent2():
     if ds.status == 0:
         ds.status = 2
+        print(ds.status)
     else:
         ds.status = 0
 
