@@ -23,7 +23,7 @@ button4 = Button(5)
 button5 = Button(17)
 button6 = Button(4)
 
-ds = DisplayStatus()
+ds = display_status.DisplayStatus()
 
 hostname = platform.node()
 os.environ['TZ'] = 'Asia/Taipei'
