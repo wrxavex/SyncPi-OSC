@@ -14,6 +14,8 @@ try:
 except:
     my_ip = 'unknown'
 
+import display_status
+
 button1 = Button(23)
 button2 = Button(22)
 button3 = Button(24)
