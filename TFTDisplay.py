@@ -52,7 +52,7 @@ def tft_update(time_now):
         display_main_info(time_now)
 
     elif ds.status == 1:
-        display_second_info()
+        display_second_info(time_now)
 
     pygame.display.update()
 
