@@ -14,7 +14,15 @@ try:
 except:
     my_ip = 'unknown'
 
-control_status = 0
+
+class DisplayStatus():
+
+    def __init__(self):
+
+        self.status = 0
+
+
+ds = DisplayStatus()
 
 hostname = platform.node()
 os.environ['TZ'] = 'Asia/Taipei'
@@ -40,15 +48,20 @@ font_myip = pygame.font.Font(font_file, 24)
 
 def tft_update(time_now):
 
-    if control_status == 0:
+    if ds.status == 0:
         display_main_info(time_now)
+
+    elif ds.status == 1:
+        display_second_info()
 
     pygame.display.update()
 
 
 def btnevent1():
-    if control_status == 0:
-        control_status = 1
+    if ds.status == 0:
+        ds.status = 1
+    else:
+        ds.status = 0
 
 
 def display_main_info(time_now):
@@ -66,6 +79,13 @@ def display_main_info(time_now):
     lcd.blit(text_surface_myip, rect_myip)
 
 
+def display_second_info(time_now):
+    lcd.fill((0, 0, 0))
+    text_surface_time = font_date.render(u'%s' % time_now, True, WHITE)
+
+    rect = text_surface_time.get_rect(center=(160, 120))
+
+    lcd.blit(text_surface_time, rect)
 
 def main():
 
