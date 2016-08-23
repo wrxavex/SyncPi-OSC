@@ -125,6 +125,9 @@ def display_second_info(time_now):
 def main():
 
     button1.when_pressed = btnevent1
+    button2.when_pressed = btnevent2
+    button3.when_pressed = btnevent3
+    button4.when_pressed = btnevent4
 
     while True:
         time.sleep(0.1)
