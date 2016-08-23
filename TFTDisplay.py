@@ -55,7 +55,6 @@ def btnevent1():
 def btnevent2():
     if ds.status == 0:
         ds.status = 2
-        print(ds.status)
     else:
         ds.status = 0
 
@@ -78,11 +77,7 @@ def tft_update(time_now):
 
     lcd.fill((0, 0, 0))
 
-    if ds.status == 0:
-        display_main_info(time_now)
-
-    elif ds.status == 2:
-        display_second_info(time_now)
+    display_main_info(time_now)
 
     pygame.display.update()
 
