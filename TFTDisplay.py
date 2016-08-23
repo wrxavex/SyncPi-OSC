@@ -2,17 +2,20 @@ import pygame
 import os
 import platform
 import time
+from gpiozero import Button
 
 try:
     import get_ip
 except:
     print ('no get_ip')
 
-
 try:
     my_ip = get_ip.myip
 except:
     my_ip = 'unknown'
+
+button1 = Button(23)
+button1.when_pressed = btnevent1
 
 control_status = 0
 
@@ -44,6 +47,10 @@ def tft_update(time_now):
         display_main_info(time_now)
 
     pygame.display.update()
+
+def btnevent1():
+    if control_status == 0:
+        control_status = 1
 
 
 def display_main_info(time_now):
