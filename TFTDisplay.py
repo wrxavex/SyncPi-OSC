@@ -89,6 +89,7 @@ def btnevent5():
         if ds.btnevent != 0:
             ds.btnsubmit = 1
 
+
 def btnevent6():
     if ds.help_mode == 1:
         ds.help_mode = 0
@@ -113,9 +114,10 @@ def tft_update(time_now):
             display_main_info(time_now)
         elif ds.status == 1:
             display_set_player_mode(time_now)
+        elif ds.status == 2:
+            video_sync_mode()
         elif ds.status == 11:
             check_option(time)
-
 
     pygame.display.update()
 
@@ -288,13 +290,37 @@ def check_option(time_now):
         lcd.blit(text_surface_info, rect_info)
 
 
+def video_sync_mode(time_now):
+
+    title = u'影片同步功能'
+    video_now = u'現在影片：'
+    video_file_name = ds.video_name
+    video_size = u'影片大小：' + str(ds.size)
+    info = video_now + video_file_name
+
+    text_surface_hostname = font_small.render(u'%s' % hostname, True, WHITE)
+    text_surface_title = font_small.render(u'%s' % title, True, WHITE)
+    text_surface_info = font_small.render(u'%s' % info, True, WHITE)
+    text_surface_video_size = font_small.render(u'%s' % video_size, True, WHITE)
+
+    rect_hostname = text_surface_hostname.get_rect(center=(160, 10))
+    rect_title = text_surface_title.get_rect(center=(160, 35))
+    rect_info = text_surface_info.get_rect(center=(160, 70))
+    rect_video_size = text_surface_video_size.get_rect(center=(160,110))
+
+    lcd.blit(text_surface_hostname, rect_hostname)
+    lcd.blit(text_surface_title, rect_title)
+    lcd.blit(text_surface_info, rect_info)
+    lcd.blit(text_surface_video_size, rect_video_size)
+
+
 def display_help_mode(time_now):
 
     if ds.status == 0:
         title = u'鍵盤功能設明 - 主視窗'
         btn1info = u'ο 播放模式'
         btn2info = u'□ 同步影片檔案'
-        btn3info = u'△ 未使用'
+        btn3info = u'△ 設定IP'
         btn4info = u'× 功能說明'
         btn5info = u'確定 △'
         btn6info = u'取消 ▽'
@@ -331,8 +357,6 @@ def display_help_mode(time_now):
     lcd.blit(text_surface_btn4info, rect_btn4info)
     lcd.blit(text_surface_btn5info, rect_btn5info)
     lcd.blit(text_surface_btn6info, rect_btn6info)
-
-
 
 
 def main():

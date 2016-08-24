@@ -12,6 +12,8 @@ class DisplayStatus():
         self.video_name = 'video1.mp4'
         # default Video Name is video1.mp4
 
+        self.video_size = '0'
+
         self.status = 0
         # status = 0 => main info
         # status = 1 => player mode info
