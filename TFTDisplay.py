@@ -50,20 +50,23 @@ font_big = pygame.font.Font(font_file, 48)
 
 
 def btnevent1():
-    if ds.status == 0:
+    if ds.help_mode == 0:
+        if ds.status == 0:
         ds.status = 1
 
 
 def btnevent2():
-    if ds.status == 0:
-        ds.status = 2
+    if ds.help_mode == 0:
+        if ds.status == 0:
+            ds.status = 2
 
 
 
 
 def btnevent3():
-    if ds.status == 0:
-        ds.status = 3
+    if ds.help_mode == 0:
+        if ds.status == 0:
+            ds.status = 3
 
 
 def btnevent4():
@@ -74,10 +77,11 @@ def btnevent4():
 
 
 def btnevent5():
-    if ds.status == 0:
-        ds.status = 5
-    else:
-        ds.status = 0
+    if ds.help_mode == 0:
+        if ds.status == 0:
+            ds.status = 5
+        else:
+            ds.status = 0
 
 
 def btnevent6():
