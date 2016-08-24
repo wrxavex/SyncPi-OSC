@@ -361,12 +361,14 @@ def ip_set_mode(time_now):
                 ds.id_to_set += 1
                 ds.btnsubmit = 0
                 ds.btnevent = 0
+                ds.ready_reboot = 0
 
         elif ds.btnevent == 3:
             if ds.id_to_set > 1:
                 ds.id_to_set -= 1
                 ds.btnsubmit = 0
                 ds.btnevent = 0
+                ds.ready_reboot = 0
 
     if ds.ready_reboot == 0:
         if ds.btnsubmit == 1:
