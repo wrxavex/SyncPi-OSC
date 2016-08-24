@@ -329,19 +329,25 @@ def ip_set_mode(time_now):
     title = u'ID設定'
     id_now = ds.id
     ip_now = my_ip
-    info = u'按鍵可調整指定ID值'
+    info1 = u'□ 按鍵可增加指定新ID數值'
+    info2 = u'△ 按鍵可減少指定新ID數值'
 
     if ds.player_mode == 1:
         ds.id_to_set = '31'
-        info = u'同步主機模式ID為固定值\n同一網路不可有兩台同步主機'
+        info1 = u'同步主機模式ID為固定值'
+        info2 = u'同一網路不可有兩台同步主機'
     else:
         if ds.btnevent == 2:
             if ds.id_to_set < 12:
                 ds.id_to_set += 1
+            else:
+                info1 = u'ID最大值為12，不可再增加'
             ds.btnevent = 0
         elif ds.btnevent == 3:
             if ds.id_to_set > 1:
                 ds.id_to_set -= 1
+            else:
+                info2 = u'ID最小值為1，不可再減少'
             ds.btnevent = 0
 
     if ds.btnsubmit == 1:
@@ -351,19 +357,22 @@ def ip_set_mode(time_now):
     text_surface_ip_now = font_small.render(u'目前IP：%s' % ip_now, True, WHITE)
     text_surface_id_now = font_small.render(u'目前ID：%s' % id_now, True, STATUS)
     text_surface_id_to_set = font_small.render(u'指定新ID至：%s' % ds.id_to_set, True, ALERT)
-    text_surface_info = font_small.render(u'%s' % info, True, WHITE)
+    text_surface_info = font_small.render(u'%s' % info1, True, WHITE)
+    text_surface_info2 = font_small.render(u'%s' % info2, True, WHITE)
 
     rect_title = text_surface_title.get_rect(center=(160, 10))
     rect_ip_now = text_surface_ip_now.get_rect(center=(160, 35))
     rect_id_now = text_surface_id_now.get_rect(center=(160, 60))
     rect_id_to_set = text_surface_id_to_set.get_rect(center=(160, 100))
-    rect_info = text_surface_info.get_rect(center=(160,180))
+    rect_info1 = text_surface_info.get_rect(center=(160, 180))
+    rect_info2 = text_surface_info2.get_rect(center=(160, 220))
 
     lcd.blit(text_surface_title, rect_title)
     lcd.blit(text_surface_ip_now, rect_ip_now)
     lcd.blit(text_surface_id_now, rect_id_now)
     lcd.blit(text_surface_id_to_set, rect_id_to_set)
-    lcd.blit(text_surface_info, rect_info)
+    lcd.blit(text_surface_info, rect_info1)
+    lcd.blit(text_surface_info2, rect_info2)
 
 
 def display_help_mode(time_now):
