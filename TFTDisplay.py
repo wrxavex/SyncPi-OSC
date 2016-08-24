@@ -115,7 +115,7 @@ def tft_update(time_now):
         elif ds.status == 1:
             display_set_player_mode(time_now)
         elif ds.status == 2:
-            video_sync_mode()
+            video_sync_mode(time_now)
         elif ds.status == 11:
             check_option(time)
 
