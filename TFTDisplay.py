@@ -82,8 +82,8 @@ def btnevent5():
 
 
 def btnevent6():
-    if ds.status == 6:
-
+    if ds.status == 0:
+        ds.status = 6
     else:
         ds.status = 0
 
