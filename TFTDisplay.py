@@ -101,7 +101,7 @@ def tft_update(time_now):
     lcd.fill((0, 0, 0))
 
     if ds.help_mode == 1:
-        if ds.status == 1 or ds.status == 2:
+        if ds.status == 0 or ds.status == 1:
             display_help_mode(time_now)
 
         else:
