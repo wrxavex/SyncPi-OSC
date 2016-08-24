@@ -99,6 +99,7 @@ def display_main_info(time_now):
     lcd.blit(text_surface_hostname, rect_hostname)
     lcd.blit(text_surface_myip, rect_myip)
     lcd.blit(text_surface_status, rect_status)
+    lcd.blit(text_surface_cpu_temp, rect_cpu_temp)
     lcd.blit(text_surface_time, rect_time)
 
 
