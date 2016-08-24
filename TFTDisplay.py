@@ -55,6 +55,7 @@ def btnevent1():
 def btnevent2():
     if ds.status == 0:
         ds.status = 2
+        ds.player_mode =1
 
 
 
@@ -62,6 +63,7 @@ def btnevent2():
 def btnevent3():
     if ds.status == 0:
         ds.status = 3
+        ds.player_mode = 2
     else:
         ds.status = 0
 
@@ -83,22 +85,23 @@ def tft_update(time_now):
 def display_main_info(time_now):
 
     cpu_temp = ds.get_cpu_temperaure()
+    player_mode = ds.get_player_mode()
 
     text_surface_hostname = font_small.render(u'%s' % hostname, True, WHITE)
     text_surface_cpu_temp = font_small.render(u'%s' % cpu_temp, True, WHITE)
     text_surface_myip = font_small.render(u'IP:%s' % my_ip, True, WHITE)
-    text_surface_status = font_small.render(u'S:%s'% ds.status, True, WHITE)
+    text_surface_player_mode = font_small.render(u'S:%s'% player_mode, True, WHITE)
     text_surface_time = font_small.render(u'%s' % time_now, True, WHITE)
 
     rect_hostname = text_surface_hostname.get_rect(center=(80, 18))
     rect_myip = text_surface_myip.get_rect(center=(160, 48))
-    rect_status = text_surface_status.get_rect(center=(160,160))
+    rect_player_mode = text_surface_player_mode.get_rect(center=(160,160))
     rect_cpu_temp = text_surface_cpu_temp.get_rect(center = (240, 18))
     rect_time = text_surface_time.get_rect(center=(160, 216))
 
     lcd.blit(text_surface_hostname, rect_hostname)
     lcd.blit(text_surface_myip, rect_myip)
-    lcd.blit(text_surface_status, rect_status)
+    lcd.blit(text_surface_player_mode, rect_player_mode)
     lcd.blit(text_surface_cpu_temp, rect_cpu_temp)
     lcd.blit(text_surface_time, rect_time)
 

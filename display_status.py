@@ -30,3 +30,11 @@ class DisplayStatus():
         cpu_temp = cpu_temp_raw_data.strip()
 
         return cpu_temp
+
+    def get_player_mode(self):
+        if self.player_mode == 0:
+            return 'Stand alone'
+        elif self.player_mode == 1:
+            return 'Master'
+        elif self.player_mode == 2:
+            return 'Slave'
