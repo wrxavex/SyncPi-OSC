@@ -91,7 +91,8 @@ def btnevent6():
 def tft_update(time_now):
 
     lcd.fill((0, 0, 0))
-    display_main_info(time_now)
+    if ds.status == 0:
+        display_main_info(time_now)
     if ds.status == 6:
         display_help_mode(time_now)
     pygame.display.update()
