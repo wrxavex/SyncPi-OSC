@@ -157,9 +157,9 @@ def display_set_player_mode(time_now):
     rect_hostname = text_surface_hostname.get_rect(center=(160, 10))
     rect_title = text_surface_title.get_rect(center=(160, 35))
     rect_mode_now = text_surface_mode_now.get_rect(center=(160, 70))
-    rect_option0 = text_surface_option0.get_rect(topleft=(20, 94))
-    rect_option1 = text_surface_option1.get_rect(topleft=(20, 152))
-    rect_option2 = text_surface_option2.get_rect(topleft=(20, 182))
+    rect_option0 = text_surface_option0.get_rect(topleft=(20, 106))
+    rect_option1 = text_surface_option1.get_rect(topleft=(20, 142))
+    rect_option2 = text_surface_option2.get_rect(topleft=(20, 178))
     rect_btn4info = text_surface_btn4info.get_rect(topleft=(20, 216))
     rect_btn6info = text_surface_btn6info.get_rect(topright=(300, 216))
 
