@@ -67,6 +67,8 @@ class DisplayStatus():
 
         self.id_to_set = sync_id
 
+        self.ready_reboot = 0
+
         self.video_name = usb_video_file
         # default Video Name is video1.mp4
 
@@ -126,5 +128,5 @@ class DisplayStatus():
         id_setter.id_to_set = self.id_to_set
         id_setter.set_to_new_ip()
 
-        os.system("sudo reboot")
+        self.ready_reboot = 1
 

@@ -135,6 +135,12 @@ def tft_update(time_now):
     pygame.display.update()
 
 
+    if ds.ready_reboot == 1:
+        if ds.btnsubmit == 1:
+            ds.btnsubmit = 0
+            os.system('reboot')
+
+
 def display_main_info(time_now):
 
     cpu_temp = ds.get_cpu_temperaure()
@@ -360,11 +366,18 @@ def ip_set_mode(time_now):
 
     ds.btnevent = 0
 
-    if ds.btnsubmit == 1:
-        if ds.id != ds.id_to_set:
-            info1 = u'進行id設定並重新機'
+    if ds.ready_reboot == 0:
+        if ds.btnsubmit == 1:
+            if ds.id != ds.id_to_set:
+                info1 = u'寫入新id並準備重開機'
+                info2 = u'再按一次 確認 △ 重新開機 '
+                ds.set_id()
+    elif ds.ready_reboot == 1:
+        if ds.btnsubmit == 1:
+            info1 = u'正在重開機'
             info2 = u''
-            ds.set_id()
+
+
 
     text_surface_title = font_small.render(u'%s' % title, True, WHITE)
     text_surface_ip_now = font_small.render(u'目前IP：%s' % ip_now, True, WHITE)
