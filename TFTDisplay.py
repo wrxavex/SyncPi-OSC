@@ -201,6 +201,9 @@ def check_option(time_now):
             mode_now += u'獨立播放模式'
             if ds.btnevent == 1:
                 mode_modify = u'不做變動'
+                if ds.btnsubmit == 1:
+                    ds.status = 0
+                    ds.btnevent = 0
             elif ds.btnevent == 2:
                 mode_modify = u'同步播放主機'
             elif ds.btnevent == 3:
@@ -212,6 +215,9 @@ def check_option(time_now):
                 mode_modify = u'獨立播放模式'
             elif ds.btnevent == 2:
                 mode_modify = u'不做變動'
+                if ds.btnsubmit == 1:
+                    ds.status = 0
+                    ds.btnevent = 0
             elif ds.btnevent == 3:
                 mode_modify = u'同步播放從機'
 
