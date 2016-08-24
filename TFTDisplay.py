@@ -86,7 +86,8 @@ def btnevent4():
 
 def btnevent5():
     if ds.help_mode == 0:
-        ds.btnsubmit = 1
+        if ds.btnevent != 0:
+            ds.btnsubmit = 1
 
 def btnevent6():
     if ds.help_mode == 1:
