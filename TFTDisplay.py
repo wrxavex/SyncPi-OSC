@@ -381,7 +381,7 @@ def ip_set_mode(time_now):
         info2 = u'再按一次 確認 △ 重新開機 '
         if ds.btnsubmit == 1:
             info1 = u'正在重開機'
-            info2 =
+            info2 = u''
 
     ds.btnsubmit = 0
 
