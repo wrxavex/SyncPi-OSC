@@ -41,6 +41,7 @@ lcd.fill((255, 0, 0))
 pygame.display.update()
 
 WHITE = (255, 255, 255)
+STATUS = (127, 127, 255)
 
 font_xs = pygame.font.Font(font_file, 18)
 font_small = pygame.font.Font(font_file, 24)
@@ -146,6 +147,7 @@ def display_set_player_mode(time_now):
 
     text_surface_hostname = font_small.render(u'%s' % hostname, True, WHITE)
     text_surface_title = font_small.render(u'%s' % title, True, WHITE)
+    text_surface_mode_now = font_small.render(u'%s' % mode_now, True, STATUS)
     text_surface_option0 = font_xs.render(u'%s' % option0, True, WHITE)
     text_surface_option1 = font_xs.render(u'%s' % option1, True, WHITE)
     text_surface_option2 = font_xs.render(u'%s' % option2, True, WHITE)
@@ -154,14 +156,16 @@ def display_set_player_mode(time_now):
 
     rect_hostname = text_surface_hostname.get_rect(center=(160, 10))
     rect_title = text_surface_title.get_rect(center=(160, 35))
-    rect_option0 = text_surface_option0.get_rect(topleft=(20, 54))
-    rect_option1 = text_surface_option1.get_rect(topleft=(20, 108))
-    rect_option2 = text_surface_option2.get_rect(topleft=(20, 162))
+    rect_mode_now = text_surface_mode_now.get_rect(center=(160, 55))
+    rect_option0 = text_surface_option0.get_rect(topleft=(20, 84))
+    rect_option1 = text_surface_option1.get_rect(topleft=(20, 118))
+    rect_option2 = text_surface_option2.get_rect(topleft=(20, 172))
     rect_btn4info = text_surface_btn4info.get_rect(topleft=(20, 216))
     rect_btn6info = text_surface_btn6info.get_rect(topright=(300, 216))
 
     lcd.blit(text_surface_hostname, rect_hostname)
     lcd.blit(text_surface_title, rect_title)
+    lcd.blit(text_surface_mode_now, rect_mode_now)
     lcd.blit(text_surface_option0, rect_option0)
     lcd.blit(text_surface_option1, rect_option1)
     lcd.blit(text_surface_option2, rect_option2)
@@ -182,9 +186,9 @@ def display_help_mode(time_now):
 
     elif ds.status == 1 :
         title = u'功能設明 - 播放模式'
-        btn1info = u'● StandAlone'
-        btn2info = u'■ Master'
-        btn3info = u'▲ Slave'
+        btn1info = u'● 獨立播放'
+        btn2info = u'■ 同步模式 - 主機'
+        btn3info = u'▲ 同步模式 - 從機'
         btn4info = u'✖ 功能說明'
         btn5info = u'確定 △'
         btn6info = u'取消 ▽'
