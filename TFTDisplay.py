@@ -145,8 +145,8 @@ def display_set_player_mode(time_now):
 
 def display_help_mode(time_now):
 
-    btn1info = u'● Setting Player Mode'
-    btn2info = u'■ Sync Video File'
+    btn1info = u'● Player Mode'
+    btn2info = u'■ Sync Video'
     btn3info = u'▲ No Use'
     btn4info = u'✖ Help'
     btn5info = u'Accept △'
