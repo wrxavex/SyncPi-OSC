@@ -15,6 +15,9 @@ class DisplayStatus():
         # status = 1 => player mode info
         # status = 2 => video file sync mode
 
+        self.help_mode = 0
+        # if hlep_mode = 1 than display help info
+
         self.player_mode = 0
         # player_mode = 0 => Standalone
         # player_mode = 1 => Master

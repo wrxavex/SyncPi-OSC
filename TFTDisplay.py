@@ -51,8 +51,6 @@ font_big = pygame.font.Font(font_file, 48)
 def btnevent1():
     if ds.status == 0:
         ds.status = 1
-    else:
-        ds.status = 0
 
 
 def btnevent2():
@@ -71,10 +69,10 @@ def btnevent3():
 
 
 def btnevent4():
-    if ds.status == 0:
-        ds.status = 4
+    if ds.help_mode == 0:
+        ds.help_mode = 1
     else:
-        ds.status = 0
+        ds.help_mode = 0
 
 
 def btnevent5():
@@ -85,19 +83,24 @@ def btnevent5():
 
 
 def btnevent6():
-    if ds.status == 0:
-        ds.status = 6
+    if ds.help_mode == 1:
+        ds.help_mode = 0
     else:
         ds.status = 0
+
 
 
 def tft_update(time_now):
 
     lcd.fill((0, 0, 0))
-    if ds.status == 0:
-        display_main_info(time_now)
-    elif ds.status == 4:
+
+    if ds.help_mode == 1:
         display_help_mode(time_now)
+    else:
+        if ds.status == 0:
+            display_main_info(time_now)
+
+
     pygame.display.update()
 
 
@@ -145,13 +148,23 @@ def display_set_player_mode(time_now):
 
 def display_help_mode(time_now):
 
-    title = u'鍵盤功能設明 - 主視窗'
-    btn1info = u'● 播放模式'
-    btn2info = u'■ 同步影片檔案'
-    btn3info = u'▲ No Use'
-    btn4info = u'✖ 功能說明'
-    btn5info = u'確定 △'
-    btn6info = u'取消 ▽'
+    if ds.status == 0:
+        title = u'鍵盤功能設明 - 主視窗'
+        btn1info = u'● 播放模式'
+        btn2info = u'■ 同步影片檔案'
+        btn3info = u'▲ 未使用'
+        btn4info = u'✖ 功能說明'
+        btn5info = u'確定 △'
+        btn6info = u'取消 ▽'
+
+    elif ds.status == 1 :
+        title = u'功能設明 - 播放模式'
+        btn1info = u'● StandAlone'
+        btn2info = u'■ Master'
+        btn3info = u'▲ Slave'
+        btn4info = u'✖ 功能說明'
+        btn5info = u'確定 △'
+        btn6info = u'取消 ▽'
 
     text_surface_title = font_small.render(u'%s' % title, True, WHITE)
     text_surface_btn1info = font_xs.render(u'%s' % btn1info, True, WHITE)
