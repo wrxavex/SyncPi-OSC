@@ -329,9 +329,11 @@ def ip_set_mode(time_now):
     title = u'ID設定'
     id_now = ds.id
     ip_now = my_ip
+    info = u'按鍵可調整指定ID值'
 
     if ds.player_mode == 1:
         ds.id_to_set = '31'
+        info = u'同步主機模式ID為固定值\n同一網路不可有兩台同步主機'
     else:
         if ds.btnevent == 2:
             if ds.id_to_set < 12:
@@ -346,19 +348,22 @@ def ip_set_mode(time_now):
         ds.id = ds.id_to_set
 
     text_surface_title = font_small.render(u'%s' % title, True, WHITE)
-    text_surface_ip_now = font_small.render(u'%s' % ip_now, True, WHITE)
-    text_surface_id_now = font_small.render(u'%s' % id_now, True, STATUS)
-    text_surface_id_to_set = font_small.render(u'%s' % ds.id_to_set, True, ALERT)
+    text_surface_ip_now = font_small.render(u'目前IP：%s' % ip_now, True, WHITE)
+    text_surface_id_now = font_small.render(u'目前ID：%s' % id_now, True, STATUS)
+    text_surface_id_to_set = font_small.render(u'指定新ID至：%s' % ds.id_to_set, True, ALERT)
+    text_surface_info = font_small.render(u'%s' % info, True, WHITE)
 
     rect_title = text_surface_title.get_rect(center=(160, 10))
     rect_ip_now = text_surface_ip_now.get_rect(center=(160, 35))
     rect_id_now = text_surface_id_now.get_rect(center=(160, 60))
     rect_id_to_set = text_surface_id_to_set.get_rect(center=(160, 100))
+    rect_info = text_surface_info.get_rect(center=(160,180))
 
     lcd.blit(text_surface_title, rect_title)
     lcd.blit(text_surface_ip_now, rect_ip_now)
     lcd.blit(text_surface_id_now, rect_id_now)
     lcd.blit(text_surface_id_to_set, rect_id_to_set)
+    lcd.blit(text_surface_info, rect_info)
 
 
 def display_help_mode(time_now):
