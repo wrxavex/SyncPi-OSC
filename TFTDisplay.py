@@ -202,6 +202,7 @@ def check_option(time_now):
             if ds.btnevent == 1:
                 mode_modify = u'不做變動'
                 if ds.btnsubmit == 1:
+                    ds.btnsubmit = 0
                     ds.status = 0
                     ds.btnevent = 0
             elif ds.btnevent == 2:
@@ -216,6 +217,7 @@ def check_option(time_now):
             elif ds.btnevent == 2:
                 mode_modify = u'不做變動'
                 if ds.btnsubmit == 1:
+                    ds.btnsubmit = 0
                     ds.status = 0
                     ds.btnevent = 0
             elif ds.btnevent == 3:
