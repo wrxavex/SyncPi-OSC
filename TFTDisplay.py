@@ -63,9 +63,6 @@ def btnevent2():
 def btnevent3():
     if ds.status == 0:
         ds.status = 3
-        ds.player_mode = 2
-    else:
-        ds.status = 0
 
 
 def btnevent4():
@@ -98,6 +95,8 @@ def tft_update(time_now):
     else:
         if ds.status == 0:
             display_main_info(time_now)
+        elif ds.status == 1:
+            display_set_player_mode(time_now)
 
 
     pygame.display.update()
@@ -129,20 +128,45 @@ def display_main_info(time_now):
 
 def display_set_player_mode(time_now):
 
-    text_surface_hostname = font_small.render(u'%s' % hostname, True, WHITE)
-    text_surface_myip = font_small.render(u'IP:%s' % my_ip, True, WHITE)
-    text_surface_status = font_small.render(u'S:%s'% ds.status, True, WHITE)
-    text_surface_time = font_small.render(u'%s' % time_now, True, WHITE)
+    title = u'播放模式設定'
 
-    rect_hostname = text_surface_hostname.get_rect(center=(160, 18))
-    rect_myip = text_surface_myip.get_rect(center=(160, 48))
-    rect_status = text_surface_status.get_rect(center=(160,160))
-    rect_time = text_surface_time.get_rect(center=(160, 216))
+    if ds.player_mode == 0:
+        mode_now = u'獨立播放模式'
+    elif ds.player_mode == 1:
+        mode_now = u'同步播放主機'
+    elif ds.player_mode == 2:
+        mode_now = u'同步播放從機'
+
+    option0 = u'● 獨立播放模式'
+    option1 = u'■ 同步播放主機'
+    option2 = u'▲ 同步播放從機'
+    btn4info = u'✖ 功能說明'
+
+    btn6info = u'取消 ▽'
+
+    text_surface_hostname = font_small.render(u'%s' % hostname, True, WHITE)
+    text_surface_title = font_small.render(u'%s' % title, True, WHITE)
+    text_surface_option0 = font_xs.render(u'%s' % option0, True, WHITE)
+    text_surface_option1 = font_xs.render(u'%s' % option1, True, WHITE)
+    text_surface_option2 = font_xs.render(u'%s' % option2, True, WHITE)
+    text_surface_btn4info = font_xs.render(u'%s' % btn4info, True, WHITE)
+    text_surface_btn6info = font_xs.render(u'%s' % btn6info, True, WHITE)
+
+    rect_hostname = text_surface_hostname.get_rect(center=(160, 10))
+    rect_title = text_surface_title.get_rect(center=(160, 35))
+    rect_option0 = text_surface_option0.get_rect(topleft=(20, 54))
+    rect_option1 = text_surface_option1.get_rect(topleft=(20, 108))
+    rect_option2 = text_surface_option2.get_rect(topleft=(20, 162))
+    rect_btn4info = text_surface_btn4info.get_rect(topleft=(20, 216))
+    rect_btn6info = text_surface_btn6info.get_rect(topright=(300, 216))
 
     lcd.blit(text_surface_hostname, rect_hostname)
-    lcd.blit(text_surface_myip, rect_myip)
-    lcd.blit(text_surface_status, rect_status)
-    lcd.blit(text_surface_time, rect_time)
+    lcd.blit(text_surface_title, rect_title)
+    lcd.blit(text_surface_option0, rect_option0)
+    lcd.blit(text_surface_option1, rect_option1)
+    lcd.blit(text_surface_option2, rect_option2)
+    lcd.blit(text_surface_btn4info, rect_btn4info)
+    lcd.blit(text_surface_btn6info, rect_btn6info)
 
 
 def display_help_mode(time_now):
