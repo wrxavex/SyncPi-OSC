@@ -134,12 +134,12 @@ def display_main_info(time_now):
     text_surface_video_now = font_small.render(u'現在影片：%s' % ds.video_name, True, WHITE)
     text_surface_time = font_small.render(u'%s' % time_now, True, WHITE)
 
-    rect_hostname = text_surface_hostname.get_rect(center=(80, 18))
+    rect_hostname = text_surface_hostname.get_rect(center=(160, 18))
     rect_myip = text_surface_myip.get_rect(center=(160, 48))
     rect_player_mode = text_surface_player_mode.get_rect(center=(160,160))
-    rect_cpu_temp = text_surface_cpu_temp.get_rect(center=(240, 18))
-    rect_video_now = text_surface_video_now.get_rect(center=(240, 100))
-    rect_time = text_surface_time.get_rect(center=(160, 216))
+    rect_cpu_temp = text_surface_cpu_temp.get_rect(center=(240, 216))
+    rect_video_now = text_surface_video_now.get_rect(center=(160, 100))
+    rect_time = text_surface_time.get_rect(center=(80, 216))
 
     lcd.blit(text_surface_hostname, rect_hostname)
     lcd.blit(text_surface_myip, rect_myip)
