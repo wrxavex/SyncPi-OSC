@@ -52,7 +52,7 @@ font_big = pygame.font.Font(font_file, 48)
 def btnevent1():
     if ds.help_mode == 0:
         if ds.status == 0:
-        ds.status = 1
+            ds.status = 1
 
 
 def btnevent2():
