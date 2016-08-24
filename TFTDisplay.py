@@ -149,8 +149,8 @@ def display_help_mode(time_now):
     btn2info = u'■ Sync Video File'
     btn3info = u'▲ No Use'
     btn4info = u'✖ Help'
-    btn5info = u'↑ Accept'
-    btn6info = u'↓ Cancel'
+    btn5info = u'Accept △'
+    btn6info = u'Cancel ▽'
 
     text_surface_btn1info = font_xs.render(u'%s' % btn1info, True, WHITE)
     text_surface_btn2info = font_xs.render(u'%s' % btn2info, True, WHITE)
