@@ -150,9 +150,9 @@ def display_help_mode(time_now):
     text_surface_btn2info = font_small.render(u'%s' % btn2info, True, WHITE)
     text_surface_btn3info = font_small.render(u'%s' % btn3info, True, WHITE)
 
-    rect_btn1info = text_surface_btn1info.get_rect(center=(160, 40))
-    rect_btn2info = text_surface_btn2info.get_rect(center=(160, 80))
-    rect_btn3info = text_surface_btn3info.get_rect(center=(160, 120))
+    rect_btn1info = text_surface_btn1info.get_rect(topleft=(160, 40))
+    rect_btn2info = text_surface_btn2info.get_rect(topleft=(160, 80))
+    rect_btn3info = text_surface_btn3info.get_rect(topleft=(160, 120))
 
     lcd.blit(text_surface_btn1info, rect_btn1info)
     lcd.blit(text_surface_btn2info, rect_btn2info)
