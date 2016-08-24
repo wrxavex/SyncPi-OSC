@@ -295,7 +295,7 @@ def video_sync_mode(time_now):
     title = u'影片同步功能'
     video_now = u'現在影片：'
     video_file_name = ds.video_name
-    video_size = u'影片大小：' + str(ds.size)
+    video_size = u'影片大小：' + str(ds.video_size)
     info = video_now + video_file_name
 
     text_surface_hostname = font_small.render(u'%s' % hostname, True, WHITE)
