@@ -161,7 +161,7 @@ def display_help_mode(time_now):
     text_surface_btn5info = font_xs.render(u'%s' % btn5info, True, WHITE)
     text_surface_btn6info = font_xs.render(u'%s' % btn6info, True, WHITE)
 
-    rect_title = text_surface_title.get_rect(topleft=(20, 10))
+    rect_title = text_surface_title.get_rect(center=(160, 10))
     rect_btn1info = text_surface_btn1info.get_rect(topleft=(20, 54))
     rect_btn2info = text_surface_btn2info.get_rect(topleft=(20, 108))
     rect_btn3info = text_surface_btn3info.get_rect(topleft=(20, 162))
