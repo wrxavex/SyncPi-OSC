@@ -146,12 +146,12 @@ def display_set_player_mode(time_now):
 def display_help_mode(time_now):
 
     title = u'鍵盤功能設明 - 主視窗'
-    btn1info = u'● Player Mode'
-    btn2info = u'■ Sync Video'
+    btn1info = u'● 播放模式'
+    btn2info = u'■ 同步影片檔案'
     btn3info = u'▲ No Use'
-    btn4info = u'✖ Help'
-    btn5info = u'Accept △'
-    btn6info = u'Cancel ▽'
+    btn4info = u'✖ 功能說明'
+    btn5info = u'確定 △'
+    btn6info = u'取消 ▽'
 
     text_surface_title = font_small.render(u'%s' % title, True, WHITE)
     text_surface_btn1info = font_xs.render(u'%s' % btn1info, True, WHITE)
