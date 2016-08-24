@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import subprocess
+import os
 
 def read_sync_setting(filename):
     f = open(filename, 'r+w')
