@@ -103,7 +103,10 @@ def tft_update(time_now):
         if ds.status == 0:
             display_main_info(time_now)
         elif ds.status == 1:
-            display_set_player_mode(time_now)
+            if ds.btnevent == 0:
+                display_set_player_mode(time_now)
+            else:
+                check_option(time)
 
 
     pygame.display.update()
