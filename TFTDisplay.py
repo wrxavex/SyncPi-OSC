@@ -127,7 +127,7 @@ def display_main_info(time_now):
     text_surface_hostname = font_small.render(u'%s' % hostname, True, WHITE)
     text_surface_cpu_temp = font_small.render(u'%s' % cpu_temp, True, WHITE)
     text_surface_myip = font_small.render(u'IP:%s' % my_ip, True, WHITE)
-    text_surface_player_mode = font_small.render(u'S:%s'% player_mode, True, WHITE)
+    text_surface_player_mode = font_small.render(u'模式:%s'% player_mode, True, WHITE)
     text_surface_time = font_small.render(u'%s' % time_now, True, WHITE)
 
     rect_hostname = text_surface_hostname.get_rect(center=(80, 18))
