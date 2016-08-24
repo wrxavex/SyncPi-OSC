@@ -145,6 +145,7 @@ def display_set_player_mode(time_now):
 
 def display_help_mode(time_now):
 
+    title = u'鍵盤功能設明 - 主視窗'
     btn1info = u'● Player Mode'
     btn2info = u'■ Sync Video'
     btn3info = u'▲ No Use'
@@ -152,6 +153,7 @@ def display_help_mode(time_now):
     btn5info = u'Accept △'
     btn6info = u'Cancel ▽'
 
+    text_surface_title = font_xs.render(u'%s' % title, True, WHITE)
     text_surface_btn1info = font_xs.render(u'%s' % btn1info, True, WHITE)
     text_surface_btn2info = font_xs.render(u'%s' % btn2info, True, WHITE)
     text_surface_btn3info = font_xs.render(u'%s' % btn3info, True, WHITE)
@@ -159,13 +161,15 @@ def display_help_mode(time_now):
     text_surface_btn5info = font_xs.render(u'%s' % btn5info, True, WHITE)
     text_surface_btn6info = font_xs.render(u'%s' % btn6info, True, WHITE)
 
-    rect_btn1info = text_surface_btn1info.get_rect(topleft=(20, 10))
-    rect_btn2info = text_surface_btn2info.get_rect(topleft=(20, 75))
-    rect_btn3info = text_surface_btn3info.get_rect(topleft=(20, 140))
-    rect_btn4info = text_surface_btn4info.get_rect(topleft=(20, 205))
-    rect_btn5info = text_surface_btn5info.get_rect(topright=(300, 10))
-    rect_btn6info = text_surface_btn6info.get_rect(topright=(300, 205))
+    rect_title = text_surface_title.get_rect(topleft=(20, 10))
+    rect_btn1info = text_surface_btn1info.get_rect(topleft=(20, 54))
+    rect_btn2info = text_surface_btn2info.get_rect(topleft=(20, 108))
+    rect_btn3info = text_surface_btn3info.get_rect(topleft=(20, 162))
+    rect_btn4info = text_surface_btn4info.get_rect(topleft=(20, 216))
+    rect_btn5info = text_surface_btn5info.get_rect(topright=(300, 54))
+    rect_btn6info = text_surface_btn6info.get_rect(topright=(300, 216))
 
+    lcd.blit(text_surface_title, rect_title)
     lcd.blit(text_surface_btn1info, rect_btn1info)
     lcd.blit(text_surface_btn2info, rect_btn2info)
     lcd.blit(text_surface_btn3info, rect_btn3info)
