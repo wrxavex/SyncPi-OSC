@@ -329,8 +329,14 @@ def ip_set_mode(time_now):
     title = u'ID設定'
     id_now = ds.id
     ip_now = my_ip
-    info1 = u'□ 按鍵可增加指定新ID數值'
-    info2 = u'△ 按鍵可減少指定新ID數值'
+    if ds.id_to_set == 12:
+        info1 = u'ID最大值為12，不可再增加'
+    else:
+        info1 = u'□ 按鍵可增加指定新ID數值'
+    if ds.id_to_set == 1:
+        info2 = u'△ 按鍵可減少指定新ID數值'
+
+
 
     if ds.player_mode == 1:
         ds.id_to_set = '31'
@@ -340,14 +346,12 @@ def ip_set_mode(time_now):
         if ds.btnevent == 2:
             if ds.id_to_set < 12:
                 ds.id_to_set += 1
-            else:
-                info1 = u'ID最大值為12，不可再增加'
+
             ds.btnevent = 0
         elif ds.btnevent == 3:
             if ds.id_to_set > 1:
                 ds.id_to_set -= 1
-            else:
-                info2 = u'ID最小值為1，不可再減少'
+
             ds.btnevent = 0
 
     if ds.btnsubmit == 1:
