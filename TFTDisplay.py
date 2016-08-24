@@ -372,6 +372,7 @@ def ip_set_mode(time_now):
                 info1 = u'寫入新id並準備重開機'
                 info2 = u'再按一次 確認 △ 重新開機 '
                 ds.set_id()
+                ds.btnsubmit = 0
     elif ds.ready_reboot == 1:
         if ds.btnsubmit == 1:
             info1 = u'正在重開機'
