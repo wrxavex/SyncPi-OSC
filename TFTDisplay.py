@@ -130,13 +130,13 @@ def display_main_info(time_now):
 def display_set_player_mode(time_now):
 
     title = u'播放模式設定'
-
+    mode_now = u'現在模式：'
     if ds.player_mode == 0:
-        mode_now = u'獨立播放模式'
+        mode_now += u'獨立播放模式'
     elif ds.player_mode == 1:
-        mode_now = u'同步播放主機'
+        mode_now += u'同步播放主機'
     elif ds.player_mode == 2:
-        mode_now = u'同步播放從機'
+        mode_now += u'同步播放從機'
 
     option0 = u'● 獨立播放模式'
     option1 = u'■ 同步播放主機'
