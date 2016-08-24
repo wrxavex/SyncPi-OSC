@@ -89,7 +89,6 @@ def btnevent6():
         ds.status = 0
 
 
-
 def tft_update(time_now):
 
     lcd.fill((0, 0, 0))
