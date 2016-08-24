@@ -8,6 +8,9 @@ def read_sync_setting(filename):
 
 player_setting = read_sync_setting('/boot/Sync_Setting.txt')
 
+if 'ID=0' in player_setting:
+    usb_video_file = 'video0.mp4'
+    sync_id = 1
 if 'ID=1' in player_setting:
     usb_video_file = 'video1.mp4'
     sync_id = 1
@@ -32,6 +35,22 @@ if 'ID=7' in player_setting:
 if 'ID=8' in player_setting:
     usb_video_file = 'video8.mp4'
     sync_id = 8
+if 'ID=9' in player_setting:
+    usb_video_file = 'video8.mp4'
+    sync_id = 9
+if 'ID=10' in player_setting:
+    usb_video_file = 'video8.mp4'
+    sync_id = 10
+if 'ID=11' in player_setting:
+    usb_video_file = 'video8.mp4'
+    sync_id = 11
+if 'ID=12' in player_setting:
+    usb_video_file = 'video8.mp4'
+    sync_id = 12
+if 'ID=31' in player_setting:
+    usb_video_file = 'videoM.mp4'
+    sync_id = 31
+
 
 
 class DisplayStatus():
