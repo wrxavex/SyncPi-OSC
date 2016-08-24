@@ -158,11 +158,11 @@ def display_help_mode(time_now):
     text_surface_btn6info = font_xs.render(u'%s' % btn6info, True, WHITE)
 
     rect_btn1info = text_surface_btn1info.get_rect(topleft=(20, 10))
-    rect_btn2info = text_surface_btn2info.get_rect(topleft=(20, 80))
-    rect_btn3info = text_surface_btn3info.get_rect(topleft=(20, 160))
-    rect_btn4info = text_surface_btn4info.get_rect(topleft=(20, 230))
-    rect_btn5info = text_surface_btn5info.get_rect(topright=(300, 230))
-    rect_btn6info = text_surface_btn6info.get_rect(topright=(300, 230))
+    rect_btn2info = text_surface_btn2info.get_rect(topleft=(20, 75))
+    rect_btn3info = text_surface_btn3info.get_rect(topleft=(20, 140))
+    rect_btn4info = text_surface_btn4info.get_rect(topleft=(20, 205))
+    rect_btn5info = text_surface_btn5info.get_rect(topright=(300, 10))
+    rect_btn6info = text_surface_btn6info.get_rect(topright=(300, 205))
 
     lcd.blit(text_surface_btn1info, rect_btn1info)
     lcd.blit(text_surface_btn2info, rect_btn2info)
