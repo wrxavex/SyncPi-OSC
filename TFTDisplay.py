@@ -66,6 +66,8 @@ def btnevent2():
         elif ds.status == 1:
             ds.status = 11
             ds.btnevent = 2
+        if ds.status == 3:
+            ds.btnevent = 2
 
 
 def btnevent3():
@@ -74,6 +76,9 @@ def btnevent3():
             ds.status = 3
         elif ds.status == 1:
             ds.status = 11
+            ds.btnevent = 3
+
+        elif ds.status == 3:
             ds.btnevent = 3
 
 
@@ -116,6 +121,8 @@ def tft_update(time_now):
             display_set_player_mode(time_now)
         elif ds.status == 2:
             video_sync_mode(time_now)
+        elif ds.status == 3:
+            ip_set_mode(time_now)
         elif ds.status == 11:
             check_option(time)
 
@@ -317,13 +324,50 @@ def video_sync_mode(time_now):
     lcd.blit(text_surface_video_size, rect_video_size)
 
 
+def ip_set_mode(time_now):
+
+    title = u'ID設定'
+    id_now = ds.id
+    ip_now = my_ip
+
+    if ds.player_mode == 1:
+        ds.id_to_set = '31'
+    else:
+        if ds.btnevent == 2:
+            if ds.id_to_set < 12:
+                ds.id_to_set += 1
+            ds.btnevent = 0
+        elif ds.btnevent == 3:
+            if ds.id_to_set > 1:
+                ds.id_to_set -= 1
+            ds.btnevent = 0
+
+    if ds.btnsubmit == 1:
+        ds.id = ds.id_to_set
+
+    text_surface_title = font_small.render(u'%s' % title, True, WHITE)
+    text_surface_ip_now = font_small.render(u'%s' % ip_now, True, WHITE)
+    text_surface_id_now = font_small.render(u'%s' % id_now, True, STATUS)
+    text_surface_id_to_set = font_small.render(u'%s' % ds.id_to_set, True, ALERT)
+
+    rect_title = text_surface_title.get_rect(center=(160, 10))
+    rect_ip_now = text_surface_ip_now.get_rect(center=(160, 35))
+    rect_id_now = text_surface_id_now.get_rect(center=(160, 60))
+    rect_id_to_set = text_surface_id_to_set.get_rect(center=(160, 100))
+
+    lcd.blit(text_surface_title, rect_title)
+    lcd.blit(text_surface_ip_now, rect_ip_now)
+    lcd.blit(text_surface_id_now, rect_id_now)
+    lcd.blit(text_surface_id_to_set, rect_id_to_set)
+
+
 def display_help_mode(time_now):
 
     if ds.status == 0:
         title = u'鍵盤功能設明 - 主視窗'
         btn1info = u'ο 播放模式'
         btn2info = u'□ 同步影片檔案'
-        btn3info = u'△ 設定IP'
+        btn3info = u'△ 設定ID'
         btn4info = u'× 功能說明'
         btn5info = u'確定 △'
         btn6info = u'取消 ▽'

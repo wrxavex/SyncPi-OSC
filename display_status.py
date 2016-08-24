@@ -41,6 +41,8 @@ class DisplayStatus():
 
         self.id = sync_id
 
+        self.id_to_set = sync_id
+
         self.video_name = usb_video_file
         # default Video Name is video1.mp4
 
