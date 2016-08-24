@@ -2,14 +2,46 @@
 # -*- coding: utf-8 -*-
 import subprocess
 
+
+def read_sync_setting(filename):
+    f = open(filename, 'r+w')
+    return f.read().split()
+
+player_setting = read_sync_setting('/boot/Sync_Setting.txt')
+
+if 'ID=1' in player_setting:
+    usb_video_file = 'video1.mp4'
+    sync_id = 1
+if 'ID=2' in player_setting:
+    usb_video_file = 'video2.mp4'
+    sync_id = 2
+if 'ID=3' in player_setting:
+    usb_video_file = 'video3.mp4'
+    sync_id = 3
+if 'ID=4' in player_setting:
+    usb_video_file = 'video4.mp4'
+    sync_id = 4
+if 'ID=5' in player_setting:
+    usb_video_file = 'video5.mp4'
+    sync_id = 5
+if 'ID=6' in player_setting:
+    usb_video_file = 'video6.mp4'
+    sync_id = 6
+if 'ID=7' in player_setting:
+    usb_video_file = 'video7.mp4'
+    sync_id = 7
+if 'ID=8' in player_setting:
+    usb_video_file = 'video8.mp4'
+    sync_id = 8
+
+
 class DisplayStatus():
 
     def __init__(self):
 
-        self.id = '1'
-        # default ID is 1
+        self.id = sync_id
 
-        self.video_name = 'video1.mp4'
+        self.video_name = usb_video_file
         # default Video Name is video1.mp4
 
         self.video_size = '0'
