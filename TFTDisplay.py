@@ -91,8 +91,14 @@ def btnevent4():
 
 def btnevent5():
     if ds.help_mode == 0:
-        if ds.btnevent != 0:
+        if status == 11:
+            if ds.btnevent != 0:
+                ds.btnsubmit = 1
+        if status == 3:
             ds.btnsubmit = 1
+
+
+
 
 
 def btnevent6():
@@ -362,21 +368,21 @@ def ip_set_mode(time_now):
     text_surface_ip_now = font_small.render(u'目前IP：%s' % ip_now, True, WHITE)
     text_surface_id_now = font_small.render(u'目前ID：%s' % id_now, True, STATUS)
     text_surface_id_to_set = font_small.render(u'指定新ID至：%s' % ds.id_to_set, True, ALERT)
-    text_surface_info = font_small.render(u'%s' % info1, True, WHITE)
+    text_surface_info1 = font_small.render(u'%s' % info1, True, WHITE)
     text_surface_info2 = font_small.render(u'%s' % info2, True, WHITE)
 
     rect_title = text_surface_title.get_rect(center=(160, 10))
     rect_ip_now = text_surface_ip_now.get_rect(center=(160, 35))
     rect_id_now = text_surface_id_now.get_rect(center=(160, 60))
     rect_id_to_set = text_surface_id_to_set.get_rect(center=(160, 100))
-    rect_info1 = text_surface_info.get_rect(center=(160, 180))
+    rect_info1 = text_surface_info1.get_rect(center=(160, 180))
     rect_info2 = text_surface_info2.get_rect(center=(160, 220))
 
     lcd.blit(text_surface_title, rect_title)
     lcd.blit(text_surface_ip_now, rect_ip_now)
     lcd.blit(text_surface_id_now, rect_id_now)
     lcd.blit(text_surface_id_to_set, rect_id_to_set)
-    lcd.blit(text_surface_info, rect_info1)
+    lcd.blit(text_surface_info1, rect_info1)
     lcd.blit(text_surface_info2, rect_info2)
 
 
