@@ -55,6 +55,7 @@ def btnevent1():
         if ds.status == 0:
             ds.status = 1
         elif ds.status == 1:
+            ds.status = 11
             ds.btnevent = 1
 
 
@@ -63,6 +64,7 @@ def btnevent2():
         if ds.status == 0:
             ds.status = 2
         elif ds.status == 1:
+            ds.status = 11
             ds.btnevent = 2
 
 
@@ -71,6 +73,7 @@ def btnevent3():
         if ds.status == 0:
             ds.status = 3
         elif ds.status == 1:
+            ds.status = 11
             ds.btnevent = 3
 
 
@@ -103,10 +106,9 @@ def tft_update(time_now):
         if ds.status == 0:
             display_main_info(time_now)
         elif ds.status == 1:
-            if ds.btnevent == 0:
-                display_set_player_mode(time_now)
-            else:
-                check_option(time)
+            display_set_player_mode(time_now)
+        elif ds.status == 11:
+            check_option(time)
 
 
     pygame.display.update()
