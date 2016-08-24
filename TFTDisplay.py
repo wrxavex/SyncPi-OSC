@@ -272,16 +272,19 @@ def check_option(time_now):
         text_surface_title = font_small.render(u'%s' % title, True, WHITE)
         text_surface_mode_now = font_small.render(u'%s' % mode_now, True, STATUS)
         text_surface_mode_modify = font_small.render(u'%s' % mode_modify, True, ALERT)
+        text_surface_info = font_small.render(u'%s' % info, True, WHITE)
 
         rect_hostname = text_surface_hostname.get_rect(center=(160, 10))
         rect_title = text_surface_title.get_rect(center=(160, 35))
         rect_mode_now = text_surface_mode_now.get_rect(center=(160, 70))
         rect_surface_mode_modify = text_surface_mode_modify.get_rect(center=(160, 110))
+        rect_info = text_surface_info.get_rect(center=(160,160))
 
         lcd.blit(text_surface_hostname, rect_hostname)
         lcd.blit(text_surface_title, rect_title)
         lcd.blit(text_surface_mode_now, rect_mode_now)
         lcd.blit(text_surface_mode_modify, rect_surface_mode_modify)
+        lcd.blit(text_surface_info, rect_info)
 
 
 def display_help_mode(time_now):
