@@ -40,7 +40,7 @@ pygame.display.update()
 
 WHITE = (255, 255, 255)
 
-font_xs = pygame.font.Font(font_file, 12)
+font_xs = pygame.font.Font(font_file, 18)
 font_small = pygame.font.Font(font_file, 24)
 font_normal = pygame.font.Font(font_file, 36)
 font_big = pygame.font.Font(font_file, 48)
@@ -94,7 +94,7 @@ def tft_update(time_now):
     lcd.fill((0, 0, 0))
     if ds.status == 0:
         display_main_info(time_now)
-    if ds.status == 6:
+    elif ds.status == 4:
         display_help_mode(time_now)
     pygame.display.update()
 
@@ -146,18 +146,30 @@ def display_help_mode(time_now):
     btn1info = 'Setting Player Mode'
     btn2info = 'Sync Video File'
     btn3info = 'No Use'
+    btn4info = 'Help'
+    btn5info = 'Accept'
+    btn6info = 'Cancel'
 
     text_surface_btn1info = font_xs.render(u'%s' % btn1info, True, WHITE)
     text_surface_btn2info = font_xs.render(u'%s' % btn2info, True, WHITE)
     text_surface_btn3info = font_xs.render(u'%s' % btn3info, True, WHITE)
+    text_surface_btn4info = font_xs.render(u'%s' % btn4info, True, WHITE)
+    text_surface_btn5info = font_xs.render(u'%s' % btn5info, True, WHITE)
+    text_surface_btn6info = font_xs.render(u'%s' % btn6info, True, WHITE)
 
     rect_btn1info = text_surface_btn1info.get_rect(topleft=(20, 10))
-    rect_btn2info = text_surface_btn2info.get_rect(topleft=(20, 40))
-    rect_btn3info = text_surface_btn3info.get_rect(topleft=(20, 80))
+    rect_btn2info = text_surface_btn2info.get_rect(topleft=(20, 80))
+    rect_btn3info = text_surface_btn3info.get_rect(topleft=(20, 160))
+    rect_btn4info = text_surface_btn4info.get_rect(topleft=(20, 230))
+    rect_btn5info = text_surface_btn5info.get_rect(topright=(300, 230))
+    rect_btn6info = text_surface_btn6info.get_rect(topright=(300, 230))
 
     lcd.blit(text_surface_btn1info, rect_btn1info)
     lcd.blit(text_surface_btn2info, rect_btn2info)
     lcd.blit(text_surface_btn3info, rect_btn3info)
+    lcd.blit(text_surface_btn4info, rect_btn4info)
+    lcd.blit(text_surface_btn5info, rect_btn5info)
+    lcd.blit(text_surface_btn6info, rect_btn6info)
 
 
 def main():
