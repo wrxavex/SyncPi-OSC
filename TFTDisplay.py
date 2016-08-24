@@ -362,6 +362,8 @@ def ip_set_mode(time_now):
 
     if ds.btnsubmit == 1:
         if ds.id != ds.id_to_set:
+            info1 = u'進行id設定並重新機'
+            info2 = u''
             ds.set_id()
 
     text_surface_title = font_small.render(u'%s' % title, True, WHITE)

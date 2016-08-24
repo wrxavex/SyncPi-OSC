@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 import subprocess
 import os
+import set_id
+
+id_setter = set_id.IDSetter()
 
 def read_sync_setting(filename):
     f = open(filename, 'r+w')
@@ -119,5 +122,9 @@ class DisplayStatus():
         set_id_text = 'ID=' + str(self.id_to_set)
         f.write(set_id_text)
         f.close()
+
+        id_setter.id_to_set = self.id_to_set
+        id_setter.set_to_new_ip()
+
         os.system("sudo reboot")
 
