@@ -141,7 +141,7 @@ def display_set_player_mode(time_now):
     option0 = u'○ 獨立播放模式'
     option1 = u'□ 同步播放主機'
     option2 = u'△ 同步播放從機'
-    btn4info = u'✖ 功能說明'
+    btn4info = u'ㄨ 功能說明'
 
     btn6info = u'取消 ▽'
 
