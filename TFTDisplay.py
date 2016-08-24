@@ -214,11 +214,21 @@ def check_option(time_now):
                     ds.btnevent = 0
             elif ds.btnevent == 3:
                 mode_modify = u'變更為同步播放從機'
+                if ds.btnsubmit == 1:
+                    ds.status = 1
+                    ds.player_mode = 2
+                    ds.btnsubmit = 0
+                    ds.btnevent = 0
 
         elif ds.player_mode == 1:
             mode_now += u'同步播放主機'
             if ds.btnevent == 1:
                 mode_modify = u'變更為獨立播放模式'
+                if ds.btnsubmit == 1:
+                    ds.status = 1
+                    ds.player_mode = 0
+                    ds.btnsubmit = 0
+                    ds.btnevent = 0
             elif ds.btnevent == 2:
                 mode_modify = u'不做變動'
                 if ds.btnsubmit == 1:
@@ -227,16 +237,36 @@ def check_option(time_now):
                     ds.btnevent = 0
             elif ds.btnevent == 3:
                 mode_modify = u'變更為同步播放從機'
+                if ds.btnsubmit == 1:
+                    ds.status = 1
+                    ds.player_mode = 2
+                    ds.btnsubmit = 0
+                    ds.btnevent = 0
 
         elif ds.player_mode == 2:
             mode_now += u'同步播放從機'
 
             if ds.btnevent == 1:
                 mode_modify = u'變更為獨立播放模式'
+                if ds.btnsubmit == 1:
+                    ds.status = 1
+                    ds.player_mode = 0
+                    ds.btnsubmit = 0
+                    ds.btnevent = 0
             elif ds.btnevent == 2:
                 mode_modify = u'變更為同步播放主機'
+                if ds.btnsubmit == 1:
+                    ds.status = 1
+                    ds.player_mode = 1
+                    ds.btnsubmit = 0
+                    ds.btnevent = 0
             elif ds.btnevent == 3:
                 mode_modify = u'設定同步播放從機'
+                if ds.btnsubmit == 1:
+                    ds.status = 1
+                    ds.player_mode = 2
+                    ds.btnsubmit = 0
+                    ds.btnevent = 0
 
         text_surface_hostname = font_small.render(u'%s' % hostname, True, WHITE)
         text_surface_title = font_small.render(u'%s' % title, True, WHITE)
