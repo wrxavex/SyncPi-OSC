@@ -40,6 +40,7 @@ pygame.display.update()
 
 WHITE = (255, 255, 255)
 
+font_xs = pygame.font.Font(font_file, 12)
 font_small = pygame.font.Font(font_file, 24)
 font_normal = pygame.font.Font(font_file, 36)
 font_big = pygame.font.Font(font_file, 48)
@@ -146,13 +147,13 @@ def display_help_mode(time_now):
     btn2info = 'Sync Video File'
     btn3info = 'No Use'
 
-    text_surface_btn1info = font_small.render(u'%s' % btn1info, True, WHITE)
-    text_surface_btn2info = font_small.render(u'%s' % btn2info, True, WHITE)
-    text_surface_btn3info = font_small.render(u'%s' % btn3info, True, WHITE)
+    text_surface_btn1info = font_xs.render(u'%s' % btn1info, True, WHITE)
+    text_surface_btn2info = font_xs.render(u'%s' % btn2info, True, WHITE)
+    text_surface_btn3info = font_xs.render(u'%s' % btn3info, True, WHITE)
 
-    rect_btn1info = text_surface_btn1info.get_rect(topleft=(20, 40))
-    rect_btn2info = text_surface_btn2info.get_rect(topleft=(20, 80))
-    rect_btn3info = text_surface_btn3info.get_rect(topleft=(20, 120))
+    rect_btn1info = text_surface_btn1info.get_rect(topleft=(20, 10))
+    rect_btn2info = text_surface_btn2info.get_rect(topleft=(20, 40))
+    rect_btn3info = text_surface_btn3info.get_rect(topleft=(20, 80))
 
     lcd.blit(text_surface_btn1info, rect_btn1info)
     lcd.blit(text_surface_btn2info, rect_btn2info)
