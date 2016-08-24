@@ -55,7 +55,6 @@ def btnevent1():
 def btnevent2():
     if ds.status == 0:
         ds.status = 2
-        ds.player_mode =1
 
 
 
@@ -75,10 +74,26 @@ def btnevent4():
         ds.status = 0
 
 
+def btnevent5():
+    if ds.status == 0:
+        ds.status = 4
+    else:
+        ds.status = 0
+
+
+def btnevent6():
+    if ds.status == 6:
+
+    else:
+        ds.status = 0
+
+
 def tft_update(time_now):
 
     lcd.fill((0, 0, 0))
     display_main_info(time_now)
+    if ds.status == 6:
+        display_help_mode(time_now)
     pygame.display.update()
 
 
@@ -123,12 +138,34 @@ def display_set_player_mode(time_now):
     lcd.blit(text_surface_status, rect_status)
     lcd.blit(text_surface_time, rect_time)
 
+def display_help_mode(time_now):
+
+    btn1info = 'Setting Player Mode'
+    btn2info = 'Sync Video File'
+    btn3info = 'No Use'
+
+
+    text_surface_btn1info = font_small.render(u'%s' % btn1info, WHITE)
+    text_surface_btn2info = font_small.render(u'%s' % btn2info, WHITE)
+    text_surface_btn3info = font_small.render(u'%s' % btn3info, WHITE)
+
+    rect_btn1info = text_surface_btn1info.get_rect(left=160, 40)
+    rect_btn2info = text_surface_btn2info.get_rect(left=160, 80)
+    rect_btn3info = text_surface_btn3info.get_rect(left=160, 120)
+
+    lcd.blit(text_surface_btn1info, rect_btn1info)
+    lcd.blit(text_surface_btn2info, rect_btn2info)
+    lcd.blit(text_surface_btn3info, rect_btn3info)
+
+
 def main():
 
     button1.when_pressed = btnevent1
     button2.when_pressed = btnevent2
     button3.when_pressed = btnevent3
     button4.when_pressed = btnevent4
+    button5.when_pressed = btnevent5
+    button6.when_pressed = btnevent6
 
     while True:
         time.sleep(0.1)
