@@ -15,6 +15,19 @@ class DisplayStatus():
         # status = 1 => player mode info
         # status = 2 => video file sync mode
 
+        self.btnevent = 0
+        # 1 is button1 event
+        # 2 is button2 event
+        # 3 is button3 event
+        # 4 is button4 event
+
+        self.btnsubmit = 0
+
+        self.option = 0
+        # if option 0 is selected option = 1
+        # if option 1 is selected option = 2
+        # if option 2 is selected option = 3
+
         self.help_mode = 0
         # if hlep_mode = 1 than display help info
 

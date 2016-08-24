@@ -42,6 +42,7 @@ pygame.display.update()
 
 WHITE = (255, 255, 255)
 STATUS = (127, 127, 255)
+ALERT = (255, 255, 127)
 
 font_xs = pygame.font.Font(font_file, 18)
 font_small = pygame.font.Font(font_file, 24)
@@ -53,20 +54,24 @@ def btnevent1():
     if ds.help_mode == 0:
         if ds.status == 0:
             ds.status = 1
+        elif ds.status == 1:
+            ds.btnevent = 1
 
 
 def btnevent2():
     if ds.help_mode == 0:
         if ds.status == 0:
             ds.status = 2
-
-
+        elif ds.status == 1:
+            ds.btnevent = 2
 
 
 def btnevent3():
     if ds.help_mode == 0:
         if ds.status == 0:
             ds.status = 3
+        elif ds.status == 1:
+            ds.btnevent = 3
 
 
 def btnevent4():
@@ -78,17 +83,14 @@ def btnevent4():
 
 def btnevent5():
     if ds.help_mode == 0:
-        if ds.status == 0:
-            ds.status = 5
-        else:
-            ds.status = 0
-
+        ds.btnsubmit = 1
 
 def btnevent6():
     if ds.help_mode == 1:
         ds.help_mode = 0
     else:
         ds.status = 0
+        ds.btnevent = 0
 
 
 def tft_update(time_now):
@@ -152,6 +154,7 @@ def display_set_player_mode(time_now):
     text_surface_hostname = font_small.render(u'%s' % hostname, True, WHITE)
     text_surface_title = font_small.render(u'%s' % title, True, WHITE)
     text_surface_mode_now = font_small.render(u'%s' % mode_now, True, STATUS)
+
     text_surface_option0 = font_xs.render(u'%s' % option0, True, WHITE)
     text_surface_option1 = font_xs.render(u'%s' % option1, True, WHITE)
     text_surface_option2 = font_xs.render(u'%s' % option2, True, WHITE)
@@ -175,6 +178,57 @@ def display_set_player_mode(time_now):
     lcd.blit(text_surface_option2, rect_option2)
     lcd.blit(text_surface_btn4info, rect_btn4info)
     lcd.blit(text_surface_btn6info, rect_btn6info)
+
+
+def check_option(time_now):
+
+    if ds.status == 11:
+        title = u'修改播放模式'
+        mode_now = u'現在模式：'
+        info = u'按 △ 確定修改 or 按 ▽ 取消'
+
+        if ds.player_mode == 0:
+            mode_now += u'獨立播放模式'
+            if ds.btnevent == 1:
+                mode_modify = u'不做變動'
+            elif ds.btnevent == 2:
+                mode_modify = u'同步播放主機'
+            elif ds.btnevent == 3:
+                mode_modify = u'同步播放從機'
+
+        elif ds.player_mode == 1:
+            mode_now += u'同步播放主機'
+            if ds.btnevent == 1:
+                mode_modify = u'獨立播放模式'
+            elif ds.btnevent == 2:
+                mode_modify = u'不做變動'
+            elif ds.btnevent == 3:
+                mode_modify = u'同步播放從機'
+
+        elif ds.player_mode == 2:
+            mode_now += u'同步播放從機'
+
+            if ds.btnevent == 1:
+                mode_modify = u'獨立播放模式'
+            elif ds.btnevent == 2:
+                mode_modify = u'同步播放主機'
+            elif ds.btnevent == 3:
+                mode_modify = u'同步播放從機'
+
+        text_surface_hostname = font_small.render(u'%s' % hostname, True, WHITE)
+        text_surface_title = font_small.render(u'%s' % title, True, WHITE)
+        text_surface_mode_now = font_small.render(u'%s' % mode_now, True, STATUS)
+        text_surface_mode_modify = font_small.render(u'%s' % mode_modify, True, ALERT)
+
+        rect_hostname = text_surface_hostname.get_rect(center=(160, 10))
+        rect_title = text_surface_title.get_rect(center=(160, 35))
+        rect_mode_now = text_surface_mode_now.get_rect(center=(160, 70))
+        rect_surface_mode_modify = text_surface_mode_modify.get_rect(center=(160, 110))
+
+        lcd.blit(text_surface_hostname, rect_hostname)
+        lcd.blit(text_surface_title, rect_title)
+        lcd.blit(text_surface_mode_now, rect_mode_now)
+        lcd.blit(text_surface_mode_modify, rect_surface_mode_modify)
 
 
 def display_help_mode(time_now):
@@ -220,6 +274,8 @@ def display_help_mode(time_now):
     lcd.blit(text_surface_btn4info, rect_btn4info)
     lcd.blit(text_surface_btn5info, rect_btn5info)
     lcd.blit(text_surface_btn6info, rect_btn6info)
+
+
 
 
 def main():
