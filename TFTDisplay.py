@@ -103,6 +103,8 @@ def tft_update(time_now):
     if ds.help_mode == 1:
         if ds.status == 1 or ds.status == 2:
             display_help_mode(time_now)
+        else:
+            ds.help_mode = 0
     else:
         if ds.status == 0:
             display_main_info(time_now)
