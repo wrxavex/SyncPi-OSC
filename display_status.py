@@ -39,6 +39,8 @@ class DisplayStatus():
 
     def __init__(self):
 
+        self.sync_setting_file = '/boot/Sync_Setting.txt'
+
         self.id = sync_id
 
         self.id_to_set = sync_id
@@ -92,3 +94,11 @@ class DisplayStatus():
             return u'同步播放主機'
         elif self.player_mode == 2:
             return u'同步播放從機'
+
+    def set_id(self):
+        f = open(self.sync_setting_file, 'w')
+        set_id_text = 'ID=' + self.id_to_set
+        f.write(set_id_text)
+        f.close()
+        os.system("sudo reboot")
+

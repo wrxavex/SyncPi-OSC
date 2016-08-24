@@ -356,7 +356,8 @@ def ip_set_mode(time_now):
             ds.btnevent = 0
 
     if ds.btnsubmit == 1:
-        ds.id = ds.id_to_set
+        if ds.id != ds.id_to_set:
+            ds.set_id()
 
     text_surface_title = font_small.render(u'%s' % title, True, WHITE)
     text_surface_ip_now = font_small.render(u'目前IP：%s' % ip_now, True, WHITE)
