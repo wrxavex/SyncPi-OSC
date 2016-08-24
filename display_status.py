@@ -49,8 +49,8 @@ class DisplayStatus():
 
     def get_player_mode(self):
         if self.player_mode == 0:
-            return 'Stand alone'
+            return u'獨立播放模式'
         elif self.player_mode == 1:
-            return 'Master'
+            return u'同步播放主機'
         elif self.player_mode == 2:
-            return 'Slave'
+            return u'同步播放從機'
