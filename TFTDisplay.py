@@ -138,16 +138,16 @@ def display_set_player_mode(time_now):
     lcd.blit(text_surface_status, rect_status)
     lcd.blit(text_surface_time, rect_time)
 
+
 def display_help_mode(time_now):
 
     btn1info = 'Setting Player Mode'
     btn2info = 'Sync Video File'
     btn3info = 'No Use'
 
-
-    text_surface_btn1info = font_small.render(u'%s' % btn1info, WHITE)
-    text_surface_btn2info = font_small.render(u'%s' % btn2info, WHITE)
-    text_surface_btn3info = font_small.render(u'%s' % btn3info, WHITE)
+    text_surface_btn1info = font_small.render(u'%s' % btn1info, True, WHITE)
+    text_surface_btn2info = font_small.render(u'%s' % btn2info, True, WHITE)
+    text_surface_btn3info = font_small.render(u'%s' % btn3info, True, WHITE)
 
     rect_btn1info = text_surface_btn1info.get_rect(left=(160, 40))
     rect_btn2info = text_surface_btn2info.get_rect(left=(160, 80))
