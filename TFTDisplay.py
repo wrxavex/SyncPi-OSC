@@ -143,12 +143,12 @@ def display_set_player_mode(time_now):
 
 def display_help_mode(time_now):
 
-    btn1info = 'Setting Player Mode'
-    btn2info = 'Sync Video File'
-    btn3info = 'No Use'
-    btn4info = 'Help'
-    btn5info = 'Accept'
-    btn6info = 'Cancel'
+    btn1info = '● Setting Player Mode'
+    btn2info = '■ Sync Video File'
+    btn3info = '▲ No Use'
+    btn4info = '✖ Help'
+    btn5info = '↑ Accept'
+    btn6info = '↓ Cancel'
 
     text_surface_btn1info = font_xs.render(u'%s' % btn1info, True, WHITE)
     text_surface_btn2info = font_xs.render(u'%s' % btn2info, True, WHITE)
