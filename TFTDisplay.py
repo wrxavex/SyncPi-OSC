@@ -177,19 +177,19 @@ def display_help_mode(time_now):
 
     if ds.status == 0:
         title = u'鍵盤功能設明 - 主視窗'
-        btn1info = u'● 播放模式'
-        btn2info = u'■ 同步影片檔案'
-        btn3info = u'▲ 未使用'
-        btn4info = u'✖ 功能說明'
+        btn1info = u'ο 播放模式'
+        btn2info = u'□ 同步影片檔案'
+        btn3info = u'△ 未使用'
+        btn4info = u'× 功能說明'
         btn5info = u'確定 △'
         btn6info = u'取消 ▽'
 
     elif ds.status == 1 :
         title = u'功能設明 - 播放模式'
-        btn1info = u'● 獨立播放'
-        btn2info = u'■ 同步模式 - 主機'
-        btn3info = u'▲ 同步模式 - 從機'
-        btn4info = u'✖ 功能說明'
+        btn1info = u'ο 獨立播放'
+        btn2info = u'□ 同步模式 - 主機'
+        btn3info = u'△ 同步模式 - 從機'
+        btn4info = u'× 功能說明'
         btn5info = u'確定 △'
         btn6info = u'取消 ▽'
 
