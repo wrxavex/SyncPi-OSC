@@ -6,7 +6,7 @@ var osc = require('osc-min'),
 var udp = dgram.createSocket("udp4");
 
 
-fs.readFile('/boot/sync_setting.txt', 'utf8', function(err, data{
+fs.readFile('/boot/sync_setting.txt', 'utf8', function(err, data){
   if (err) {
     return console.log(err);
   }
