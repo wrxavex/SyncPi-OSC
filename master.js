@@ -51,9 +51,6 @@ function send() {
   udp.send(x, 0, x.length, 9998, "192.168.1.210");
   udp.send(x, 0, x.length, 9998, "192.168.1.211");
   udp.send(x, 0, x.length, 9998, "192.168.1.212");
-  udp.send(x, 0, x.length, 9998, "192.168.1.213");
-  udp.send(x, 0, x.length, 9998, "192.168.1.168");
-  udp.send(x, 0, x.length, 9998, "192.168.1.150");
 
 
   udp.send(x, 0, x.length, 9998, "192.168.1.231");
@@ -75,7 +72,7 @@ function send() {
 }
 
 var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
-  try 
+  try
   {
     var time = new Date();
     var osc_message;
@@ -118,7 +115,6 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
             device_status.id_3 = '2';
         }
     }
-
 
 
     if (parseInt(osc_message.args[0].value) == 4) {
@@ -197,6 +193,58 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
               console.log("no.9 movie is end \n");
               device_status.id_9 = '2';
           }
+
+      if (parseInt(osc_message.args[0].value) == 10) {
+          console.log("no.10 callback " + time.getTime());
+          device_status.id_10_lasttime = time.getTime();
+          if (parseInt(osc_message.args[1].value) == 1) {
+              console.log("no.10 is get master message\n");
+              device_status.id_10 = '1';
+          }
+          if (parseInt(osc_message.args[1].value) == 2) {
+              console.log("no.10 movie is end \n");
+              device_status.id_10 = '2';
+          }
+
+      if (parseInt(osc_message.args[0].value) == 10) {
+          console.log("no.10 callback " + time.getTime());
+          device_status.id_10_lasttime = time.getTime();
+          if (parseInt(osc_message.args[1].value) == 1) {
+              console.log("no.10 is get master message\n");
+              device_status.id_10 = '1';
+          }
+          if (parseInt(osc_message.args[1].value) == 2) {
+              console.log("no.10 movie is end \n");
+              device_status.id_10 = '2';
+          }
+
+      if (parseInt(osc_message.args[0].value) == 11) {
+          console.log("no.11 callback " + time.getTime());
+          device_status.id_11_lasttime = time.getTime();
+          if (parseInt(osc_message.args[1].value) == 1) {
+              console.log("no.11 is get master message\n");
+              device_status.id_11 = '1';
+          }
+          if (parseInt(osc_message.args[1].value) == 2) {
+              console.log("no.11 movie is end \n");
+              device_status.id_11 = '2';
+          }
+
+      if (parseInt(osc_message.args[0].value) == 12) {
+          console.log("no.12 callback " + time.getTime());
+          device_status.id_12_lasttime = time.getTime();
+          if (parseInt(osc_message.args[1].value) == 1) {
+              console.log("no.12 is get master message\n");
+              device_status.id_11 = '1';
+          }
+          if (parseInt(osc_message.args[1].value) == 2) {
+              console.log("no.12 movie is end \n");
+              device_status.id_12 = '2';
+          }
+
+
+
+
       }
       console.log (device_status);
       console.log ('1:'+ device_status.id_1 +
@@ -207,7 +255,11 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
                     ' 6:' + device_status.id_6 +
                     ' 7:' + device_status.id_7 +
                     ' 8:' + device_status.id_8 +
-                    ' 9:' + device_status.id_9);
+                    ' 9:' + device_status.id_9 +
+                    '10:' + device_status.id_10 +
+                    '11:' + device_status.id_11 +
+                    '12:' + device_status.id_12 +
+                    );
 
   } 
   catch (err) {
