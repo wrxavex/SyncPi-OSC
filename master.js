@@ -182,69 +182,74 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
       }
 
       if (parseInt(osc_message.args[0].value) == 9) {
-          console.log("no.9 callback " + time.getTime());
-          device_status.id_9_lasttime = time.getTime();
-          if (parseInt(osc_message.args[1].value) == 1) {
-              console.log("no.9 is get master message\n");
-              device_status.id_9 = '1';
-          }
-          if (parseInt(osc_message.args[1].value) == 2) {
-              console.log("no.9 movie is end \n");
-              device_status.id_9 = '2';
-          }
+        console.log("no.9 callback " + time.getTime());
+        device_status.id_9_lasttime = time.getTime();
+        if (parseInt(osc_message.args[1].value) == 1) {
+          console.log("no.9 is get master message\n");
+          device_status.id_9 = '1';
+        }
+        if (parseInt(osc_message.args[1].value) == 2) {
+          console.log("no.9 movie is end \n");
+          device_status.id_9 = '2';
+        }
+      }
 
       if (parseInt(osc_message.args[0].value) == 10) {
-          console.log("no.10 callback " + time.getTime());
-          device_status.id_10_lasttime = time.getTime();
-          if (parseInt(osc_message.args[1].value) == 1) {
-              console.log("no.10 is get master message\n");
-              device_status.id_10 = '1';
-          }
-          if (parseInt(osc_message.args[1].value) == 2) {
-              console.log("no.10 movie is end \n");
-              device_status.id_10 = '2';
-          }
+        console.log("no.10 callback " + time.getTime());
+        device_status.id_10_lasttime = time.getTime();
+        if (parseInt(osc_message.args[1].value) == 1) {
+          console.log("no.10 is get master message\n");
+          device_status.id_10 = '1';
+        }
+        if (parseInt(osc_message.args[1].value) == 2) {
+          console.log("no.10 movie is end \n");
+          device_status.id_10 = '2';
+        }
+      }
 
       if (parseInt(osc_message.args[0].value) == 10) {
-          console.log("no.10 callback " + time.getTime());
-          device_status.id_10_lasttime = time.getTime();
-          if (parseInt(osc_message.args[1].value) == 1) {
-              console.log("no.10 is get master message\n");
-              device_status.id_10 = '1';
-          }
-          if (parseInt(osc_message.args[1].value) == 2) {
-              console.log("no.10 movie is end \n");
-              device_status.id_10 = '2';
-          }
+        console.log("no.10 callback " + time.getTime());
+        device_status.id_10_lasttime = time.getTime();
+        if (parseInt(osc_message.args[1].value) == 1) {
+          console.log("no.10 is get master message\n");
+          device_status.id_10 = '1';
+        }
+        if (parseInt(osc_message.args[1].value) == 2) {
+          console.log("no.10 movie is end \n");
+          device_status.id_10 = '2';
+        }
+      }
 
       if (parseInt(osc_message.args[0].value) == 11) {
-          console.log("no.11 callback " + time.getTime());
-          device_status.id_11_lasttime = time.getTime();
-          if (parseInt(osc_message.args[1].value) == 1) {
-              console.log("no.11 is get master message\n");
-              device_status.id_11 = '1';
-          }
-          if (parseInt(osc_message.args[1].value) == 2) {
-              console.log("no.11 movie is end \n");
-              device_status.id_11 = '2';
-          }
+        console.log("no.11 callback " + time.getTime());
+        device_status.id_11_lasttime = time.getTime();
+        if (parseInt(osc_message.args[1].value) == 1) {
+          console.log("no.11 is get master message\n");
+          device_status.id_11 = '1';
+        }
+        if (parseInt(osc_message.args[1].value) == 2) {
+          console.log("no.11 movie is end \n");
+          device_status.id_11 = '2';
+        }
+      }
 
       if (parseInt(osc_message.args[0].value) == 12) {
-          console.log("no.12 callback " + time.getTime());
-          device_status.id_12_lasttime = time.getTime();
-          if (parseInt(osc_message.args[1].value) == 1) {
-              console.log("no.12 is get master message\n");
-              device_status.id_11 = '1';
-          }
-          if (parseInt(osc_message.args[1].value) == 2) {
-              console.log("no.12 movie is end \n");
-              device_status.id_12 = '2';
-          }
-
-
-
-
+        console.log("no.12 callback " + time.getTime());
+        device_status.id_12_lasttime = time.getTime();
+        if (parseInt(osc_message.args[1].value) == 1) {
+          console.log("no.12 is get master message\n");
+          device_status.id_11 = '1';
+        }
+        if (parseInt(osc_message.args[1].value) == 2) {
+          console.log("no.12 movie is end \n");
+          device_status.id_12 = '2';
+        }
       }
+
+
+
+
+      
       console.log (device_status);
       console.log ('1:'+ device_status.id_1 +
                     ' 2:' + device_status.id_2 +
