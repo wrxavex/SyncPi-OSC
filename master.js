@@ -3,16 +3,12 @@ var osc = require('osc-min'),
     fs = require('fs');
 
 var udp = dgram.createSocket("udp4");
-var video_id = ''
 
-fs.readFile('/boot/sync_setting.txt', 'utf8', function(err, data){
-  if (err) {
-    return console.log(err);
-  }
+var video_id = fs.readFileSync('/boot/sync_setting.txt', 'utf8');
+
   video_id = data;
   video_id = video_id.substring(3, 5);
   video_id = parseInt(video_id);
-});
 
 // file = (string) filepath of the file to read
 
