@@ -1,8 +1,7 @@
 var osc = require('osc-min'),
     dgram = require('dgram'),
     fs = require('fs');
-    remote;
-    
+
 var udp = dgram.createSocket("udp4");
 
 
