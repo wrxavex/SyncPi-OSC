@@ -10,6 +10,9 @@ var osc = require('osc-min'),
 
 
 var video_id = fs.readFileSync('/boot/sync_setting.txt', 'utf8');
+video_id = video_id.substring(3, 5);
+video_id = parseInt(video_id);
+
 var master_id = "192.168.1.231";
 
 video_id = video_id.replace(/(\r\n|\n|\r)/gm,"");
