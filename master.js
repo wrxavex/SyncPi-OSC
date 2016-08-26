@@ -6,7 +6,6 @@ var udp = dgram.createSocket("udp4");
 
 var video_id = fs.readFileSync('/boot/sync_setting.txt', 'utf8');
 
-  video_id = data;
   video_id = video_id.substring(3, 5);
   video_id = parseInt(video_id);
 
