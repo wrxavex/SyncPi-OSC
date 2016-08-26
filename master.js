@@ -271,9 +271,12 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
 });
 
 
+if (vp.video_id == 1) {
+  omxcallback.bind(9999);
+  send();
+}
 
-omxcallback.bind(9999);
 
 // setInterval(send, 4000);
 
-send();
+
