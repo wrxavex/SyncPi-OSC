@@ -134,7 +134,6 @@ def tft_update(time_now):
 
     pygame.display.update()
 
-
     if ds.ready_reboot == 1:
         if ds.btnsubmit == 1:
             ds.btnsubmit = 0

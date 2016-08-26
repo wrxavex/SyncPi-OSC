@@ -1,10 +1,19 @@
 var osc = require('osc-min'),
     dgram = require('dgram'),
+    fs = require('fs');
     remote;
     
 var udp = dgram.createSocket("udp4");
 
 
+fs.readFile('/boot/sync_setting.txt', 'utf8', function(err, data{
+  if (err) {
+    return console.log(err);
+  }
+  console.log(data);
+});
+
+// file = (string) filepath of the file to read
 
 var play_count = 0;
 
