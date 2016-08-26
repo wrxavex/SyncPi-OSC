@@ -11,7 +11,7 @@ fs.readFile('/boot/sync_setting.txt', 'utf8', function(err, data){
   }
   video_id = data;
   video_id = video_id.substring(3, 5);
-  video_id = parseInt(video_id)
+  video_id = parseInt(video_id);
 });
 
 // file = (string) filepath of the file to read
@@ -272,8 +272,10 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
   }
 });
 
+console.log (video_id);
 
 if (video_id == 1) {
+  console.log('I am master start server');
   omxcallback.bind(9999);
   send();
 }
