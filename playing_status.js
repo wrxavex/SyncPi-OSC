@@ -17,7 +17,7 @@ VideoPlayer.prototype.play = function() {
     if(this.is_playing == false)
     {
         this.is_playing = true;
-        omx.start('/home/pi/nmh/v-'+video_id+'.mp4');
+        omx.start('/home/pi/ntmofa/v-'+video_id+'.mp4');
         console.log('it\'s time to play');
     }
     else
