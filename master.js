@@ -74,7 +74,7 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
     var osc_message;
     osc_message = osc.fromBuffer(msg);
 
-    console.log("catch callback" + osc_message.args[0] + " value:" + osc_message.args[1])
+    console.log("catch callback" + osc_message.args[0] + " value:" + osc_message.args[1]);
 
     if (parseInt(osc_message.args[0].value) == 1) {
       console.log("no.1 callback "+ time.getTime());
@@ -257,8 +257,7 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
                     ' 9:' + device_status.id_9 +
                     '10:' + device_status.id_10 +
                     '11:' + device_status.id_11 +
-                    '12:' + device_status.id_12
-                    );
+                    '12:' + device_status.id_12);
 
   } 
   catch (err) {
