@@ -234,6 +234,7 @@ def check_option(time_now):
                 if ds.btnsubmit == 1:
                     ds.btnsubmit = 0
                     ds.player_mode = 1
+                    ds.id_to_set = 1
                     ds.btnevent = 0
                     ds.status = 1
             elif ds.btnevent == 3:
@@ -264,6 +265,7 @@ def check_option(time_now):
                 if ds.btnsubmit == 1:
                     ds.btnsubmit = 0
                     ds.player_mode = 2
+                    ds.id_to_set = 2
                     ds.btnevent = 0
                     ds.status = 1
 
@@ -282,6 +284,7 @@ def check_option(time_now):
                 if ds.btnsubmit == 1:
                     ds.btnsubmit = 0
                     ds.player_mode = 1
+                    ds.id_to_set = 1
                     ds.btnevent = 0
                     ds.status = 1
             elif ds.btnevent == 3:
@@ -289,6 +292,7 @@ def check_option(time_now):
                 if ds.btnsubmit == 1:
                     ds.btnsubmit = 0
                     ds.player_mode = 2
+                    ds.id_to_set = 2
                     ds.btnevent = 0
                     ds.status = 1
 
@@ -351,7 +355,7 @@ def ip_set_mode(time_now):
         info2 = u'△ 按鍵可減少指定新ID數值'
 
     if ds.player_mode == 1:
-        ds.id_to_set = '31'
+        ds.id_to_set = '1'
         info1 = u'同步主機模式ID為固定值'
         info2 = u'同一網路不可有兩台同步主機'
     else:

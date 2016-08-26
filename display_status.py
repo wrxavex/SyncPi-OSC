@@ -12,49 +12,43 @@ def read_sync_setting(filename):
 
 player_setting = read_sync_setting('/boot/Sync_Setting.txt')
 
-if 'ID=0' in player_setting:
-    usb_video_file = 'video0.mp4'
-    sync_id = 1
+
 if 'ID=1' in player_setting:
-    usb_video_file = 'video1.mp4'
+    usb_video_file = 'v-1.mp4'
     sync_id = 1
 if 'ID=2' in player_setting:
-    usb_video_file = 'video2.mp4'
+    usb_video_file = 'v-2.mp4'
     sync_id = 2
 if 'ID=3' in player_setting:
-    usb_video_file = 'video3.mp4'
+    usb_video_file = 'v-3.mp4'
     sync_id = 3
 if 'ID=4' in player_setting:
-    usb_video_file = 'video4.mp4'
+    usb_video_file = 'v-4.mp4'
     sync_id = 4
 if 'ID=5' in player_setting:
-    usb_video_file = 'video5.mp4'
+    usb_video_file = 'v-5.mp4'
     sync_id = 5
 if 'ID=6' in player_setting:
-    usb_video_file = 'video6.mp4'
+    usb_video_file = 'v-6.mp4'
     sync_id = 6
 if 'ID=7' in player_setting:
-    usb_video_file = 'video7.mp4'
+    usb_video_file = 'v-7.mp4'
     sync_id = 7
 if 'ID=8' in player_setting:
-    usb_video_file = 'video8.mp4'
+    usb_video_file = 'v-8.mp4'
     sync_id = 8
 if 'ID=9' in player_setting:
-    usb_video_file = 'video9.mp4'
+    usb_video_file = 'v-9.mp4'
     sync_id = 9
 if 'ID=10' in player_setting:
-    usb_video_file = 'video10.mp4'
+    usb_video_file = 'v-10.mp4'
     sync_id = 10
 if 'ID=11' in player_setting:
-    usb_video_file = 'video11.mp4'
+    usb_video_file = 'v-11.mp4'
     sync_id = 11
 if 'ID=12' in player_setting:
-    usb_video_file = 'video12.mp4'
+    usb_video_file = 'v-12.mp4'
     sync_id = 12
-if 'ID=31' in player_setting:
-    usb_video_file = 'videoM.mp4'
-    sync_id = 31
-
 
 
 class DisplayStatus():
