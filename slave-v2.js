@@ -24,9 +24,6 @@ var vp = new VideoPlayer(video_id);
 var udp = dgram.createSocket('udp4', function(msg, rinfo) {
     var osc_message;
 
-
-
-
     var x = osc.toBuffer({
         oscType: 'message',
         address: '/omxplayer',

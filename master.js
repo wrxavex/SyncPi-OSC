@@ -116,7 +116,7 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
     }
 
 
-    if (parseInt(osc_message.args[0].value) == 4) {
+    if (parseInt(osc_message.args[0].value) == 204) {
         console.log("no.4 callback " + time.getTime());
         device_status.id_4_lasttime = time.getTime();
         if (parseInt(osc_message.args[1].value) == 1) {
@@ -249,7 +249,7 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
 
 
 
-      
+
       console.log (device_status);
       console.log ('1:'+ device_status.id_1 +
                     ' 2:' + device_status.id_2 +
