@@ -63,10 +63,6 @@ function send() {
   udp.send(x, 0, x.length, 9998, "192.168.1.238");
   udp.send(x, 0, x.length, 9998, "192.168.1.239");
 
-
-
-
-
   }, 3000);
 
 }
@@ -77,6 +73,9 @@ var omxcallback = dgram.createSocket('udp4', function(msg, rinfo){
     var time = new Date();
     var osc_message;
     osc_message = osc.fromBuffer(msg);
+
+    console.log("catch callback" + osc_message.args[0] + " value:" + osc_message.args[1])
+
     if (parseInt(osc_message.args[0].value) == 1) {
       console.log("no.1 callback "+ time.getTime());
       device_status.id_1_lasttime = time.getTime();
