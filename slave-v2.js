@@ -13,6 +13,7 @@ var video_id = fs.readFileSync('/boot/sync_setting.txt', 'utf8');
 
 
 var master_id = "192.168.1.201";
+var target = "ntmofa";
 
 video_id = video_id.replace(/(\r\n|\n|\r)/gm,"");
 video_id = video_id.substring(3, 5);
@@ -66,7 +67,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
             if (vp.is_playing == false){
 
 
-                omx.start('/home/pi/nmh/v-'+video_id+'.mp4');
+                omx.start('/home/pi/'+target+'/v-'+video_id+'.mp4');
                 vp.is_playing = true;
                 console.log('video is playing , vp.is_playing = true');
                 udp.send(x, 0, x.length, 9999, master_id);
