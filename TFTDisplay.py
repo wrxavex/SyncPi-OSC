@@ -18,12 +18,43 @@ except:
 
 import display_status
 
-button1 = Button(23)
-button2 = Button(22)
-button3 = Button(24)
-button4 = Button(5)
-button5 = Button(17)
-button6 = Button(4)
+button1 = None
+while not button1:
+    try:
+        button1 = Button(23)
+    except RuntimeError:
+        pass
+
+button2 = None
+while not button2:
+    try:
+        button2 = Button(22)
+    except RuntimeError:
+        pass
+button3 = None
+while not button3:
+    try:
+        button3 = Button(24)
+    except RuntimeError:
+        pass
+button4 = None
+while not button4:
+    try:
+        button4 = Button(5)
+    except RuntimeError:
+        pass
+button5 = None
+while not button5:
+    try:
+        button5 = Button(17)
+    except RuntimeError:
+        pass
+button6 = None
+while not button6:
+    try:
+        button6 = Button(4)
+    except RuntimeError:
+        pass
 
 ds = display_status.DisplayStatus()
 
