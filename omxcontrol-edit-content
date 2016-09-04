@@ -1,7 +1,48 @@
-// add osc & dgram require
-
+var exec = require('child_process').exec;
+var parseurl = require('url');
 var osc = require('osc-min');
 var dgram = require('dgram');
+var fs = require('fs');
+
+var video_id = fs.readFileSync('/boot/sync_setting.txt', 'utf8');
+
+video_id = video_id.replace(/(\r\n|\n|\r)/gm,"");
+video_id = video_id.substring(3, 5);
+video_id = parseInt(video_id);
+video_id += 200;
+var pipe = false;
+var map = false;
+var DEFAULT_PATH = '/omx';
+
+function omx(mapper) {
+    map = mapper;
+    return omx.express;
+}
+
+omx.express = function(req,res,next) {
+    if (req.path.indexOf(DEFAULT_PATH) === 0) {
+        //replace + and decode
+        path = decodeURIComponent(req.path.replace(/\+/g, ' '));
+        //remove leading and trailing /
+        path = path.replace(/^\/|\/$/g,'');
+        //split and remove leading path
+        var parts = path.split('/');
+        parts.shift();
+        var command = parts.shift();
+        console.log('executing',command,parts);
+        if (omx[command]) {
+            if (command === 'start') {
+                omx.start(parts.join('/')+'?'+parseurl.parse(req.url).query);
+            } else {
+                omx[command].apply(this,parts);
+            }
+            //prevent anything else from being served from this subpath
+            res.end('executed '+command);
+            return;
+        }
+    }
+    next();
+};
 
 omx.start = function(fn) {
     if (!pipe) {
@@ -16,9 +57,8 @@ omx.start = function(fn) {
 
     function cb(fn) {
         console.log(fn);
-        exec('omxplayer -o hdmi -b "'+fn+'" < '+pipe,function(error, stdout, stderr) {
+        exec('omxplayer "'+fn+'" < '+pipe,function(error, stdout, stderr) {
             console.log(stdout);
-
             var udp = dgram.createSocket("udp4");
 
             var x = osc.toBuffer({
@@ -26,19 +66,40 @@ omx.start = function(fn) {
                 address: '/omxcallback',
                 args: [{
                   type: 'integer',
-                  value: 5
+                  value: parseInt(video_id)
                 },
                 {
                   type: 'integer',
                   value: 1
                 }]
               });
-            udp.send(x, 0, x.length, 9999, "192.168.1.189");
-
-
-
-
+            udp.send(x, 0, x.length, 9998, "127.0.0.1");
         });
         exec('echo . > '+pipe);
     }
 };
+
+omx.sendKey = function(key) {
+    if (!pipe) return;
+    exec('echo -n '+key+' > '+pipe);
+};
+
+omx.mapKey = function(command,key,then) {
+    omx[command] = function() {
+        omx.sendKey(key);
+        if (then) {
+            then();
+        }
+    };
+};
+
+omx.mapKey('pause','p');
+omx.mapKey('quit','q',function() {
+    exec('rm '+pipe);
+    pipe = false;
+});
+omx.mapKey('play','.');
+omx.mapKey('forward',"$'\\x1b\\x5b\\x43'");
+omx.mapKey('backward',"$'\\x1b\\x5b\\x44'");
+
+module.exports = omx;

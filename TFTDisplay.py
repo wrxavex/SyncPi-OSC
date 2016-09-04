@@ -273,8 +273,9 @@ def check_option(time_now):
                 if ds.btnsubmit == 1:
                     ds.btnsubmit = 0
                     ds.player_mode = 2
+                    ds.id_to_set = 2
                     ds.btnevent = 0
-                    ds.status = 1
+                    ds.status = 3
 
         elif ds.player_mode == 1:
             mode_now += u'同步播放主機'
@@ -298,7 +299,7 @@ def check_option(time_now):
                     ds.player_mode = 2
                     ds.id_to_set = 2
                     ds.btnevent = 0
-                    ds.status = 1
+                    ds.status = 3
 
         elif ds.player_mode == 2:
             mode_now += u'同步播放從機'
@@ -325,7 +326,7 @@ def check_option(time_now):
                     ds.player_mode = 2
                     ds.id_to_set = 2
                     ds.btnevent = 0
-                    ds.status = 1
+                    ds.status = 3
 
         text_surface_hostname = font_small.render(u'%s' % hostname, True, WHITE)
         text_surface_title = font_small.render(u'%s' % title, True, WHITE)
@@ -418,9 +419,6 @@ def ip_set_mode(time_now):
         if ds.btnsubmit == 1:
             info1 = u'正在重開機'
             info2 = u''
-
-
-
 
     text_surface_title = font_small.render(u'%s' % title, True, WHITE)
     text_surface_ip_now = font_small.render(u'目前IP：%s' % ip_now, True, WHITE)
