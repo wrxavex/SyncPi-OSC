@@ -57,7 +57,7 @@ omx.start = function(fn) {
 
     function cb(fn) {
         console.log(fn);
-        exec('omxplayer "'+fn+'" < '+pipe,function(error, stdout, stderr) {
+        exec('omxplayer -b -o both "'+fn+'" < '+pipe,function(error, stdout, stderr) {
             console.log(stdout);
             var udp = dgram.createSocket("udp4");
 

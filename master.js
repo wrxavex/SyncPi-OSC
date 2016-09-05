@@ -60,6 +60,8 @@ function send() {
   udp.send(x, 0, x.length, 9998, "192.168.1.238");
   udp.send(x, 0, x.length, 9998, "192.168.1.239");
 
+  udp.send(x, 0, x.length, 9998, "192.168.1.139");
+
   }, 3000);
 
 }
