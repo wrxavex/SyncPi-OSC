@@ -13,10 +13,6 @@ import _thread
 from pythonosc import dispatcher
 from pythonosc import osc_server
 
-
-    pass
-
-
 try:
     import get_ip
 except:
