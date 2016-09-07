@@ -526,6 +526,9 @@ if __name__ == '__main__':
                         type=int, default=9997, help="The port to listen on")
     args = parser.parse_args()
 
+    dispatcher = dispatcher.Dispatcher()
+    dispatcher.map("/omxplayer", print_debug)
+
     server = osc_server.ThreadingOSCUDPServer(
         (args.ip, args.port), dispatcher)
     print("Serving on {}".format(server.server_address))
