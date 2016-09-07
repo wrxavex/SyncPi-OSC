@@ -218,7 +218,7 @@ def display_main_info(time_now):
     rect_player_mode = text_surface_player_mode.get_rect(center=(160,160))
     rect_cpu_temp = text_surface_cpu_temp.get_rect(center=(240, 216))
     rect_video_now = text_surface_video_now.get_rect(center=(160, 100))
-    rect_time = text_surface_time.get_rect(center=(80, 216))
+    rect_time = text_surface_time.get_rect(center=(64, 216))
     rect_device1 = text_surface_device1.get_rect(center=(80,200))
 
     lcd.blit(text_surface_hostname, rect_hostname)
