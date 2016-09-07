@@ -6,6 +6,19 @@ import platform
 import time
 from gpiozero import Button
 
+import argparse
+import math
+
+from pythonosc import dispatcher
+from pythonosc import osc_server
+
+def print_debug(unused_addr, args1, args2, args3, args4, args5, args6, args7, args8, args9, args10, args11, args12, args13, args14, args15):
+  try:
+    print(args1,args2, args3, args4)
+  except:
+    pass
+
+
 try:
     import get_ip
 except:
@@ -504,5 +517,10 @@ def main():
 
 if __name__ == '__main__':
     print ("Display info")
+
+    server = osc_server.ThreadingOSCUDPServer(
+        (args.ip, args.port), dispatcher)
+    print("Serving on {}".format(server.server_address))
+
     main()
 
