@@ -305,6 +305,10 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 {
                     type: 'integer',
                     value: parseInt(device_status.id_1)
+                },
+                {
+                    type: 'integer',
+                    value: parseInt(device_status.id_2)
                 }
 
             ]
