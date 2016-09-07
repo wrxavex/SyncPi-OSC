@@ -7,7 +7,8 @@ import time
 from gpiozero import Button
 
 import argparse
-import math
+
+import multiprocessing
 
 from pythonosc import dispatcher
 from pythonosc import osc_server
@@ -530,4 +531,5 @@ if __name__ == '__main__':
     print("Serving on {}".format(server.server_address))
 
     main()
+    server.serve_forever()
 
