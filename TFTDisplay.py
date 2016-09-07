@@ -75,7 +75,7 @@ def print_debug(unused_addr, args1, args2, args3, args4, args5, args6, args7, ar
         ds.device_status[3] = args3
         ds.device_status[4] = args4
 
-        print("%s %s %s %s", ds.device_status[1], ds.device_status[2], ds.device_status[3], ds.device_status[4])
+        print("%d %d %s %s", ds.device_status[1], ds.device_status[2], ds.device_status[3], ds.device_status[4])
         print(args1)
         print(args2)
         print(args3)
