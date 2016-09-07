@@ -7,7 +7,7 @@ import set_id
 id_setter = set_id.IDSetter()
 
 def read_sync_setting(filename):
-    f = open(filename, 'r+w')
+    f = open(filename, 'r')
     return f.read().split()
 
 player_setting = read_sync_setting('/boot/Sync_Setting.txt')
