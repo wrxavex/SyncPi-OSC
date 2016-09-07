@@ -13,10 +13,7 @@ import _thread
 from pythonosc import dispatcher
 from pythonosc import osc_server
 
-def print_debug(unused_addr, args1, args2, args3, args4, args5, args6, args7, args8, args9, args10, args11, args12, args13, args14, args15):
-  try:
-    print(args1,args2, args3, args4)
-  except:
+
     pass
 
 
@@ -71,6 +68,23 @@ while not button6:
         pass
 
 ds = display_status.DisplayStatus()
+
+
+def print_debug(unused_addr, args1, args2, args3, args4, args5, args6, args7, args8, args9, args10, args11, args12,
+                args13, args14, args15):
+    try:
+        print(args1, args2, args3, args4)
+        ds.device_status[1] = args1
+        ds.device_status[2] = args2
+        ds.device_status[3] = args3
+        ds.device_status[4] = args4
+
+        print("device:" + ds.device_status[1])
+    except:
+        pass
+
+
+
 
 hostname = platform.node()
 os.environ['TZ'] = 'Asia/Taipei'

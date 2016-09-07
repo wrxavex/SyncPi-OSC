@@ -98,6 +98,8 @@ class DisplayStatus():
         # have_new_video = 0 => no New Video
         # have_new_video = 1 => have new Video
 
+        self.device_status = {1:0, 2:0, 3:0, 4:0}
+
     def get_cpu_temperaure(self):
 
         cpu_temp_raw_data = subprocess.check_output(["/opt/vc/bin/vcgencmd", "measure_temp"])
