@@ -301,20 +301,14 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 {
                     type: 'integer',
                     value: 3
-                },
-                {
-                    type: 'integer',
-                    value: device_status.id_1
-                },
-                {
-                    type: 'integer',
-                    value: device_status.id_2
                 }
+
             ]
         });
 
         // 送出訊息（port 9997)
         udp.send(message_to_TFT, 0, message_to_TFT.length, 9997, "192.168.1.139");
+        console.log('tft message send')
     }
 
     // 發生錯誤的話印出
