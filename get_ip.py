@@ -34,4 +34,3 @@ try:
     myip = get_ip('eth0')
 except:
     my_ip = 'unknown'
-print(get_ip('eth0'))
