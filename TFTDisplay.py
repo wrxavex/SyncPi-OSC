@@ -69,11 +69,13 @@ ds = display_status.DisplayStatus()
 def print_debug(unused_addr, args1, args2, args3, args4, args5, args6, args7, args8, args9, args10, args11, args12,
                 args13, args14, args15):
     try:
+        print('{0:2d} {0:2d} {0:2d} {0:2d}'.format(args1, args2, args3, args4))
+
         ds.device_status[1] = args1
         ds.device_status[2] = args2
         ds.device_status[3] = args3
         ds.device_status[4] = args4
-        print('{0:2d} {0:2d} {0:2d} {0:2d}'.format(args1, args2, args3, args4))
+
 
         print('{0:2d} {0:2d} {0:2d} {0:2d}'.format(ds.device_status[1], ds.device_status[2], ds.device_status[3], ds.device_status[4]))
 
