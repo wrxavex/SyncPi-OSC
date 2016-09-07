@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import pygame
 import os
@@ -8,7 +8,7 @@ from gpiozero import Button
 
 import argparse
 
-import multiprocessing
+import _thread
 
 from pythonosc import dispatcher
 from pythonosc import osc_server
@@ -501,7 +501,7 @@ def display_help_mode(time_now):
     lcd.blit(text_surface_btn6info, rect_btn6info)
 
 
-def main():
+def main(threadName, delay):
 
     button1.when_pressed = btnevent1
     button2.when_pressed = btnevent2
@@ -529,7 +529,9 @@ if __name__ == '__main__':
     server = osc_server.ThreadingOSCUDPServer(
         (args.ip, args.port), dispatcher)
     print("Serving on {}".format(server.server_address))
-
-    main()
+    try:
+        _thread.start_new_thread(main, ("main", 0))
+    except:
+        print("something wrong")
     server.serve_forever()
 
