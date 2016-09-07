@@ -313,13 +313,54 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 {
                     type: 'integer',
                     value: parseInt(device_status.id_2)
-                }
+                },
+                {
+                    type: 'integer',
+                    value: parseInt(device_status.id_3)
+                },
+                {
+                    type: 'integer',
+                    value: parseInt(device_status.id_4)
+                },
+                {
+                    type: 'integer',
+                    value: parseInt(device_status.id_5)
+                },
+                {
+                    type: 'integer',
+                    value: parseInt(device_status.id_6)
+                },
+                {
+                    type: 'integer',
+                    value: parseInt(device_status.id_7)
+                },
+                {
+                    type: 'integer',
+                    value: parseInt(device_status.id_8)
+                },
+                {
+                    type: 'integer',
+                    value: parseInt(device_status.id_9)
+                },
+                {
+                    type: 'integer',
+                    value: parseInt(device_status.id_10)
+                },
+                {
+                    type: 'integer',
+                    value: parseInt(device_status.id_11)
+                },
+                {
+                    type: 'integer',
+                    value: parseInt(device_status.id_12)
+                },
 
             ]
         });
 
         // 送出訊息（port 9997)
         udp.send(message_to_TFT, 0, message_to_TFT.length, 9997, "192.168.1.139");
+        udp.send(message_to_TFT, 0, message_to_TFT.length, 9997, "127.0.0.1");
         console.log('tft message send')
     }
 
