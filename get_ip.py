@@ -30,5 +30,8 @@ def get_ip(iface = 'eth0'):
         return None
     ip = struct.unpack('16sH2x4s8x', res)[2]
     return socket.inet_ntoa(ip)
-
+try:
+    myip = get_ip('eth0')
+except:
+    my_ip = 'unknown'
 print(get_ip('eth0'))
