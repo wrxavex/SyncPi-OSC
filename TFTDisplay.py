@@ -85,7 +85,7 @@ def print_debug(unused_addr, args1, args2, args3, args4, args5, args6, args7, ar
         ds.device_status[14] = args13
         ds.device_status[15] = args14
 
-        if ds.device_status == 1:
+        if ds.device_status[4] == 1:
             ds.last_play = time.strftime('%X')
 
         print('args={0} args2={1} args3={2} args4={3}'.format( ds.device_status[1], ds.device_status[2], ds.device_status[3], ds.device_status[4]))
