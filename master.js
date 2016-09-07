@@ -314,7 +314,7 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
         });
 
         // 送出訊息（port 9997)
-        udp.send(message_to_TFT, 0, message_to_TFT.length, 9997, "192.168.1.139");
+        udp.send(message_to_TFT, 0, message_to_TFT.length, 9998, "192.168.1.139");
     }
 
     // 發生錯誤的話印出
