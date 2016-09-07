@@ -266,7 +266,19 @@ def display_main_info(time_now):
     lcd.blit(text_surface_cpu_temp, rect_cpu_temp)
     lcd.blit(text_surface_video_now, rect_video_now)
     lcd.blit(text_surface_time, rect_time)
-    lcd.blit(text_surface_device1, rect_play_count)
+    lcd.blit(text_surface_play_count, rect_play_count)
+    lcd.blit(text_surface_device1, rect_device1)
+    lcd.blit(text_surface_device2, rect_device2)
+    lcd.blit(text_surface_device3, rect_device3)
+    lcd.blit(text_surface_device4, rect_device4)
+    lcd.blit(text_surface_device5, rect_device5)
+    lcd.blit(text_surface_device6, rect_device6)
+    lcd.blit(text_surface_device7, rect_device7)
+    lcd.blit(text_surface_device8, rect_device8)
+    lcd.blit(text_surface_device9, rect_device9)
+    lcd.blit(text_surface_device10, rect_device10)
+    lcd.blit(text_surface_device11, rect_device11)
+    lcd.blit(text_surface_device12, rect_device12)
 
 
 def display_set_player_mode(time_now):
