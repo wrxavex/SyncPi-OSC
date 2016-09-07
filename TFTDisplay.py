@@ -221,20 +221,44 @@ def display_main_info(time_now):
     text_surface_video_now = font_small.render(u'現在影片：%s' % ds.video_name, True, WHITE)
     text_surface_time = font_small.render(u'%s' % time_now, True, WHITE)
 
-    text_surface_device1 = font_small.render(u'count:%d' % ds.device_status[3], True, WHITE)
+    text_surface_device1 = font_small.render(u'1:%d' % ds.device_status[4], True, WHITE)
+    text_surface_device2 = font_small.render(u'2:%d' % ds.device_status[5], True, WHITE)
+    text_surface_device3 = font_small.render(u'3:%d' % ds.device_status[6], True, WHITE)
+    text_surface_device4 = font_small.render(u'4:%d' % ds.device_status[7], True, WHITE)
+    text_surface_device5 = font_small.render(u'5:%d' % ds.device_status[8], True, WHITE)
+    text_surface_device6 = font_small.render(u'6:%d' % ds.device_status[9], True, WHITE)
+    text_surface_device7 = font_small.render(u'7:%d' % ds.device_status[10], True, WHITE)
+    text_surface_device8 = font_small.render(u'8:%d' % ds.device_status[11], True, WHITE)
+    text_surface_device9 = font_small.render(u'9:%d' % ds.device_status[12], True, WHITE)
+    text_surface_device10 = font_small.render(u'10:%d' % ds.device_status[13], True, WHITE)
+    text_surface_device11 = font_small.render(u'11:%d' % ds.device_status[14], True, WHITE)
+    text_surface_device12 = font_small.render(u'12:%d' % ds.device_status[15], True, WHITE)
+    text_surface_play_count = font_small.render(u'count:%d' % ds.device_status[3], True, WHITE)
 
     rect_hostname = text_surface_hostname.get_rect(center=(160, 18))
     rect_myip = text_surface_myip.get_rect(center=(160, 48))
     rect_player_mode = text_surface_player_mode.get_rect(center=(160,78))
 
-    rect_video_now = text_surface_video_now.get_rect(center=(160, 108))
+    rect_video_now = text_surface_video_now.get_rect(center=(160,108))
 
-    rect_device1 = text_surface_device1.get_rect(center=(160,138))
+    rect_play_count = text_surface_play_count.get_rect(center=(160,138))
+
+    rect_device1 = text_surface_device1.get_rect(center=(18, 168))
+    rect_device2 = text_surface_device2.get_rect(center=(38, 168))
+    rect_device3 = text_surface_device3.get_rect(center=(58, 168))
+    rect_device4 = text_surface_device4.get_rect(center=(78, 168))
+    rect_device5 = text_surface_device5.get_rect(center=(108, 168))
+    rect_device6 = text_surface_device6.get_rect(center=(158, 168))
+    rect_device7 = text_surface_device7.get_rect(center=(18, 198))
+    rect_device8 = text_surface_device8.get_rect(center=(38, 198))
+    rect_device9 = text_surface_device9.get_rect(center=(58, 198))
+    rect_device10 = text_surface_device10.get_rect(center=(78, 198))
+    rect_device11 = text_surface_device11.get_rect(center=(108, 198))
+    rect_device12 = text_surface_device12.get_rect(center=(158, 198))
 
 
     rect_time = text_surface_time.get_rect(center=(80, 216))
     rect_cpu_temp = text_surface_cpu_temp.get_rect(center=(240, 216))
-
 
     lcd.blit(text_surface_hostname, rect_hostname)
     lcd.blit(text_surface_myip, rect_myip)
@@ -242,7 +266,7 @@ def display_main_info(time_now):
     lcd.blit(text_surface_cpu_temp, rect_cpu_temp)
     lcd.blit(text_surface_video_now, rect_video_now)
     lcd.blit(text_surface_time, rect_time)
-    lcd.blit(text_surface_device1, rect_device1)
+    lcd.blit(text_surface_device1, rect_play_count)
 
 
 def display_set_player_mode(time_now):
