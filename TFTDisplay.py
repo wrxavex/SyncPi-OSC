@@ -85,6 +85,9 @@ def print_debug(unused_addr, args1, args2, args3, args4, args5, args6, args7, ar
         ds.device_status[14] = args13
         ds.device_status[15] = args14
 
+        if ds.device_status == 1:
+            ds.last_play = time.strftime('%X')
+
         print('args={0} args2={1} args3={2} args4={3}'.format( ds.device_status[1], ds.device_status[2], ds.device_status[3], ds.device_status[4]))
         print(args1)
         print(args2)
@@ -233,6 +236,8 @@ def display_main_info(time_now):
     text_surface_device10 = font_small.render(u'10:%d' % ds.device_status[13], True, WHITE)
     text_surface_device11 = font_small.render(u'11:%d' % ds.device_status[14], True, WHITE)
     text_surface_device12 = font_small.render(u'12:%d' % ds.device_status[15], True, WHITE)
+
+    text_surface_last_play = font_small.render(u'ls:%s' % ds.last_play, True, WHITE)
     text_surface_play_count = font_small.render(u'count:%d' % ds.device_status[3], True, WHITE)
 
     rect_hostname = text_surface_hostname.get_rect(center=(160, 18))
@@ -241,7 +246,8 @@ def display_main_info(time_now):
 
     rect_video_now = text_surface_video_now.get_rect(center=(160,108))
 
-    rect_play_count = text_surface_play_count.get_rect(center=(160,138))
+    rect_last_play = text_surface_last_play.get_rect(center=(80, 138))
+    rect_play_count = text_surface_play_count.get_rect(center=(240,138))
 
     rect_device1 = text_surface_device1.get_rect(center=(45, 165))
     rect_device2 = text_surface_device2.get_rect(center=(93, 165))
@@ -265,6 +271,7 @@ def display_main_info(time_now):
     lcd.blit(text_surface_cpu_temp, rect_cpu_temp)
     lcd.blit(text_surface_video_now, rect_video_now)
     lcd.blit(text_surface_time, rect_time)
+    lcd.blit(text_surface_last_play, rect_last_play)
     lcd.blit(text_surface_play_count, rect_play_count)
     lcd.blit(text_surface_device1, rect_device1)
     lcd.blit(text_surface_device2, rect_device2)
