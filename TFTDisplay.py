@@ -211,7 +211,7 @@ def display_main_info(time_now):
     text_surface_video_now = font_small.render(u'現在影片：%s' % ds.video_name, True, WHITE)
     text_surface_time = font_small.render(u'%s' % time_now, True, WHITE)
 
-    text_surface_device1 = font_small.render(u'count:%d' % ds.device_status[3])
+    text_surface_device1 = font_small.render(u'count:%d' % ds.device_status[3], True, WHITE)
 
     rect_hostname = text_surface_hostname.get_rect(center=(160, 18))
     rect_myip = text_surface_myip.get_rect(center=(160, 48))
