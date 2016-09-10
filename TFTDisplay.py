@@ -213,7 +213,7 @@ def display_main_info(time_now):
     cpu_temp = ds.get_cpu_temperaure()
     player_mode = ds.get_player_mode()
 
-    playing_time = time.time() - ds.last_play
+    playing_time = time.time() - float(ds.last_play)
 
     text_surface_hostname = font_small.render(u'%s' % hostname, True, WHITE)
     text_surface_cpu_temp = font_small.render(u'%s' % cpu_temp, True, WHITE)
