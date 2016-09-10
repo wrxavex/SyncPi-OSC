@@ -214,7 +214,7 @@ def display_main_info(time_now):
     player_mode = ds.get_player_mode()
 
     if ds.last_play == 0:
-        playing_time == '0'
+        playing_time = '0'
     else:
         playing_time = int(time.time() - ds.last_play)
         playing_time = str(playing_time // 60) + "分"+str(playing_time % 60)
