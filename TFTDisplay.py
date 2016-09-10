@@ -214,10 +214,10 @@ def display_main_info(time_now):
     player_mode = ds.get_player_mode()
 
     if ds.last_play == 0:
-        playing_time = '0'
+        playing_time = '未播放'
     else:
         playing_time = int(time.time() - ds.last_play)
-        playing_time = str(playing_time // 60) + "分"+str(playing_time % 60)
+        playing_time = str(playing_time // 60) + "分"+str(playing_time % 60) + "秒"
 
     text_surface_hostname = font_small.render(u'%s' % hostname, True, WHITE)
     text_surface_cpu_temp = font_small.render(u'%s' % cpu_temp, True, WHITE)
@@ -239,7 +239,7 @@ def display_main_info(time_now):
     text_surface_device11 = font_small.render(u'11:%d' % ds.device_status[14], True, WHITE)
     text_surface_device12 = font_small.render(u'12:%d' % ds.device_status[15], True, WHITE)
 
-    text_surface_last_play = font_small.render(u'ls:%s' % playing_time, True, WHITE)
+    text_surface_last_play = font_small.render(u'播放狀態:%s' % playing_time, True, WHITE)
     text_surface_play_count = font_small.render(u'count:%d' % ds.device_status[3], True, WHITE)
 
     rect_hostname = text_surface_hostname.get_rect(center=(160, 18))
