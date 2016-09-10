@@ -235,7 +235,7 @@ def display_main_info(time_now):
     text_surface_device11 = font_small.render(u'11:%d' % ds.device_status[14], True, WHITE)
     text_surface_device12 = font_small.render(u'12:%d' % ds.device_status[15], True, WHITE)
 
-    text_surface_last_play = font_small.render(u'ls:%s' % playing_time, True, WHITE)
+    text_surface_last_play = font_small.render(u'ls:%f' % playing_time, True, WHITE)
     text_surface_play_count = font_small.render(u'count:%d' % ds.device_status[3], True, WHITE)
 
     rect_hostname = text_surface_hostname.get_rect(center=(160, 18))
@@ -540,7 +540,7 @@ def display_help_mode(time_now):
         btn5info = u'確定 △'
         btn6info = u'取消 ▽'
 
-    elif ds.status == 1 :
+    elif ds.status == 1:
         title = u'功能設明 - 播放模式'
         btn1info = u'ο 獨立播放'
         btn2info = u'□ 同步模式 - 主機'
