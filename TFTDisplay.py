@@ -10,6 +10,7 @@ import argparse
 
 import _thread
 
+# 引入python-osc
 from pythonosc import dispatcher
 from pythonosc import osc_server
 
@@ -66,38 +67,37 @@ while not button6:
 ds = display_status.DisplayStatus()
 
 
-def print_debug(unused_addr, args1, args2, args3, args4, args5, args6, args7, args8, args9, args10, args11, args12,
+def display_osc_message(unused_addr, args1, args2, args3, args4, args5, args6, args7, args8, args9, args10, args11, args12,
                 args13, args14, args15):
     try:
 
-        ds.device_status[1] = args1
-        ds.device_status[2] = args2
-        ds.device_status[3] = args3
-        ds.device_status[4] = args4
-        ds.device_status[6] = args5
-        ds.device_status[7] = args6
-        ds.device_status[8] = args7
-        ds.device_status[9] = args8
-        ds.device_status[10] = args9
-        ds.device_status[11] = args10
-        ds.device_status[12] = args11
-        ds.device_status[13] = args12
-        ds.device_status[14] = args13
-        ds.device_status[15] = args14
+        ds.device_status[1] = args1     # osc source
+        ds.device_status[2] = args2     # to message
+        ds.device_status[3] = args3     # played counts
+        ds.device_status[4] = args4     # 1st device status
+        ds.device_status[5] = args5     # 2rd device status
+        ds.device_status[6] = args6     # 3th device status
+        ds.device_status[7] = args7
+        ds.device_status[8] = args8
+        ds.device_status[9] = args9
+        ds.device_status[10] = args10
+        ds.device_status[11] = args11
+        ds.device_status[12] = args12
+        ds.device_status[13] = args13
+        ds.device_status[14] = args14
+        ds.device_status[15] = args15
 
         if ds.device_status[4] == 1:
-            ds.last_play = time.strftime('%X')
+            ds.last_play = time.time()
 
-        print('args={0} args2={1} args3={2} args4={3}'.format( ds.device_status[1], ds.device_status[2], ds.device_status[3], ds.device_status[4]))
-        print(args1)
-        print(args2)
-        print(args3)
-        print(args4)
+        # print('args={0} args2={1} args3={2} args4={3}'.format( ds.device_status[1], ds.device_status[2], ds.device_status[3], ds.device_status[4]))
+        # print(args1)
+        # print(args2)
+        # print(args3)
+        # print(args4)
     except:
         pass
-
-
-
+        print("osc message error")
 
 hostname = platform.node()
 os.environ['TZ'] = 'Asia/Taipei'
@@ -169,10 +169,6 @@ def btnevent5():
         if ds.status == 3:
             ds.btnsubmit = 1
 
-
-
-
-
 def btnevent6():
     if ds.help_mode == 1:
         ds.help_mode = 0
@@ -217,6 +213,8 @@ def display_main_info(time_now):
     cpu_temp = ds.get_cpu_temperaure()
     player_mode = ds.get_player_mode()
 
+    playing_time = time.time() - ds.last_play
+
     text_surface_hostname = font_small.render(u'%s' % hostname, True, WHITE)
     text_surface_cpu_temp = font_small.render(u'%s' % cpu_temp, True, WHITE)
     text_surface_myip = font_small.render(u'IP:%s' % my_ip, True, WHITE)
@@ -237,7 +235,7 @@ def display_main_info(time_now):
     text_surface_device11 = font_small.render(u'11:%d' % ds.device_status[14], True, WHITE)
     text_surface_device12 = font_small.render(u'12:%d' % ds.device_status[15], True, WHITE)
 
-    text_surface_last_play = font_small.render(u'ls:%s' % ds.last_play, True, WHITE)
+    text_surface_last_play = font_small.render(u'ls:%s' % playing_time, True, WHITE)
     text_surface_play_count = font_small.render(u'count:%d' % ds.device_status[3], True, WHITE)
 
     rect_hostname = text_surface_hostname.get_rect(center=(160, 18))
@@ -601,15 +599,19 @@ if __name__ == '__main__':
                         type=int, default=9997, help="The port to listen on")
     args = parser.parse_args()
 
+    # 設定python-osc接收頻道和呼叫函式
     dispatcher = dispatcher.Dispatcher()
-    dispatcher.map("/omxplayer", print_debug)
+    dispatcher.map("/omxplayer", display_osc_message)
 
     server = osc_server.ThreadingOSCUDPServer(
         (args.ip, args.port), dispatcher)
     print("Serving on {}".format(server.server_address))
+
+    # 用多線程執行main
     try:
         _thread.start_new_thread(main, ("main", 0))
     except:
         print("something wrong")
-    server.serve_forever()
 
+    # 持續osc接收
+    server.serve_forever()
