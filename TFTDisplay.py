@@ -106,6 +106,9 @@ def display_osc_slave_message(unused_addr, args1, args2):
             ds.last_play = time.time()
             ds.count = args2
 
+            print(unused_addr)
+            print(args1)
+            print(args2)
 
 
     except:
