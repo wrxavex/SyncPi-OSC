@@ -239,7 +239,7 @@ def display_main_info(time_now):
     text_surface_device11 = font_small.render(u'11:%d' % ds.device_status[14], True, WHITE)
     text_surface_device12 = font_small.render(u'12:%d' % ds.device_status[15], True, WHITE)
 
-    text_surface_play_count = font_small.render(u'影片已播:%d次==%s' % (ds.device_status[3], playing_time), True, WHITE)
+    text_surface_play_count = font_small.render(u'影片已播:%d次 - %s' % (ds.device_status[3], playing_time), True, WHITE)
     # text_surface_last_play = font_small.render(u'- %s' % playing_time, True, WHITE)
 
     rect_hostname = text_surface_hostname.get_rect(center=(160, 18))
