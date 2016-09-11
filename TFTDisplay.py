@@ -102,13 +102,14 @@ def display_osc_master_message(unused_addr, args1, args2, args3, args4, args5, a
 
 def display_osc_slave_message(unused_addr, args1, args2):
     try:
+        print(unused_addr)
+        print(args1)
+        print(args2)
         if ds.device_status[1] == 10:
             ds.last_play = time.time()
             ds.count = args2
 
-            print(unused_addr)
-            print(args1)
-            print(args2)
+
 
 
     except:
