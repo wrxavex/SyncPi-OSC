@@ -239,8 +239,8 @@ def display_main_info(time_now):
     text_surface_device11 = font_small.render(u'11:%d' % ds.device_status[14], True, WHITE)
     text_surface_device12 = font_small.render(u'12:%d' % ds.device_status[15], True, WHITE)
 
-    text_surface_last_play = font_small.render(u'已播:%s' % playing_time, True, WHITE)
-    text_surface_play_count = font_small.render(u' %d次' % ds.device_status[3], True, WHITE)
+    text_surface_play_count = font_small.render(u'已播 %d次' % ds.device_status[3], True, WHITE)
+    text_surface_last_play = font_small.render(u'- %s' % playing_time, True, WHITE)
 
     rect_hostname = text_surface_hostname.get_rect(center=(160, 18))
     rect_myip = text_surface_myip.get_rect(center=(160, 48))
@@ -248,8 +248,8 @@ def display_main_info(time_now):
 
     rect_video_now = text_surface_video_now.get_rect(center=(160,108))
 
-    rect_last_play = text_surface_last_play.get_rect(center=(80, 138))
-    rect_play_count = text_surface_play_count.get_rect(center=(240,138))
+    rect_play_count = text_surface_play_count.get_rect(center=(80,138))
+    rect_last_play = text_surface_last_play.get_rect(center=(240, 138))
 
     rect_device1 = text_surface_device1.get_rect(center=(45, 165))
     rect_device2 = text_surface_device2.get_rect(center=(93, 165))
