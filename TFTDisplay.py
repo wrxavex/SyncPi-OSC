@@ -108,6 +108,7 @@ def display_osc_slave_message(unused_addr, args1, args2):
         if ds.device_status[1] == 10:
             ds.last_play = time.time()
             ds.count = args2
+            print("setting osc value")
 
 
 
