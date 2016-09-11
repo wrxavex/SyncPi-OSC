@@ -86,8 +86,30 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
                 udp.send(x, 0, x.length, 9999, master_id);
                 console.log('send osc message to master');
 
+
+
                 // 播放次數加一
                 vp.number = vp.number + 1;
+
+
+                // set slave tft display status
+                var slave_play_status = osc.toBuffer({
+                    oscType: 'message',
+                    address: '/omxplayer',
+                    args: [
+                        {
+                            type: 'integer',
+                            value: 10
+                        },
+                        {
+                            type: 'integer',
+                            value: parseInt(vp.number)
+                        }
+                    ]
+                });
+
+                // send osc message to slave tft display status
+                udp.send(slave_play_status, 0, slave_play_status.length, 9997, 127.0.0.1);
 
                 // 取得現在時間
                 var time = new Date();

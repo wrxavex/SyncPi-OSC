@@ -67,7 +67,7 @@ while not button6:
 ds = display_status.DisplayStatus()
 
 
-def display_osc_message(unused_addr, args1, args2, args3, args4, args5, args6, args7, args8, args9, args10, args11, args12,
+def display_osc_master_message(unused_addr, args1, args2, args3, args4, args5, args6, args7, args8, args9, args10, args11, args12,
                 args13, args14, args15):
     try:
 
@@ -98,6 +98,20 @@ def display_osc_message(unused_addr, args1, args2, args3, args4, args5, args6, a
     except:
         pass
         print("osc message error")
+
+
+def display_osc_slave_message(unused_addr, args1, args2):
+    try:
+        if ds.device_status[1] == 10:
+            ds.last_play = time.time()
+            ds.count = args2
+
+
+
+    except:
+        pass
+        print("osc message error")
+
 
 hostname = platform.node()
 os.environ['TZ'] = 'Asia/Taipei'
@@ -219,6 +233,54 @@ def display_main_info(time_now):
         playing_time = int(time.time() - ds.last_play)
         playing_time = str(playing_time // 60) + "分"+str(playing_time % 60) + "秒"
 
+    if ds.id == 1:
+        text_surface_device1 = font_small.render(u'1:%d' % ds.device_status[4], True, WHITE)
+        text_surface_device2 = font_small.render(u'2:%d' % ds.device_status[5], True, WHITE)
+        text_surface_device3 = font_small.render(u'3:%d' % ds.device_status[6], True, WHITE)
+        text_surface_device4 = font_small.render(u'4:%d' % ds.device_status[7], True, WHITE)
+        text_surface_device5 = font_small.render(u'5:%d' % ds.device_status[8], True, WHITE)
+        text_surface_device6 = font_small.render(u'6:%d' % ds.device_status[9], True, WHITE)
+        text_surface_device7 = font_small.render(u'7:%d' % ds.device_status[10], True, WHITE)
+        text_surface_device8 = font_small.render(u'8:%d' % ds.device_status[11], True, WHITE)
+        text_surface_device9 = font_small.render(u'9:%d' % ds.device_status[12], True, WHITE)
+        text_surface_device10 = font_small.render(u'10:%d' % ds.device_status[13], True, WHITE)
+        text_surface_device11 = font_small.render(u'11:%d' % ds.device_status[14], True, WHITE)
+        text_surface_device12 = font_small.render(u'12:%d' % ds.device_status[15], True, WHITE)
+        text_surface_play_count = font_small.render(u'影片已播:%d次 - %s' % (ds.device_status[3], playing_time), True, WHITE)
+        rect_play_count = text_surface_play_count.get_rect(center=(160, 138))
+        rect_device1 = text_surface_device1.get_rect(center=(45, 165))
+        rect_device2 = text_surface_device2.get_rect(center=(93, 165))
+        rect_device3 = text_surface_device3.get_rect(center=(141, 165))
+        rect_device4 = text_surface_device4.get_rect(center=(189, 165))
+        rect_device5 = text_surface_device5.get_rect(center=(237, 165))
+        rect_device6 = text_surface_device6.get_rect(center=(285, 165))
+        rect_device7 = text_surface_device7.get_rect(center=(45, 188))
+        rect_device8 = text_surface_device8.get_rect(center=(93, 188))
+        rect_device9 = text_surface_device9.get_rect(center=(141, 188))
+        rect_device10 = text_surface_device10.get_rect(center=(189, 188))
+        rect_device11 = text_surface_device11.get_rect(center=(237, 188))
+        rect_device12 = text_surface_device12.get_rect(center=(285, 188))
+        lcd.blit(text_surface_play_count, rect_play_count)
+
+        lcd.blit(text_surface_device1, rect_device1)
+        lcd.blit(text_surface_device2, rect_device2)
+        lcd.blit(text_surface_device3, rect_device3)
+        lcd.blit(text_surface_device4, rect_device4)
+        lcd.blit(text_surface_device5, rect_device5)
+        lcd.blit(text_surface_device6, rect_device6)
+        lcd.blit(text_surface_device7, rect_device7)
+        lcd.blit(text_surface_device8, rect_device8)
+        lcd.blit(text_surface_device9, rect_device9)
+        lcd.blit(text_surface_device10, rect_device10)
+        lcd.blit(text_surface_device11, rect_device11)
+        lcd.blit(text_surface_device12, rect_device12)
+    else:
+        text_surface_play_count = font_small.render(u'影片已播:%d次 - %s' % (ds.count, playing_time), True, WHITE)
+        rect_play_count = text_surface_play_count.get_rect(center=(160, 138))
+        lcd.blit(text_surface_play_count, rect_play_count)
+
+
+
     text_surface_hostname = font_small.render(u'%s' % hostname, True, WHITE)
     text_surface_cpu_temp = font_small.render(u'%s' % cpu_temp, True, WHITE)
     text_surface_myip = font_small.render(u'IP:%s' % my_ip, True, WHITE)
@@ -226,43 +288,11 @@ def display_main_info(time_now):
     text_surface_video_now = font_small.render(u'現在影片：%s' % ds.video_name, True, WHITE)
     text_surface_time = font_small.render(u'%s' % time_now, True, WHITE)
 
-    text_surface_device1 = font_small.render(u'1:%d' % ds.device_status[4], True, WHITE)
-    text_surface_device2 = font_small.render(u'2:%d' % ds.device_status[5], True, WHITE)
-    text_surface_device3 = font_small.render(u'3:%d' % ds.device_status[6], True, WHITE)
-    text_surface_device4 = font_small.render(u'4:%d' % ds.device_status[7], True, WHITE)
-    text_surface_device5 = font_small.render(u'5:%d' % ds.device_status[8], True, WHITE)
-    text_surface_device6 = font_small.render(u'6:%d' % ds.device_status[9], True, WHITE)
-    text_surface_device7 = font_small.render(u'7:%d' % ds.device_status[10], True, WHITE)
-    text_surface_device8 = font_small.render(u'8:%d' % ds.device_status[11], True, WHITE)
-    text_surface_device9 = font_small.render(u'9:%d' % ds.device_status[12], True, WHITE)
-    text_surface_device10 = font_small.render(u'10:%d' % ds.device_status[13], True, WHITE)
-    text_surface_device11 = font_small.render(u'11:%d' % ds.device_status[14], True, WHITE)
-    text_surface_device12 = font_small.render(u'12:%d' % ds.device_status[15], True, WHITE)
-
-    text_surface_play_count = font_small.render(u'影片已播:%d次 - %s' % (ds.device_status[3], playing_time), True, WHITE)
-    # text_surface_last_play = font_small.render(u'- %s' % playing_time, True, WHITE)
-
     rect_hostname = text_surface_hostname.get_rect(center=(160, 18))
     rect_myip = text_surface_myip.get_rect(center=(160, 48))
     rect_player_mode = text_surface_player_mode.get_rect(center=(160,78))
 
     rect_video_now = text_surface_video_now.get_rect(center=(160,108))
-
-    rect_play_count = text_surface_play_count.get_rect(center=(160,138))
-    # rect_last_play = text_surface_last_play.get_rect(center=(240, 138))
-
-    rect_device1 = text_surface_device1.get_rect(center=(45, 165))
-    rect_device2 = text_surface_device2.get_rect(center=(93, 165))
-    rect_device3 = text_surface_device3.get_rect(center=(141, 165))
-    rect_device4 = text_surface_device4.get_rect(center=(189, 165))
-    rect_device5 = text_surface_device5.get_rect(center=(237, 165))
-    rect_device6 = text_surface_device6.get_rect(center=(285, 165))
-    rect_device7 = text_surface_device7.get_rect(center=(45, 188))
-    rect_device8 = text_surface_device8.get_rect(center=(93, 188))
-    rect_device9 = text_surface_device9.get_rect(center=(141, 188))
-    rect_device10 = text_surface_device10.get_rect(center=(189, 188))
-    rect_device11 = text_surface_device11.get_rect(center=(237, 188))
-    rect_device12 = text_surface_device12.get_rect(center=(285, 188))
 
     rect_time = text_surface_time.get_rect(center=(80, 216))
     rect_cpu_temp = text_surface_cpu_temp.get_rect(center=(240, 216))
@@ -273,22 +303,6 @@ def display_main_info(time_now):
     lcd.blit(text_surface_cpu_temp, rect_cpu_temp)
     lcd.blit(text_surface_video_now, rect_video_now)
     lcd.blit(text_surface_time, rect_time)
-
-    # lcd.blit(text_surface_last_play, rect_last_play)
-    lcd.blit(text_surface_play_count, rect_play_count)
-
-    lcd.blit(text_surface_device1, rect_device1)
-    lcd.blit(text_surface_device2, rect_device2)
-    lcd.blit(text_surface_device3, rect_device3)
-    lcd.blit(text_surface_device4, rect_device4)
-    lcd.blit(text_surface_device5, rect_device5)
-    lcd.blit(text_surface_device6, rect_device6)
-    lcd.blit(text_surface_device7, rect_device7)
-    lcd.blit(text_surface_device8, rect_device8)
-    lcd.blit(text_surface_device9, rect_device9)
-    lcd.blit(text_surface_device10, rect_device10)
-    lcd.blit(text_surface_device11, rect_device11)
-    lcd.blit(text_surface_device12, rect_device12)
 
 
 def display_set_player_mode(time_now):
@@ -606,8 +620,12 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # 設定python-osc接收頻道和呼叫函式
+
     dispatcher = dispatcher.Dispatcher()
-    dispatcher.map("/omxplayer", display_osc_message)
+    if ds.id == 1:
+        dispatcher.map("/omxplayer", display_osc_master_message)
+    else:
+        dispatcher.map("/omxplayer", display_osc_slave_message)
 
     server = osc_server.ThreadingOSCUDPServer(
         (args.ip, args.port), dispatcher)
