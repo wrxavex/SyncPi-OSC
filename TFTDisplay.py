@@ -627,8 +627,10 @@ if __name__ == '__main__':
     dispatcher = dispatcher.Dispatcher()
     if ds.id == 1:
         dispatcher.map("/omxplayer", display_osc_master_message)
+        print("master's server")
     else:
         dispatcher.map("/omxplayer", display_osc_slave_message)
+        print("slave's server")
 
     server = osc_server.ThreadingOSCUDPServer(
         (args.ip, args.port), dispatcher)
