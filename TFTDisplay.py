@@ -283,6 +283,7 @@ def display_main_info(time_now):
         text_surface_play_count = font_small.render(u'影片已播:%d次 - %s' % (ds.count, playing_time), True, WHITE)
         rect_play_count = text_surface_play_count.get_rect(center=(160, 138))
         lcd.blit(text_surface_play_count, rect_play_count)
+        print("slave display set")
 
 
 
