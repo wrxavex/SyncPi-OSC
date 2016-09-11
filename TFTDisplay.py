@@ -248,7 +248,7 @@ def display_main_info(time_now):
 
     rect_video_now = text_surface_video_now.get_rect(center=(160,108))
 
-    rect_play_count = text_surface_play_count.get_rect(center=(80,138))
+    rect_play_count = text_surface_play_count.get_rect(center=(160,138))
     # rect_last_play = text_surface_last_play.get_rect(center=(240, 138))
 
     rect_device1 = text_surface_device1.get_rect(center=(45, 165))
