@@ -239,8 +239,8 @@ def display_main_info(time_now):
     text_surface_device11 = font_small.render(u'11:%d' % ds.device_status[14], True, WHITE)
     text_surface_device12 = font_small.render(u'12:%d' % ds.device_status[15], True, WHITE)
 
-    text_surface_last_play = font_small.render(u'播放狀態:%s' % playing_time, True, WHITE)
-    text_surface_play_count = font_small.render(u'count:%d' % ds.device_status[3], True, WHITE)
+    text_surface_last_play = font_small.render(u'已播:%s' % playing_time, True, WHITE)
+    text_surface_play_count = font_small.render(u' %d次' % ds.device_status[3], True, WHITE)
 
     rect_hostname = text_surface_hostname.get_rect(center=(160, 18))
     rect_myip = text_surface_myip.get_rect(center=(160, 48))
