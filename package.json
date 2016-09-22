@@ -23,6 +23,13 @@
     "osc-min": "^0.2.0",
     "socket.io": "^1.3.5",
     "omxcontrol":"^0.0.1",
-    "exec-sync": "0.1.6"
+    "exec-sync": "0.1.6",
+    "express": "4.13.3",
+    "multer": "1.1.0"
+  },
+  "devDependencies": {
+    "should": "~7.1.0",
+    "mocha": "~2.3.3",
+    "supertest": "~1.1.0"
   }
 }
