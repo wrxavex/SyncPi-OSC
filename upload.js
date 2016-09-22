@@ -3,6 +3,8 @@ var multer	= require('multer');
 
 var fs = require('fs');
 var video_id = fs.readFileSync('/boot/sync_setting.txt', 'utf8');
+video_id = video_id.replace(/(\r\n|\n|\r)/gm,"");
+video_id = video_id.substring(3, 5);
 
 var app	=	express();
 var storage	=	multer.diskStorage({
