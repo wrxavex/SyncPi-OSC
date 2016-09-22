@@ -1,12 +1,16 @@
-var express	=	require("express");
-var multer	=	require('multer');
+var express	= require("express");
+var multer	= require('multer');
+
+var fs = require('fs');
+var video_id = fs.readFileSync('/boot/sync_setting.txt', 'utf8');
+
 var app	=	express();
 var storage	=	multer.diskStorage({
     destination: function (req, file, callback) {
         callback(null, '/home/pi/ntmofa/');
     },
     filename: function (req, file, callback) {
-        callback(null, file.fieldname + '-' + Date.now());
+        callback(null, 'v-' + video_id +'.mp4');
     }
 });
 var upload = multer({ storage : storage}).single('userPhoto');
