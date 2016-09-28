@@ -109,11 +109,6 @@ def display_osc_slave_message(unused_addr, args1, args2):
             ds.last_play = time.time()
             ds.count = args2
             print("setting osc value")
-
-
-
-
-
     except:
         pass
         print("osc message error")
@@ -285,8 +280,6 @@ def display_main_info(time_now):
         rect_play_count = text_surface_play_count.get_rect(center=(160, 138))
         lcd.blit(text_surface_play_count, rect_play_count)
 
-
-
     text_surface_hostname = font_small.render(u'%s' % hostname, True, WHITE)
     text_surface_cpu_temp = font_small.render(u'%s' % cpu_temp, True, WHITE)
     text_surface_myip = font_small.render(u'IP:%s' % my_ip, True, WHITE)
@@ -381,6 +374,7 @@ def check_option(time_now):
                     ds.id_to_set = 1
                     ds.btnevent = 0
                     ds.status = 1
+                    ds.ready_reboot = 1
             elif ds.btnevent == 3:
                 mode_modify = u'變更為同步播放從機'
                 if ds.btnsubmit == 1:
@@ -389,6 +383,7 @@ def check_option(time_now):
                     ds.id_to_set = 2
                     ds.btnevent = 0
                     ds.status = 3
+                    ds.ready_reboot = 1
 
         elif ds.player_mode == 1:
             mode_now += u'同步播放主機'
@@ -399,6 +394,7 @@ def check_option(time_now):
                     ds.player_mode = 0
                     ds.btnevent = 0
                     ds.status = 1
+                    ds.ready_reboot = 1
             elif ds.btnevent == 2:
                 mode_modify = u'不做變動'
                 if ds.btnsubmit == 1:
@@ -413,6 +409,7 @@ def check_option(time_now):
                     ds.id_to_set = 2
                     ds.btnevent = 0
                     ds.status = 3
+                    ds.ready_reboot = 1
 
         elif ds.player_mode == 2:
             mode_now += u'同步播放從機'
@@ -424,6 +421,7 @@ def check_option(time_now):
                     ds.player_mode = 0
                     ds.btnevent = 0
                     ds.status = 1
+                    ds.ready_reboot = 1
             elif ds.btnevent == 2:
                 mode_modify = u'變更為同步播放主機'
                 if ds.btnsubmit == 1:
@@ -432,6 +430,7 @@ def check_option(time_now):
                     ds.id_to_set = 1
                     ds.btnevent = 0
                     ds.status = 1
+                    ds.ready_reboot = 1
             elif ds.btnevent == 3:
                 mode_modify = u'設定同步播放從機'
                 if ds.btnsubmit == 1:

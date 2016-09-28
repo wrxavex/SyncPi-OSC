@@ -89,7 +89,11 @@ class DisplayStatus():
         self.help_mode = 0
         # if hlep_mode = 1 than display help info
 
-        self.player_mode = 0
+        if sync_id == 1:
+            self.player_mode = 1
+        elif sync_id > 1:
+            self.player_mode = 2
+
         # player_mode = 0 => Standalone
         # player_mode = 1 => Master
         # player_mode = 2 => Slave
