@@ -358,6 +358,12 @@ def check_option(time_now):
         mode_now = u'現在模式：'
         info = u'按 △ 確定修改 or 按 ▽ 取消'
 
+        if ds.id != 1 and ds.id_to_set == 1:
+            info = u'按下 △ 重新開機'
+            if ds.btnsubmit == 1:
+                info = u'重新開機中'
+                ds.set_id()
+
         if ds.player_mode == 0:
             mode_now += u'獨立播放模式'
             if ds.btnevent == 1:
@@ -369,12 +375,12 @@ def check_option(time_now):
             elif ds.btnevent == 2:
                 mode_modify = u'變更為同步播放主機'
                 if ds.btnsubmit == 1:
-                    # ds.btnsubmit = 0
+                    ds.btnsubmit = 0
                     ds.player_mode = 1
                     ds.id_to_set = 1
                     ds.btnevent = 0
                     ds.status = 1
-                    ds.set_id()
+
             elif ds.btnevent == 3:
                 mode_modify = u'變更為同步播放從機'
                 if ds.btnsubmit == 1:
@@ -392,7 +398,7 @@ def check_option(time_now):
                     ds.btnsubmit = 0
                     ds.player_mode = 0
                     ds.btnevent = 0
-                    ds.status = 1
+                    ds.status = 11
             elif ds.btnevent == 2:
                 mode_modify = u'不做變動'
                 if ds.btnsubmit == 1:
@@ -421,14 +427,13 @@ def check_option(time_now):
                     ds.id_to_set = 1
                     ds.set_id()
             elif ds.btnevent == 2:
-                mode_modify = u'變更為同步播放主機'
+                mode_modify = u'設定為同步播放主機'
                 if ds.btnsubmit == 1:
-                    ds.btnsubmit = 1
+                    mode_modify = u'重開機中'
                     ds.player_mode = 1
                     ds.id_to_set = 1
                     ds.btnevent = 0
-                    ds.status = 1
-                    ds.set_id()
+                    ds.status = 11
             elif ds.btnevent == 3:
                 mode_modify = u'設定同步播放從機'
                 if ds.btnsubmit == 1:
