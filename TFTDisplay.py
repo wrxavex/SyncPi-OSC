@@ -433,7 +433,6 @@ def check_option(time_now):
                     ds.player_mode = 1
                     ds.id_to_set = 1
                     ds.btnevent = 0
-                    ds.status = 3
             elif ds.btnevent == 3:
                 mode_modify = u'設定同步播放從機'
                 if ds.btnsubmit == 1:
