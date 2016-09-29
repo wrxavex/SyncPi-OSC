@@ -356,6 +356,7 @@ def check_option(time_now):
     if ds.status == 11:
         title = u'修改播放模式'
         mode_now = u'現在模式：'
+        mode_modify = u''
         info = u'按 △ 確定修改 or 按 ▽ 取消'
 
         if ds.id != 1 and ds.id_to_set == 1:
@@ -432,6 +433,7 @@ def check_option(time_now):
                     ds.player_mode = 1
                     ds.id_to_set = 1
                     ds.btnevent = 0
+                    ds.status = 3
             elif ds.btnevent == 3:
                 mode_modify = u'設定同步播放從機'
                 if ds.btnsubmit == 1:
