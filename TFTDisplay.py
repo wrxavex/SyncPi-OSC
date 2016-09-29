@@ -430,6 +430,7 @@ def check_option(time_now):
                 mode_modify = u'設定為同步播放主機'
                 if ds.btnsubmit == 1:
                     mode_modify = u'重開機中'
+                    ds.btnsubmit = 0
                     ds.player_mode = 1
                     ds.id_to_set = 1
                     ds.btnevent = 0
