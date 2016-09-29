@@ -15,7 +15,7 @@ var storage	=	multer.diskStorage({
         callback(null, 'v-' + video_id +'.mp4');
     }
 });
-var upload = multer({ storage : storage}).single('userPhoto');
+var upload = multer({ storage : storage}).single('userVideo');
 
 app.get('/',function(req,res){
     res.sendFile(__dirname + "/index.html");
@@ -24,9 +24,9 @@ app.get('/',function(req,res){
 app.post('/api/photo',function(req,res){
     upload(req,res,function(err) {
         if(err) {
-            return res.end("Error uploading file.");
+            return res.end("上傳出錯.");
         }
-        res.end("File is uploaded");
+        res.end("影片上傳完畢");
     });
 });
 
