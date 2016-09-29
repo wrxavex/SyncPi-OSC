@@ -425,7 +425,6 @@ def check_option(time_now):
                     ds.btnevent = 0
                     ds.status = 1
                     ds.id_to_set = 1
-                    ds.set_id()
             elif ds.btnevent == 2:
                 mode_modify = u'設定為同步播放主機'
                 if ds.btnsubmit == 1:
@@ -434,7 +433,6 @@ def check_option(time_now):
                     ds.player_mode = 1
                     ds.id_to_set = 1
                     ds.btnevent = 0
-                    ds.status = 11
             elif ds.btnevent == 3:
                 mode_modify = u'設定同步播放從機'
                 if ds.btnsubmit == 1:
