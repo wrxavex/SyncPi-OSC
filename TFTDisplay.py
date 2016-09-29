@@ -361,6 +361,8 @@ def check_option(time_now):
 
         if ds.id != 1 and ds.id_to_set == 1:
             info = u'按下 △ 重新開機'
+            print ('ds.submit %s ' % ds.btnsubmit)
+            print ('ds.btnevent %s' % ds.btnevent)
             if ds.btnsubmit == 1:
                 info = u'重新開機中'
                 ds.set_id()
