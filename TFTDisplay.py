@@ -118,7 +118,7 @@ hostname = platform.node()
 os.environ['TZ'] = 'Asia/Taipei'
 time.tzset()
 
-font_file = "/home/pi/SyncPi8/msjh.ttc"
+font_file = "/home/pi/SyncPi-OSC/msjh.ttc"
 os.putenv('SDL_FBDEV', '/dev/fb1')
 pygame.init()
 pygame.mouse.set_visible(False)
