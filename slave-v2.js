@@ -60,6 +60,22 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
         ]
     });
 
+    var x_rebooting = osc.toBuffer({
+        oscType: 'message',
+        address: '/omxplayer',
+        args: [
+            {
+                type: 'integer',
+                value: parseInt(vp.video_id)
+            },
+            {
+                type: 'integer',
+                value: 3
+            }
+        ]
+    });
+
+
     // save the remote address
     remote = rinfo.address;
     try {
@@ -76,6 +92,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
 
             if (parseInt(osc_message.args[1].value) == 3) {
                 console.log("master send reboot message\n");
+                udp.send(x_rebooting, 0, x_rebooting.length, 9999, master_id);
 
                 exec('sudo reboot', function (error, stdout, stderr) {
                     console.log('stdout: ' + stdout);

@@ -44,6 +44,11 @@
                 document.getElementById('device_2_button').innerHTML = '2 開';
                 document.getElementById('device_2_button').className = 'btn btn-default btn-lg';
             }
+            if(data == 'rebooting'){
+                document.getElementById('device_2_button').innerHTML = '2 重開機中';
+                document.getElementById('device_2_button').className = 'btn btn-primary btn-lg';
+            }
+
             if(data == 'off'){
                 document.getElementById('device_2_button').innerHTML = '2 關';
                 document.getElementById('device_2_button').className = 'btn btn-primary btn-lg';

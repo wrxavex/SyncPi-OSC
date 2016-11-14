@@ -228,6 +228,11 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 device_status.id_2 = '2';
                 io.emit('device_2', 'off');
             }
+            if (parseInt(osc_message.args[1].value) == 3) {
+                console.log("no.2 rebooting\n");
+                device_status.id_2 = '3';
+                io.emit('device_2', 'rebooting');
+            }
         }
 
         // 如果第一個參數是3
