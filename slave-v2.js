@@ -74,6 +74,19 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
         if (parseInt(osc_message.args[0].value) == 1) {
             console.log('it\'s master\'s message, play movie');
 
+            if (parseInt(osc_message.args[1].value) == 3) {
+                console.log("master send reboot message\n");
+
+                exec('sudo reboot', function(error, stdout, stderr) {
+                    console.log('stdout: ' + stdout);
+                    console.log('stderr: ' + stderr);
+                    if (error !== null) {
+                        console.log('exec error: ' + error);
+                    }
+                });
+
+
+
             // 假如沒在播放狀態
             if (vp.is_playing == false){
 

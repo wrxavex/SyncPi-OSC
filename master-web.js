@@ -14,6 +14,22 @@ http.listen(8080, '0.0.0.0',  function(){
 
 io.on('connection', function(socket){
     console.log ('connection');
+
+    var reboot_message = osc.toBuffer({
+        oscType: 'message',
+        address: '/omxplayer',
+        args: [
+            {
+                type: 'integer',
+                value: 1
+            },
+            {
+                type: 'integer',
+                value: 3
+            }
+        ]
+    });
+
     socket.on('device_control', function(msg){
         console.log('回傳控制碼: ' + msg);
         if (msg == 'switch_1'){
@@ -21,6 +37,7 @@ io.on('connection', function(socket){
         }
         if (msg == 'switch_2'){
             console.log('switch 2');
+            udp.send(reboot_message, 0, reboot_message.length, 9998, "192.168.1.202");
         }
         if (msg == 'switch_3'){
             console.log('switch 3');
@@ -99,6 +116,8 @@ function send() {
             }
         ]
     });
+
+
 
     // 播放次數加一
     play_count = play_count + 1;
