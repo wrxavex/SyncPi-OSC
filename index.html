@@ -27,7 +27,7 @@
         var socket = io();
 
         socket.on('light_1', function(data){
-            console.log(data);
+            console.log('light_1'+data);
             if(data == 'on'){
                 document.getElementById('light_1_button').innerHTML = '1 開';
                 document.getElementById('light_1_button').className = 'btn btn-default btn-lg';
