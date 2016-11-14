@@ -50,6 +50,7 @@ def reboot_process():
 
     if bs.btn_pressed == 1:
         bs.btn_pressed = 0
+        bs.ready_to_reboot = 0
         print('set pressed = 0')
 
     elif bs.btn_pressed == 0:
