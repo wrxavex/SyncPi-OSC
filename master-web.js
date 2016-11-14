@@ -148,6 +148,7 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log("no.1 movie is end\n");
                 device_status.id_1 = '2';
                 send();
+                io.emit('light_1', 'off');
             }
         }
 
