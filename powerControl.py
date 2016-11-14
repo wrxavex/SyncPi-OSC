@@ -77,9 +77,13 @@ def reboot():
     led.off()
     check_call(['sudo', 'reboot'])
 
+
+def btn_pressed():
+    thread.start_new_thread(reboot_process, (1, ""))
+
 reboot_btn = Button(27, hold_time=3)
 reboot_btn.when_held = poweroff
 
-reboot_btn.when_pressed = reboot_process
+reboot_btn.when_pressed = btn_pressed
 
 pause()
