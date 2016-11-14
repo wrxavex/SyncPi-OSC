@@ -44,17 +44,22 @@ def poweroff():
 
 
 def reboot_process():
+    print('reboot_process')
 
     if bs.btn_pressed == 1:
         bs.btn_pressed = 0
+        print('set pressed = 0')
 
     elif bs.btn_pressed == 0:
+        print('set pressed = 1 and ready to reboot = 1')
         bs.btn_pressed = 1
         bs.ready_to_reboot = 1
 
     while bs.btn_pressed == 1:
 
         if bs.ready_to_reboot == 1:
+            print('reboot count -1 ==>')
+            print(bs.reboot_count)
             bs.reboot_count -= 1
             bs.btn_pressed = 0
 
