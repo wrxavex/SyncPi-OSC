@@ -12,6 +12,113 @@ http.listen(8080, '0.0.0.0',  function(){
     console.log('HTTP Server: http://127.0.0.1:8080/');
 });
 
+io.on('connection', function(socket){
+    light_init();
+
+    socket.on('light_control', function(msg){
+        console.log('回傳控制碼: ' + msg);
+        if (msg == '1'){
+            light_run();
+        }
+        if(msg == 'on'){
+            light_open();
+            setTimeout(function(){
+                light_init();
+            }, 2000);
+        }
+
+        if(msg == 'top_on'){
+            light_top_open();
+            setTimeout(function(){
+                light_init();
+            }, 2000);
+        }
+
+        if (msg == 'off'){
+            light_close();
+            setTimeout(function(){
+                light_init();
+            }, 2000);
+        }
+
+        if (msg == 'top_off'){
+            light_top_close();
+            setTimeout(function(){
+                light_init();
+            }, 2000);
+        }
+
+        if (msg == 'bright'){
+            light_bright_all();
+        }
+
+        if(msg == 'dark'){
+            light_dark_all();
+        }
+
+        if (msg == 'sat high'){
+            light_sat_high_all();
+        }
+
+        if (msg == 'sat low'){
+            light_sat_low_all();
+        }
+
+        if (msg == 'alert_9_15'){
+            alert_9_15();
+        }
+        if (msg == 'switch_1'){
+            switch_1();
+        }
+        if (msg == 'switch_2'){
+            switch_2();
+        }
+        if (msg == 'switch_3'){
+            switch_3();
+        }
+        if (msg == 'switch_4'){
+            switch_4();
+        }
+        if (msg == 'switch_5'){
+            switch_5();
+        }
+
+        if (msg == 'switch_6'){
+            switch_6();
+        }
+
+        if (msg == 'switch_7'){
+            switch_7();
+        }
+
+        if (msg == 'switch_8'){
+            switch_8();
+        }
+
+        if (msg == 'switch_9'){
+            switch_9();
+        }
+        if (msg == 'switch_10'){
+            switch_10();
+        }
+        if (msg == 'switch_11'){
+            switch_11();
+        }
+        if (msg == 'switch_12'){
+            switch_12();
+        }
+        if (msg == 'switch_13'){
+            switch_13();
+        }
+        if (msg == 'switch_14'){
+            switch_14();
+        }
+        if (msg == 'switch_15'){
+            switch_15();
+        }
+    });
+});
+
 // 引入 osc-min dgram fs
 var osc = require('osc-min'),
     dgram = require('dgram'),

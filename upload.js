@@ -18,7 +18,7 @@ var storage	=	multer.diskStorage({
 var upload = multer({ storage : storage}).single('userVideo');
 
 app.get('/',function(req,res){
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile(__dirname + "/upload.html");
 });
 
 app.post('/api/photo',function(req,res){
