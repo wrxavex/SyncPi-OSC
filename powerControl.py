@@ -53,6 +53,7 @@ def reboot_process(sleeptime, *args):
     if bs.btn_pressed == 1:
         bs.btn_pressed = 0
         bs.ready_to_reboot = 0
+        bs.reboot_count = 5
         print('set pressed = 0')
 
     elif bs.btn_pressed == 0:
