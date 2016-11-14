@@ -135,7 +135,7 @@
         });
 
         socket.on('device_10', function(data){
-            console.log('device_10+data);
+            console.log('device_10'+data);
             if(data == 'on'){
                 document.getElementById('device_10_button').innerHTML = '10 開';
                 document.getElementById('device_10_button').className = 'btn btn-default btn-lg';
