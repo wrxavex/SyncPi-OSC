@@ -228,7 +228,7 @@ var x_waiting = osc.toBuffer({
             },
             {
                 type: 'integer',
-                value: 3
+                value: 0
             }
         ]
     });
