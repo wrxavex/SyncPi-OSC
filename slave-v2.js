@@ -86,6 +86,18 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
                 });
             }
 
+            if (parseInt(osc_message.args[1].value) == 4) {
+                console.log("master send power off message\n");
+
+                exec('sudo poweroff', function (error, stdout, stderr) {
+                    console.log('stdout: ' + stdout);
+                    console.log('stderr: ' + stderr);
+                    if (error !== null) {
+                        console.log('exec error: ' + error);
+                    }
+                });
+            }
+
 
 
             // 假如沒在播放狀態

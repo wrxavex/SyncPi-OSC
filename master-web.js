@@ -30,6 +30,21 @@ io.on('connection', function(socket){
         ]
     });
 
+    var power_off_message = osc.toBuffer({
+        oscType: 'message',
+        address: '/omxplayer',
+        args: [
+            {
+                type: 'integer',
+                value: 1
+            },
+            {
+                type: 'integer',
+                value: 4
+            }
+        ]
+    });
+
     socket.on('device_control', function(msg){
         console.log('回傳控制碼: ' + msg);
         if (msg == 'switch_1'){
@@ -69,6 +84,15 @@ io.on('connection', function(socket){
         if (msg == 'switch_12'){
             console.log('switch 12');
         }
+        if (msg == 'power_off_1'){
+            console.log('power_off_1');
+            udp.send(power_off_message, 0, power_off_message.length, 9998, "192.168.1.201");
+        }
+        if (msg == 'power_off_2'){
+            console.log('power_off_2');
+            udp.send(power_off_message, 0, power_off_message.length, 9998, "192.168.1.202");
+        }
+
 
 
     });
