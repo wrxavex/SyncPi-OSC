@@ -37,6 +37,8 @@ def led_status(sleeptime, *args):
         led.off()
         sleep(0.25)
 
+thread.start_new_thread(led_status, (1, ""))
+
 
 def poweroff():
     led.off()
@@ -61,10 +63,11 @@ def reboot_process():
             print('reboot count -1 ==>')
             print(bs.reboot_count)
             bs.reboot_count -= 1
-            bs.btn_pressed = 0
+
 
         if bs.reboot_count == 0:
             reboot()
+        sleep(1)
 
 
 def reboot():
