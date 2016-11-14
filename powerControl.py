@@ -47,7 +47,7 @@ def poweroff():
     check_call(['sudo', 'poweroff'])
 
 
-def reboot_process():
+def reboot_process(sleeptime, *args):
     print('reboot_process')
 
     if bs.btn_pressed == 1:
