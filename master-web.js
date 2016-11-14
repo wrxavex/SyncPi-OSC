@@ -14,26 +14,45 @@ http.listen(8080, '0.0.0.0',  function(){
 
 io.on('connection', function(socket){
     console.log ('connection');
-    socket.on('light_control', function(msg){
+    socket.on('device_control', function(msg){
         console.log('回傳控制碼: ' + msg);
-        if (msg == '1'){
-            console.log('1');
+        if (msg == 'switch_1'){
+            console.log('switch 1');
         }
-        if(msg == 'on'){
-            console.log('on');
+        if (msg == 'switch_2'){
+            console.log('switch 2');
+        }
+        if (msg == 'switch_3'){
+            console.log('switch 3');
+        }
+        if (msg == 'switch_4'){
+            console.log('switch 4');
+        }
+        if (msg == 'switch_5'){
+            console.log('switch 5');
+        }
+        if (msg == 'switch_6'){
+            console.log('switch 6');
+        }
+        if (msg == 'switch_7'){
+            console.log('switch 7');
+        }
+        if (msg == 'switch_8'){
+            console.log('switch 8');
+        }
+        if (msg == 'switch_9'){
+            console.log('switch 9');
+        }
+        if (msg == 'switch_10'){
+            console.log('switch 10');
+        }
+        if (msg == 'switch_11'){
+            console.log('switch 11');
+        }
+        if (msg == 'switch_12'){
+            console.log('switch 12');
         }
 
-        if(msg == 'top_on'){
-            console.log('top on');
-        }
-
-        if (msg == 'off'){
-            console.log('off');
-        }
-
-        if (msg == 'top_off'){
-            console.log('top off');
-        }
 
     });
 });
