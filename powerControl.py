@@ -25,7 +25,7 @@ def led_status(sleeptime, *args):
     if bs.btn_pressed == 0:
         led.on()
 
-    if ready_to_reboot == 1:
+    if bs.ready_to_reboot == 1:
         led.on()
         sleep(0.5)
         led.off()
