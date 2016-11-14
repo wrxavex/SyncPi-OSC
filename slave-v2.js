@@ -234,3 +234,4 @@ var x_waiting = osc.toBuffer({
     });
 
 udp.send(x_waiting, 0, x_waiting.length, 9999, master_id);
+console.log('send waiting');
