@@ -218,6 +218,11 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
         if (parseInt(osc_message.args[0].value) == 2) {
             console.log("no.2 callback " + time.getTime());
             device_status.id_2_lasttime = time.getTime();
+            if (parseInt(osc_message.args[1].value) == 0) {
+                console.log("no.2 is get master message\n");
+                device_status.id_2 = '0';
+                io.emit('device_2', 'waiting');
+            }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.2 is get master message\n");
                 device_status.id_2 = '1';

@@ -76,6 +76,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
     });
 
 
+
     // save the remote address
     remote = rinfo.address;
     try {
@@ -216,3 +217,20 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
 udp.bind(9998);
 console.log('Listening for OSC messages on port 9998');
 console.log('This Machine is:' + vp.video_id);
+
+var x_waiting = osc.toBuffer({
+        oscType: 'message',
+        address: '/omxplayer',
+        args: [
+            {
+                type: 'integer',
+                value: parseInt(vp.video_id)
+            },
+            {
+                type: 'integer',
+                value: 3
+            }
+        ]
+    });
+
+udp.send(x_waiting, 0, x_waiting.length, 9999, master_id);
