@@ -77,13 +77,14 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
             if (parseInt(osc_message.args[1].value) == 3) {
                 console.log("master send reboot message\n");
 
-                exec('sudo reboot', function(error, stdout, stderr) {
+                exec('sudo reboot', function (error, stdout, stderr) {
                     console.log('stdout: ' + stdout);
                     console.log('stderr: ' + stderr);
                     if (error !== null) {
                         console.log('exec error: ' + error);
                     }
                 });
+            }
 
 
 
