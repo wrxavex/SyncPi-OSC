@@ -22,20 +22,22 @@ led.on()
 
 def led_status(sleeptime, *args):
 
-    if bs.btn_pressed == 0:
-        led.on()
+    while True:
 
-    if bs.ready_to_reboot == 1:
-        led.on()
-        sleep(0.5)
-        led.off()
-        sleep(0.5)
+        if bs.btn_pressed == 0:
+            led.on()
 
-    if bs.ready_to_poweroff == 1:
-        led.on()
-        sleep(0.25)
-        led.off()
-        sleep(0.25)
+        if bs.ready_to_reboot == 1:
+            led.on()
+            sleep(0.5)
+            led.off()
+            sleep(0.5)
+
+        if bs.ready_to_poweroff == 1:
+            led.on()
+            sleep(0.25)
+            led.off()
+            sleep(0.25)
 
 thread.start_new_thread(led_status, (1, ""))
 
