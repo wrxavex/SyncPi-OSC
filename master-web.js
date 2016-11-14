@@ -142,6 +142,7 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.1 is get master message\n");
                 device_status.id_1 = '1';
+                io.emit('light_1', 'on');
             }
             if (parseInt(osc_message.args[1].value) == 2) {
                 console.log("no.1 movie is end\n");
