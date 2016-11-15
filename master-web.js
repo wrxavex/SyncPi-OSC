@@ -15,6 +15,21 @@ http.listen(8080, '0.0.0.0',  function(){
 io.on('connection', function(socket){
     console.log ('connection');
 
+    var check_message = osc.toBuffer({
+        oscType: 'message',
+        address: '/omxplayer',
+        args: [
+            {
+                type: 'integer',
+                value: 1
+            },
+            {
+                type: 'integer',
+                value: 0
+            }
+        ]
+    });
+
     var reboot_message = osc.toBuffer({
         oscType: 'message',
         address: '/omxplayer',
@@ -49,6 +64,7 @@ io.on('connection', function(socket){
         console.log('回傳控制碼: ' + msg);
         if (msg == 'switch_1'){
             console.log('switch 1');
+            udp.send(reboot_message, 0, reboot_message.length, 9998, "192.168.1.201");
         }
         if (msg == 'switch_2'){
             console.log('switch 2');
@@ -56,33 +72,43 @@ io.on('connection', function(socket){
         }
         if (msg == 'switch_3'){
             console.log('switch 3');
+            udp.send(reboot_message, 0, reboot_message.length, 9998, "192.168.1.203");
         }
         if (msg == 'switch_4'){
             console.log('switch 4');
+            udp.send(reboot_message, 0, reboot_message.length, 9998, "192.168.1.204");
         }
         if (msg == 'switch_5'){
             console.log('switch 5');
+            udp.send(reboot_message, 0, reboot_message.length, 9998, "192.168.1.205");
         }
         if (msg == 'switch_6'){
             console.log('switch 6');
+            udp.send(reboot_message, 0, reboot_message.length, 9998, "192.168.1.206");
         }
         if (msg == 'switch_7'){
             console.log('switch 7');
+            udp.send(reboot_message, 0, reboot_message.length, 9998, "192.168.1.207");
         }
         if (msg == 'switch_8'){
             console.log('switch 8');
+            udp.send(reboot_message, 0, reboot_message.length, 9998, "192.168.1.208");
         }
         if (msg == 'switch_9'){
             console.log('switch 9');
+            udp.send(reboot_message, 0, reboot_message.length, 9998, "192.168.1.209");
         }
         if (msg == 'switch_10'){
             console.log('switch 10');
+            udp.send(reboot_message, 0, reboot_message.length, 9998, "192.168.1.210");
         }
         if (msg == 'switch_11'){
             console.log('switch 11');
+            udp.send(reboot_message, 0, reboot_message.length, 9998, "192.168.1.211");
         }
         if (msg == 'switch_12'){
             console.log('switch 12');
+            udp.send(reboot_message, 0, reboot_message.length, 9998, "192.168.1.212");
         }
         if (msg == 'power_off_1'){
             console.log('power_off_1');
@@ -91,6 +117,61 @@ io.on('connection', function(socket){
         if (msg == 'power_off_2'){
             console.log('power_off_2');
             udp.send(power_off_message, 0, power_off_message.length, 9998, "192.168.1.202");
+        }
+        if (msg == 'power_off_3'){
+            console.log('power_off_3');
+            udp.send(power_off_message, 0, power_off_message.length, 9998, "192.168.1.203");
+        }
+        if (msg == 'power_off_4'){
+            console.log('power_off_4');
+            udp.send(power_off_message, 0, power_off_message.length, 9998, "192.168.1.204");
+        }
+        if (msg == 'power_off_5'){
+            console.log('power_off_5');
+            udp.send(power_off_message, 0, power_off_message.length, 9998, "192.168.1.205");
+        }
+        if (msg == 'power_off_6'){
+            console.log('power_off_6');
+            udp.send(power_off_message, 0, power_off_message.length, 9998, "192.168.1.206");
+        }
+        if (msg == 'power_off_7'){
+            console.log('power_off_7');
+            udp.send(power_off_message, 0, power_off_message.length, 9998, "192.168.1.207");
+        }
+        if (msg == 'power_off_8'){
+            console.log('power_off_8');
+            udp.send(power_off_message, 0, power_off_message.length, 9998, "192.168.1.208");
+        }
+        if (msg == 'power_off_9'){
+            console.log('power_off_9');
+            udp.send(power_off_message, 0, power_off_message.length, 9998, "192.168.1.209");
+        }
+        if (msg == 'power_off_10'){
+            console.log('power_off_10');
+            udp.send(power_off_message, 0, power_off_message.length, 9998, "192.168.1.210");
+        }
+        if (msg == 'power_off_11'){
+            console.log('power_off_11');
+            udp.send(power_off_message, 0, power_off_message.length, 9998, "192.168.1.211");
+        }
+        if (msg == 'power_off_12'){
+            console.log('power_off_12');
+            udp.send(power_off_message, 0, power_off_message.length, 9998, "192.168.1.212");
+        }
+        if (msg == 'check_devices'){
+            console.log('check devices status');
+            udp.send(check_message, 0, check_message.length, 9998, "192.168.1.201");
+            udp.send(check_message, 0, check_message.length, 9998, "192.168.1.202");
+            udp.send(check_message, 0, check_message.length, 9998, "192.168.1.203");
+            udp.send(check_message, 0, check_message.length, 9998, "192.168.1.204");
+            udp.send(check_message, 0, check_message.length, 9998, "192.168.1.205");
+            udp.send(check_message, 0, check_message.length, 9998, "192.168.1.206");
+            udp.send(check_message, 0, check_message.length, 9998, "192.168.1.207");
+            udp.send(check_message, 0, check_message.length, 9998, "192.168.1.208");
+            udp.send(check_message, 0, check_message.length, 9998, "192.168.1.209");
+            udp.send(check_message, 0, check_message.length, 9998, "192.168.1.210");
+            udp.send(check_message, 0, check_message.length, 9998, "192.168.1.211");
+            udp.send(check_message, 0, check_message.length, 9998, "192.168.1.212");
         }
 
 
@@ -201,6 +282,11 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
         if (parseInt(osc_message.args[0].value) == 1) {
             console.log("no.1 callback " + time.getTime());
             device_status.id_1_lasttime = time.getTime();
+            if (parseInt(osc_message.args[1].value) == 0) {
+                console.log("no.1 is get master message\n");
+                device_status.id_1 = '0';
+                io.emit('device_1', 'waiting');
+            }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.1 is get master message\n");
                 device_status.id_1 = '1';
@@ -209,8 +295,18 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
             if (parseInt(osc_message.args[1].value) == 2) {
                 console.log("no.1 movie is end\n");
                 device_status.id_1 = '2';
-                send();
                 io.emit('device_1', 'off');
+                send();
+            }
+            if (parseInt(osc_message.args[1].value) == 3) {
+                console.log("no.1 rebooting\n");
+                device_status.id_1 = '3';
+                io.emit('device_1', 'rebooting');
+            }
+            if (parseInt(osc_message.args[1].value) == 4) {
+                console.log("no.1 power off\n");
+                device_status.id_1 = '4';
+                io.emit('device_1', 'power_off');
             }
         }
 
@@ -238,19 +334,42 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 device_status.id_2 = '3';
                 io.emit('device_2', 'rebooting');
             }
+            if (parseInt(osc_message.args[1].value) == 4) {
+                console.log("no.2 power off\n");
+                device_status.id_2 = '4';
+                io.emit('device_2', 'power_off');
+            }
+
         }
 
         // 如果第一個參數是3
         if (parseInt(osc_message.args[0].value) == 3) {
             console.log("no.3 callback " + time.getTime());
             device_status.id_3_lasttime = time.getTime();
+            if (parseInt(osc_message.args[1].value) == 0) {
+                console.log("no.3 is get master message\n");
+                device_status.id_3 = '0';
+                io.emit('device_3', 'waiting');
+            }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.3 is get master message\n");
                 device_status.id_3 = '1';
+                io.emit('device_3', 'on');
             }
             if (parseInt(osc_message.args[1].value) == 2) {
                 console.log("no.3 movie is end\n");
                 device_status.id_3 = '2';
+                io.emit('device_3', 'off');
+            }
+            if (parseInt(osc_message.args[1].value) == 3) {
+                console.log("no.3 rebooting\n");
+                device_status.id_3 = '3';
+                io.emit('device_3', 'rebooting');
+            }
+            if (parseInt(osc_message.args[1].value) == 4) {
+                console.log("no.3 power off\n");
+                device_status.id_3 = '4';
+                io.emit('device_3', 'power_off');
             }
         }
 
@@ -258,13 +377,30 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
         if (parseInt(osc_message.args[0].value) == 4) {
             console.log("no.4 callback " + time.getTime());
             device_status.id_4_lasttime = time.getTime();
+            if (parseInt(osc_message.args[1].value) == 0) {
+                console.log("no.4 is get master message\n");
+                device_status.id_4 = '0';
+                io.emit('device_4', 'waiting');
+            }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.4 is get master message\n");
                 device_status.id_4 = '1';
+                io.emit('device_4', 'on');
             }
             if (parseInt(osc_message.args[1].value) == 2) {
-                console.log("no.4 movie is end \n");
+                console.log("no.4 movie is end\n");
                 device_status.id_4 = '2';
+                io.emit('device_4', 'off');
+            }
+            if (parseInt(osc_message.args[1].value) == 3) {
+                console.log("no.4 rebooting\n");
+                device_status.id_4 = '3';
+                io.emit('device_4', 'rebooting');
+            }
+            if (parseInt(osc_message.args[1].value) == 4) {
+                console.log("no.4 power off\n");
+                device_status.id_4 = '4';
+                io.emit('device_4', 'power_off');
             }
         }
 
@@ -272,13 +408,30 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
         if (parseInt(osc_message.args[0].value) == 5) {
             console.log("no.5 callback " + time.getTime());
             device_status.id_5_lasttime = time.getTime();
+            if (parseInt(osc_message.args[1].value) == 0) {
+                console.log("no.5 is get master message\n");
+                device_status.id_5 = '0';
+                io.emit('device_5', 'waiting');
+            }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.5 is get master message\n");
                 device_status.id_5 = '1';
+                io.emit('device_5', 'on');
             }
             if (parseInt(osc_message.args[1].value) == 2) {
-                console.log("no.5 movie is end \n");
+                console.log("no.5 movie is end\n");
                 device_status.id_5 = '2';
+                io.emit('device_5', 'off');
+            }
+            if (parseInt(osc_message.args[1].value) == 3) {
+                console.log("no.5 rebooting\n");
+                device_status.id_5 = '3';
+                io.emit('device_5', 'rebooting');
+            }
+            if (parseInt(osc_message.args[1].value) == 4) {
+                console.log("no.5 power off\n");
+                device_status.id_5 = '4';
+                io.emit('device_5', 'power_off');
             }
         }
 
@@ -286,13 +439,30 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
         if (parseInt(osc_message.args[0].value) == 6) {
             console.log("no.6 callback " + time.getTime());
             device_status.id_6_lasttime = time.getTime();
+            if (parseInt(osc_message.args[1].value) == 0) {
+                console.log("no.6 is get master message\n");
+                device_status.id_6 = '0';
+                io.emit('device_6', 'waiting');
+            }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.6 is get master message\n");
                 device_status.id_6 = '1';
+                io.emit('device_6', 'on');
             }
             if (parseInt(osc_message.args[1].value) == 2) {
-                console.log("no.6 movie is end \n");
+                console.log("no.6 movie is end\n");
                 device_status.id_6 = '2';
+                io.emit('device_6', 'off');
+            }
+            if (parseInt(osc_message.args[1].value) == 3) {
+                console.log("no.6 rebooting\n");
+                device_status.id_6 = '3';
+                io.emit('device_6', 'rebooting');
+            }
+            if (parseInt(osc_message.args[1].value) == 4) {
+                console.log("no.6 power off\n");
+                device_status.id_6 = '4';
+                io.emit('device_6', 'power_off');
             }
         }
 
@@ -300,91 +470,181 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
         if (parseInt(osc_message.args[0].value) == 7) {
             console.log("no.7 callback " + time.getTime());
             device_status.id_7_lasttime = time.getTime();
+            if (parseInt(osc_message.args[1].value) == 0) {
+                console.log("no.7 is get master message\n");
+                device_status.id_7 = '0';
+                io.emit('device_7', 'waiting');
+            }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.7 is get master message\n");
                 device_status.id_7 = '1';
+                io.emit('device_7', 'on');
             }
             if (parseInt(osc_message.args[1].value) == 2) {
-                console.log("no.7 movie is end \n");
+                console.log("no.7 movie is end\n");
                 device_status.id_7 = '2';
+                io.emit('device_7', 'off');
+            }
+            if (parseInt(osc_message.args[1].value) == 3) {
+                console.log("no.7 rebooting\n");
+                device_status.id_7 = '3';
+                io.emit('device_7', 'rebooting');
+            }
+            if (parseInt(osc_message.args[1].value) == 4) {
+                console.log("no.7 power off\n");
+                device_status.id_7 = '4';
+                io.emit('device_7', 'power_off');
             }
         }
 
         if (parseInt(osc_message.args[0].value) == 8) {
             console.log("no.8 callback " + time.getTime());
             device_status.id_8_lasttime = time.getTime();
+            if (parseInt(osc_message.args[1].value) == 0) {
+                console.log("no.8 is get master message\n");
+                device_status.id_8 = '0';
+                io.emit('device_8', 'waiting');
+            }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.8 is get master message\n");
                 device_status.id_8 = '1';
+                io.emit('device_8', 'on');
             }
             if (parseInt(osc_message.args[1].value) == 2) {
-                console.log("no.8 movie is end \n");
+                console.log("no.8 movie is end\n");
                 device_status.id_8 = '2';
+                io.emit('device_8', 'off');
+            }
+            if (parseInt(osc_message.args[1].value) == 3) {
+                console.log("no.8 rebooting\n");
+                device_status.id_8 = '3';
+                io.emit('device_8', 'rebooting');
+            }
+            if (parseInt(osc_message.args[1].value) == 4) {
+                console.log("no.8 power off\n");
+                device_status.id_8 = '4';
+                io.emit('device_8', 'power_off');
             }
         }
 
         if (parseInt(osc_message.args[0].value) == 9) {
             console.log("no.9 callback " + time.getTime());
             device_status.id_9_lasttime = time.getTime();
+            if (parseInt(osc_message.args[1].value) == 0) {
+                console.log("no.9 is get master message\n");
+                device_status.id_9 = '0';
+                io.emit('device_9', 'waiting');
+            }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.9 is get master message\n");
                 device_status.id_9 = '1';
+                io.emit('device_9', 'on');
             }
             if (parseInt(osc_message.args[1].value) == 2) {
-                console.log("no.9 movie is end \n");
+                console.log("no.9 movie is end\n");
                 device_status.id_9 = '2';
+                io.emit('device_9', 'off');
+            }
+            if (parseInt(osc_message.args[1].value) == 3) {
+                console.log("no.9 rebooting\n");
+                device_status.id_9 = '3';
+                io.emit('device_9', 'rebooting');
+            }
+            if (parseInt(osc_message.args[1].value) == 4) {
+                console.log("no.9 power off\n");
+                device_status.id_9 = '4';
+                io.emit('device_9', 'power_off');
             }
         }
 
         if (parseInt(osc_message.args[0].value) == 10) {
             console.log("no.10 callback " + time.getTime());
             device_status.id_10_lasttime = time.getTime();
+            if (parseInt(osc_message.args[1].value) == 0) {
+                console.log("no.10 is get master message\n");
+                device_status.id_10 = '0';
+                io.emit('device_10', 'waiting');
+            }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.10 is get master message\n");
                 device_status.id_10 = '1';
+                io.emit('device_10', 'on');
             }
             if (parseInt(osc_message.args[1].value) == 2) {
-                console.log("no.10 movie is end \n");
+                console.log("no.10 movie is end\n");
                 device_status.id_10 = '2';
+                io.emit('device_10', 'off');
             }
-        }
-
-        if (parseInt(osc_message.args[0].value) == 10) {
-            console.log("no.10 callback " + time.getTime());
-            device_status.id_10_lasttime = time.getTime();
-            if (parseInt(osc_message.args[1].value) == 1) {
-                console.log("no.10 is get master message\n");
-                device_status.id_10 = '1';
+            if (parseInt(osc_message.args[1].value) == 3) {
+                console.log("no.10 rebooting\n");
+                device_status.id_10 = '3';
+                io.emit('device_10', 'rebooting');
             }
-            if (parseInt(osc_message.args[1].value) == 2) {
-                console.log("no.10 movie is end \n");
-                device_status.id_10 = '2';
+            if (parseInt(osc_message.args[1].value) == 4) {
+                console.log("no.10 power off\n");
+                device_status.id_10 = '4';
+                io.emit('device_10', 'power_off');
             }
         }
 
         if (parseInt(osc_message.args[0].value) == 11) {
             console.log("no.11 callback " + time.getTime());
             device_status.id_11_lasttime = time.getTime();
+            if (parseInt(osc_message.args[1].value) == 0) {
+                console.log("no.11 is get master message\n");
+                device_status.id_11 = '0';
+                io.emit('device_11', 'waiting');
+            }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.11 is get master message\n");
                 device_status.id_11 = '1';
+                io.emit('device_11', 'on');
             }
             if (parseInt(osc_message.args[1].value) == 2) {
-                console.log("no.11 movie is end \n");
+                console.log("no.11 movie is end\n");
                 device_status.id_11 = '2';
+                io.emit('device_11', 'off');
+            }
+            if (parseInt(osc_message.args[1].value) == 3) {
+                console.log("no.11 rebooting\n");
+                device_status.id_11 = '3';
+                io.emit('device_11', 'rebooting');
+            }
+            if (parseInt(osc_message.args[1].value) == 4) {
+                console.log("no.11 power off\n");
+                device_status.id_11 = '4';
+                io.emit('device_11', 'power_off');
             }
         }
+
 
         if (parseInt(osc_message.args[0].value) == 12) {
             console.log("no.12 callback " + time.getTime());
             device_status.id_12_lasttime = time.getTime();
+            if (parseInt(osc_message.args[1].value) == 0) {
+                console.log("no.12 is get master message\n");
+                device_status.id_12 = '0';
+                io.emit('device_12', 'waiting');
+            }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.12 is get master message\n");
-                device_status.id_11 = '1';
+                device_status.id_12 = '1';
+                io.emit('device_12', 'on');
             }
             if (parseInt(osc_message.args[1].value) == 2) {
-                console.log("no.12 movie is end \n");
+                console.log("no.12 movie is end\n");
                 device_status.id_12 = '2';
+                io.emit('device_12', 'off');
+            }
+            if (parseInt(osc_message.args[1].value) == 3) {
+                console.log("no.12 rebooting\n");
+                device_status.id_12 = '3';
+                io.emit('device_12', 'rebooting');
+            }
+            if (parseInt(osc_message.args[1].value) == 4) {
+                console.log("no.12 power off\n");
+                device_status.id_12 = '4';
+                io.emit('device_12', 'power_off');
             }
         }
 

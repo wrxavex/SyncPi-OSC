@@ -26,12 +26,28 @@
     <script>
         var socket = io();
 
+        socket.emit('device_control', "check_devices");
+
         socket.on('device_1', function(data){
             console.log('device_1'+data);
+            if(data == 'waiting'){
+                document.getElementById('device_1_button').innerHTML = '1 waiting';
+                document.getElementById('device_1_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'rebooting'){
+                document.getElementById('device_1_button').innerHTML = '1 重開機中';
+                document.getElementById('device_1_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'power_off'){
+                document.getElementById('device_1_button').innerHTML = '1 關機';
+                document.getElementById('device_1_button').className = 'btn btn-primary btn-lg';
+            }
+
             if(data == 'on'){
                 document.getElementById('device_1_button').innerHTML = '1 開';
                 document.getElementById('device_1_button').className = 'btn btn-default btn-lg';
             }
+
             if(data == 'off'){
                 document.getElementById('device_1_button').innerHTML = '1 關';
                 document.getElementById('device_1_button').className = 'btn btn-primary btn-lg';
@@ -40,31 +56,54 @@
 
         socket.on('device_2', function(data){
             console.log('device_2'+data);
-            if(data == 'on'){
-                document.getElementById('device_2_button').innerHTML = '2 開';
-                document.getElementById('device_2_button').className = 'btn btn-default btn-lg';
+
+
+            if(data == 'waiting'){
+                document.getElementById('device_2_button').innerHTML = '2 waiting';
+                document.getElementById('device_2_button').className = 'btn btn-primary btn-lg';
             }
             if(data == 'rebooting'){
                 document.getElementById('device_2_button').innerHTML = '2 重開機中';
                 document.getElementById('device_2_button').className = 'btn btn-primary btn-lg';
             }
-            if(data == 'waiting'){
-                document.getElementById('device_2_button').innerHTML = '2 waiting';
+            if(data == 'power_off'){
+                document.getElementById('device_2_button').innerHTML = '2 關機';
                 document.getElementById('device_2_button').className = 'btn btn-primary btn-lg';
+            }
+
+            if(data == 'on'){
+                document.getElementById('device_2_button').innerHTML = '2 開';
+                document.getElementById('device_2_button').className = 'btn btn-default btn-lg';
             }
 
             if(data == 'off'){
                 document.getElementById('device_2_button').innerHTML = '2 關';
                 document.getElementById('device_2_button').className = 'btn btn-primary btn-lg';
             }
+
+
         });
 
         socket.on('device_3', function(data){
             console.log('device_3'+data);
+            if(data == 'waiting'){
+                document.getElementById('device_3_button').innerHTML = '3 waiting';
+                document.getElementById('device_3_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'rebooting'){
+                document.getElementById('device_3_button').innerHTML = '3 重開機中';
+                document.getElementById('device_3_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'power_off'){
+                document.getElementById('device_3_button').innerHTML = '3 關機';
+                document.getElementById('device_3_button').className = 'btn btn-primary btn-lg';
+            }
+
             if(data == 'on'){
                 document.getElementById('device_3_button').innerHTML = '3 開';
                 document.getElementById('device_3_button').className = 'btn btn-default btn-lg';
             }
+
             if(data == 'off'){
                 document.getElementById('device_3_button').innerHTML = '3 關';
                 document.getElementById('device_3_button').className = 'btn btn-primary btn-lg';
@@ -73,10 +112,24 @@
 
         socket.on('device_4', function(data){
             console.log('device_4'+data);
+            if(data == 'waiting'){
+                document.getElementById('device_4_button').innerHTML = '4 waiting';
+                document.getElementById('device_4_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'rebooting'){
+                document.getElementById('device_4_button').innerHTML = '4 重開機中';
+                document.getElementById('device_4_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'power_off'){
+                document.getElementById('device_4_button').innerHTML = '4 關機';
+                document.getElementById('device_4_button').className = 'btn btn-primary btn-lg';
+            }
+
             if(data == 'on'){
                 document.getElementById('device_4_button').innerHTML = '4 開';
                 document.getElementById('device_4_button').className = 'btn btn-default btn-lg';
             }
+
             if(data == 'off'){
                 document.getElementById('device_4_button').innerHTML = '4 關';
                 document.getElementById('device_4_button').className = 'btn btn-primary btn-lg';
@@ -85,10 +138,24 @@
 
         socket.on('device_5', function(data){
             console.log('device_5'+data);
+            if(data == 'waiting'){
+                document.getElementById('device_5_button').innerHTML = '5 waiting';
+                document.getElementById('device_5_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'rebooting'){
+                document.getElementById('device_5_button').innerHTML = '5 重開機中';
+                document.getElementById('device_5_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'power_off'){
+                document.getElementById('device_5_button').innerHTML = '5 關機';
+                document.getElementById('device_5_button').className = 'btn btn-primary btn-lg';
+            }
+
             if(data == 'on'){
                 document.getElementById('device_5_button').innerHTML = '5 開';
                 document.getElementById('device_5_button').className = 'btn btn-default btn-lg';
             }
+
             if(data == 'off'){
                 document.getElementById('device_5_button').innerHTML = '5 關';
                 document.getElementById('device_5_button').className = 'btn btn-primary btn-lg';
@@ -97,10 +164,24 @@
 
         socket.on('device_6', function(data){
             console.log('device_6'+data);
+            if(data == 'waiting'){
+                document.getElementById('device_6_button').innerHTML = '6 waiting';
+                document.getElementById('device_6_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'rebooting'){
+                document.getElementById('device_6_button').innerHTML = '6 重開機中';
+                document.getElementById('device_6_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'power_off'){
+                document.getElementById('device_6_button').innerHTML = '6 關機';
+                document.getElementById('device_6_button').className = 'btn btn-primary btn-lg';
+            }
+
             if(data == 'on'){
                 document.getElementById('device_6_button').innerHTML = '6 開';
                 document.getElementById('device_6_button').className = 'btn btn-default btn-lg';
             }
+
             if(data == 'off'){
                 document.getElementById('device_6_button').innerHTML = '6 關';
                 document.getElementById('device_6_button').className = 'btn btn-primary btn-lg';
@@ -109,10 +190,24 @@
 
         socket.on('device_7', function(data){
             console.log('device_7'+data);
+            if(data == 'waiting'){
+                document.getElementById('device_7_button').innerHTML = '7 waiting';
+                document.getElementById('device_7_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'rebooting'){
+                document.getElementById('device_7_button').innerHTML = '7 重開機中';
+                document.getElementById('device_7_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'power_off'){
+                document.getElementById('device_7_button').innerHTML = '7 關機';
+                document.getElementById('device_7_button').className = 'btn btn-primary btn-lg';
+            }
+
             if(data == 'on'){
                 document.getElementById('device_7_button').innerHTML = '7 開';
                 document.getElementById('device_7_button').className = 'btn btn-default btn-lg';
             }
+
             if(data == 'off'){
                 document.getElementById('device_7_button').innerHTML = '7 關';
                 document.getElementById('device_7_button').className = 'btn btn-primary btn-lg';
@@ -121,10 +216,24 @@
 
         socket.on('device_8', function(data){
             console.log('device_8'+data);
+            if(data == 'waiting'){
+                document.getElementById('device_8_button').innerHTML = '8 waiting';
+                document.getElementById('device_8_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'rebooting'){
+                document.getElementById('device_8_button').innerHTML = '8 重開機中';
+                document.getElementById('device_8_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'power_off'){
+                document.getElementById('device_8_button').innerHTML = '8 關機';
+                document.getElementById('device_8_button').className = 'btn btn-primary btn-lg';
+            }
+
             if(data == 'on'){
                 document.getElementById('device_8_button').innerHTML = '8 開';
                 document.getElementById('device_8_button').className = 'btn btn-default btn-lg';
             }
+
             if(data == 'off'){
                 document.getElementById('device_8_button').innerHTML = '8 關';
                 document.getElementById('device_8_button').className = 'btn btn-primary btn-lg';
@@ -133,10 +242,24 @@
 
         socket.on('device_9', function(data){
             console.log('device_9'+data);
+            if(data == 'waiting'){
+                document.getElementById('device_9_button').innerHTML = '9 waiting';
+                document.getElementById('device_9_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'rebooting'){
+                document.getElementById('device_9_button').innerHTML = '9 重開機中';
+                document.getElementById('device_9_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'power_off'){
+                document.getElementById('device_9_button').innerHTML = '9 關機';
+                document.getElementById('device_9_button').className = 'btn btn-primary btn-lg';
+            }
+
             if(data == 'on'){
                 document.getElementById('device_9_button').innerHTML = '9 開';
                 document.getElementById('device_9_button').className = 'btn btn-default btn-lg';
             }
+
             if(data == 'off'){
                 document.getElementById('device_9_button').innerHTML = '9 關';
                 document.getElementById('device_9_button').className = 'btn btn-primary btn-lg';
@@ -145,10 +268,24 @@
 
         socket.on('device_10', function(data){
             console.log('device_10'+data);
+            if(data == 'waiting'){
+                document.getElementById('device_10_button').innerHTML = '10 waiting';
+                document.getElementById('device_10_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'rebooting'){
+                document.getElementById('device_10_button').innerHTML = '10 重開機中';
+                document.getElementById('device_10_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'power_off'){
+                document.getElementById('device_10_button').innerHTML = '10 關機';
+                document.getElementById('device_10_button').className = 'btn btn-primary btn-lg';
+            }
+
             if(data == 'on'){
                 document.getElementById('device_10_button').innerHTML = '10 開';
                 document.getElementById('device_10_button').className = 'btn btn-default btn-lg';
             }
+
             if(data == 'off'){
                 document.getElementById('device_10_button').innerHTML = '10 關';
                 document.getElementById('device_10_button').className = 'btn btn-primary btn-lg';
@@ -157,10 +294,24 @@
 
         socket.on('device_11', function(data){
             console.log('device_11'+data);
+            if(data == 'waiting'){
+                document.getElementById('device_11_button').innerHTML = '11 waiting';
+                document.getElementById('device_11_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'rebooting'){
+                document.getElementById('device_11_button').innerHTML = '11 重開機中';
+                document.getElementById('device_11_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'power_off'){
+                document.getElementById('device_11_button').innerHTML = '11 關機';
+                document.getElementById('device_11_button').className = 'btn btn-primary btn-lg';
+            }
+
             if(data == 'on'){
                 document.getElementById('device_11_button').innerHTML = '11 開';
                 document.getElementById('device_11_button').className = 'btn btn-default btn-lg';
             }
+
             if(data == 'off'){
                 document.getElementById('device_11_button').innerHTML = '11 關';
                 document.getElementById('device_11_button').className = 'btn btn-primary btn-lg';
@@ -169,10 +320,24 @@
 
         socket.on('device_12', function(data){
             console.log('device_12'+data);
+            if(data == 'waiting'){
+                document.getElementById('device_12_button').innerHTML = '12 waiting';
+                document.getElementById('device_12_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'rebooting'){
+                document.getElementById('device_12_button').innerHTML = '12 重開機中';
+                document.getElementById('device_12_button').className = 'btn btn-primary btn-lg';
+            }
+            if(data == 'power_off'){
+                document.getElementById('device_12_button').innerHTML = '12 關機';
+                document.getElementById('device_12_button').className = 'btn btn-primary btn-lg';
+            }
+
             if(data == 'on'){
                 document.getElementById('device_12_button').innerHTML = '12 開';
                 document.getElementById('device_12_button').className = 'btn btn-default btn-lg';
             }
+
             if(data == 'off'){
                 document.getElementById('device_12_button').innerHTML = '12 關';
                 document.getElementById('device_12_button').className = 'btn btn-primary btn-lg';
@@ -286,15 +451,19 @@
             socket.emit('device_control', "power_off_12");
         }
 
+        function check_devices()
+        {
+            socket.emit('device_control', "check_devices");
+        }
+
     </script>
 
 </head>
 <body>
 <div class="container-fluid">
-    <h3>指令碼控制</h3>
-    <input  class="form-control" id="control_message" autocomplete="off"/>
-    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="e()" >Send Control</button>
 
+    <h4>check device status</h4>
+    <button id="check_device_button" type="button" class="btn btn-primary btn-lg " onclick="check_devices()" > 1</button>
     <h4>播放器運作狀態</h4>
     <button id="device_1_button" type="button" class="btn btn-primary btn-lg " onclick="switch1()" > 1</button>
     <button id="device_2_button" type="button" class="btn btn-primary btn-lg " onclick="switch2()" > 2</button>
@@ -324,6 +493,10 @@
     <button id="device_10_power_off" type="button" class="btn btn-primary btn-lg " onclick="power_off10()" > 10</button>
     <button id="device_11_power_off" type="button" class="btn btn-primary btn-lg " onclick="power_off11()" > 11</button>
     <button id="device_12_power_off" type="button" class="btn btn-primary btn-lg " onclick="power_off12()" > 12</button>
+
+    <h3>指令碼控制</h3>
+    <input  class="form-control" id="control_message" autocomplete="off"/>
+    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="e()" >Send Control</button>
 
 </div>
 

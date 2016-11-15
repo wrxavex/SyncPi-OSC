@@ -15,7 +15,7 @@ var video_id = fs.readFileSync('/boot/sync_setting.txt', 'utf8');
 // 指定master位置
 var master_id = "192.168.1.201";
 // 指定目前資料夾
-var target = "ntmofa";
+var target = "nmh";
 
 // 轉換文字到id
 video_id = video_id.replace(/(\r\n|\n|\r)/gm,"");
@@ -75,6 +75,36 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
         ]
     });
 
+    var x_poweroff = osc.toBuffer({
+        oscType: 'message',
+        address: '/omxplayer',
+        args: [
+            {
+                type: 'integer',
+                value: parseInt(vp.video_id)
+            },
+            {
+                type: 'integer',
+                value: 4
+            }
+        ]
+    });
+
+    var x_waiting = osc.toBuffer({
+        oscType: 'message',
+        address: '/omxplayer',
+        args: [
+            {
+                type: 'integer',
+                value: parseInt(vp.video_id)
+            },
+            {
+                type: 'integer',
+                value: 0
+            }
+        ]
+    });
+
 
 
     // save the remote address
@@ -91,6 +121,8 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
         if (parseInt(osc_message.args[0].value) == 1) {
             console.log('it\'s master\'s message, play movie');
 
+
+
             if (parseInt(osc_message.args[1].value) == 3) {
                 console.log("master send reboot message\n");
                 udp.send(x_rebooting, 0, x_rebooting.length, 9999, master_id);
@@ -106,6 +138,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
 
             if (parseInt(osc_message.args[1].value) == 4) {
                 console.log("master send power off message\n");
+                udp.send(x_poweroff, 0, x_poweroff.length, 9999, master_id);
 
                 exec('sudo poweroff', function (error, stdout, stderr) {
                     console.log('stdout: ' + stdout);
@@ -128,6 +161,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
                 vp.is_playing = true;
                 console.log('video is playing , vp.is_playing = true');
                 udp.send(x, 0, x.length, 9999, master_id);
+
                 console.log('send osc message to master');
 
 
@@ -185,6 +219,8 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
             // 播放中的話就忽略訊息
             else {
                 console.log('video already playing pass the message')
+
+
             }
 
 
