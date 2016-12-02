@@ -29,12 +29,12 @@ var vp = new VideoPlayer(video_id);
 
 client.on('connect', function() {
     client.subscribe('presence');
-    client.publish('presence', 'I am lcd 4');
+    client.publish('presence', vp.is_playing.toString());
 });
 
 client.on('message', function(topic, message){
     console.log(message.toString());
-    client.publish('presence', vp.is_playing.toString());
+    //client.publish('presence', vp.is_playing.toString());
     client.end();
 });
 
