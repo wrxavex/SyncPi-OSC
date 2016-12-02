@@ -183,6 +183,12 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
                 });
             }
 
+            if (parseInt(osc_message.args[1].value) == 6) {
+                console.log("master send check message\n");
+                udp.send(x_temperature, 0, x_temperature.length, 9999, master_id);
+
+            }
+
 
 
             // 假如沒在播放狀態

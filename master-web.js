@@ -25,7 +25,7 @@ io.on('connection', function(socket){
             },
             {
                 type: 'integer',
-                value: 0
+                value: 6
             }
         ]
     });
