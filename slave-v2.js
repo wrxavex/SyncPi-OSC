@@ -33,7 +33,6 @@ client.publish('presence', vp.is_playing.toString());
 client.on('message', function(topic, message){
     console.log(message);
     //client.publish('presence', vp.is_playing.toString());
-    client.end();
 });
 
 
