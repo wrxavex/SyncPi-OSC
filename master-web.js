@@ -742,6 +742,9 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
         // udp.send(message_to_TFT, 0, message_to_TFT.length, 9997, "192.168.1.139");
         // udp.send(message_to_TFT, 0, message_to_TFT.length, 9997, "127.0.0.1");
         // console.log('tft message send')
+
+        console.log('====================\n\n');
+
     }
 
     // 發生錯誤的話印出
