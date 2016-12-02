@@ -153,9 +153,6 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
         if (parseInt(osc_message.args[0].value) == 1) {
             console.log('it\'s master\'s message, play movie');
 
-            udp.send(x_temperature, 0, x_temperature.length, 9999, master_id);
-
-
 
             if (parseInt(osc_message.args[1].value) == 3) {
                 console.log("master send reboot message\n");

@@ -84,6 +84,16 @@
 
         });
 
+        socket.on('device_2_temperature', function(data){
+            console.log('device_2_temperature:'+ data);
+
+
+            if(data == 'waiting'){
+                document.getElementById('device_2_button').innerHTML = data;
+                document.getElementById('device_2_button').className = 'btn btn-primary btn-lg';
+
+        });
+
         socket.on('device_3', function(data){
             console.log('device_3'+data);
             if(data == 'waiting'){
