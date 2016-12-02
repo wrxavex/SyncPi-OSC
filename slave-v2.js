@@ -8,7 +8,7 @@ var osc = require('osc-min'),
     fs = require('fs'),
     exec = require('child_process').exec,
     mqtt = require('mqtt'),
-    client = mqtt.connect('mqtt://192.168.1.183');
+    client = mqtt.connect('mqtt://192.168.1.183'),
     remote;
 
 // 指定同步設定檔位置
