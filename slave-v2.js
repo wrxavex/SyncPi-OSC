@@ -116,6 +116,25 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
         ]
     });
 
+    var x_temperature = osc.toBuffer({
+        oscType: 'message',
+        address: '/omxplayer',
+        args: [
+            {
+                type: 'integer',
+                value: parseInt(vp.video_id)
+            },
+            {
+                type: 'integer',
+                value: 5
+            },
+            {
+                type: 'string',
+                value: vp.temperature
+            }
+        ]
+    });
+
 
 
 
@@ -133,6 +152,8 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
         // 假如是master訊息
         if (parseInt(osc_message.args[0].value) == 1) {
             console.log('it\'s master\'s message, play movie');
+
+            udp.send(x_temperature, 0, x_temperature.length, 9999, master_id);
 
 
 
@@ -207,7 +228,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
 
                 // 取得cpu溫度
                 exec('/opt/vc/bin/vcgencmd measure_temp', function(error, stdout, stderr) {
-
+                    vp.temperature = stdout;
                     var x_temperature = osc.toBuffer({
                         oscType: 'message',
                         address: '/omxplayer',
