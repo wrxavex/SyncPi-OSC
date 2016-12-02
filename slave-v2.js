@@ -7,6 +7,8 @@ var osc = require('osc-min'),
     omx = require('omxcontrol'),
     fs = require('fs'),
     exec = require('child_process').exec,
+    mqtt = require('mqtt'),
+    client = mqtt.connect('mqtt://192.168.1.183');
     remote;
 
 // 指定同步設定檔位置
@@ -23,6 +25,19 @@ video_id = video_id.substring(3, 5);
 
 // 建立video player物件
 var vp = new VideoPlayer(video_id);
+
+
+client.on('connect', function() {
+    client.subscribe('presence');
+    client.publish('presence', 'I am lcd 4');
+});
+
+client.on('message', function(topic, message){
+    console.log(message.toString());
+    client.end();
+});
+
+
 
 
 // listen for OSC messages and print them to the console
