@@ -268,6 +268,9 @@ function send() {
 var omxcallback;
 omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
     try {
+
+        console.log('========= start ===========\n\n');
+
         // 取得時間
         var time = new Date();
 
@@ -743,7 +746,7 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
         // udp.send(message_to_TFT, 0, message_to_TFT.length, 9997, "127.0.0.1");
         // console.log('tft message send')
 
-        console.log('====================\n\n');
+        console.log('========= over ===========\n\n');
 
     }
 
