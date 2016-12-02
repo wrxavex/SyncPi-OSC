@@ -25,7 +25,8 @@
     "omxcontrol":"^0.0.1",
     "exec-sync": "0.1.6",
     "express": "4.13.3",
-    "multer": "1.1.0"
+    "multer": "1.1.0",
+    "mqtt": "1.6.1"
   },
   "devDependencies": {
     "should": "~7.1.0",

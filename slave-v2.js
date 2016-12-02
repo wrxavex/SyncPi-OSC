@@ -116,7 +116,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
         ]
     });
 
-    var x_waiting = osc.toBuffer({
+    var x_temperature = osc.toBuffer({
         oscType: 'message',
         address: '/omxplayer',
         args: [
@@ -126,7 +126,11 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
             },
             {
                 type: 'integer',
-                value: 0
+                value: 5
+            },
+            {
+                type: 'string',
+                value: vp.temperature
             }
         ]
     });

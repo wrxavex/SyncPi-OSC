@@ -13,6 +13,15 @@ VideoPlayer.prototype.count = function() {
     return this.number;
 };
 
+VideoPlayer.prototype.count = function() {
+    exec('/opt/vc/bin/vcgencmd measure_temp', function(error, stdout, stderr) {
+        return stdout;
+        if (error !== null) {
+            return error;
+        }
+    });
+};
+
 VideoPlayer.prototype.play = function() {
     if(this.is_playing == false)
     {
