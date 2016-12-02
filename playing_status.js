@@ -2,7 +2,7 @@ function VideoPlayer(video_id) {
     this.video_id = video_id;
     this.number = 0;
     this.is_playing = false;
-    this.temperature = "";
+    this.temperature = "30.0";
     
 }
 
