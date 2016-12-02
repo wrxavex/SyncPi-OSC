@@ -31,7 +31,10 @@ client.subscribe('presence');
 client.publish('presence', vp.is_playing.toString());
 
 client.on('message', function(topic, message){
-    console.log(message);
+    console.log(message.toString());
+
+    client.publish('presence', vp.is_playing.toString());
+
     //client.publish('presence', vp.is_playing.toString());
 });
 
