@@ -116,24 +116,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
         ]
     });
 
-    var x_temperature = osc.toBuffer({
-        oscType: 'message',
-        address: '/omxplayer',
-        args: [
-            {
-                type: 'integer',
-                value: parseInt(vp.video_id)
-            },
-            {
-                type: 'integer',
-                value: 5
-            },
-            {
-                type: 'string',
-                value: vp.temperature
-            }
-        ]
-    });
+
 
 
 
