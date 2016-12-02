@@ -269,7 +269,7 @@ var omxcallback;
 omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
     try {
 
-        console.log('========= start ===========\n\n');
+        console.log('========= start ===========');
 
         // 取得時間
         var time = new Date();
