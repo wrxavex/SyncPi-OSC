@@ -7,9 +7,11 @@ var osc = require('osc-min'),
     omx = require('omxcontrol'),
     fs = require('fs'),
     exec = require('child_process').exec,
-    mqtt = require('mqtt'),
-    client = mqtt.connect('mqtt://192.168.1.183'),
     remote;
+
+// 引入mqtt 建立client物件
+var mqtt = require('mqtt'),
+    client = mqtt.connect('mqtt://znh.tw');
 
 // 指定同步設定檔位置
 var video_id = fs.readFileSync('/boot/sync_setting.txt', 'utf8');
@@ -26,8 +28,10 @@ video_id = video_id.substring(3, 5);
 // 建立video player物件
 var vp = new VideoPlayer(video_id);
 
-
+// 訂閱頻道
 client.subscribe('presence');
+
+//
 client.publish('presence', vp.is_playing.toString());
 
 client.on('message', function(topic, message) {
