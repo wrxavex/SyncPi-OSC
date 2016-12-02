@@ -59,26 +59,26 @@
 
 
             if(data == 'waiting'){
-                document.getElementById('device_2_button').innerHTML = '2 waiting';
-                document.getElementById('device_2_button').className = 'btn btn-primary btn-lg';
+                document.getElementById('device_2_status').innerHTML = '2 waiting';
+                document.getElementById('device_2_status').className = 'btn btn-primary btn-lg';
             }
             if(data == 'rebooting'){
-                document.getElementById('device_2_button').innerHTML = '2 重開機中';
-                document.getElementById('device_2_button').className = 'btn btn-primary btn-lg';
+                document.getElementById('device_2_status').innerHTML = '2 重開機中';
+                document.getElementById('device_2_status').className = 'btn btn-primary btn-lg';
             }
             if(data == 'power_off'){
-                document.getElementById('device_2_button').innerHTML = '2 關機';
-                document.getElementById('device_2_button').className = 'btn btn-primary btn-lg';
+                document.getElementById('device_2_status').innerHTML = '2 關機';
+                document.getElementById('device_2_status').className = 'btn btn-primary btn-lg';
             }
 
             if(data == 'on'){
-                document.getElementById('device_2_button').innerHTML = '2 開';
-                document.getElementById('device_2_button').className = 'btn btn-default btn-lg';
+                document.getElementById('device_2_status').innerHTML = '2 開';
+                document.getElementById('device_2_status').className = 'btn btn-default btn-lg';
             }
 
             if(data == 'off'){
-                document.getElementById('device_2_button').innerHTML = '2 關';
-                document.getElementById('device_2_button').className = 'btn btn-primary btn-lg';
+                document.getElementById('device_2_status').innerHTML = '2 關';
+                document.getElementById('device_2_status').className = 'btn btn-primary btn-lg';
             }
 
 
@@ -86,8 +86,8 @@
 
         socket.on('device_2_temperature', function(data){
             console.log('device_2_temperature:'+ data);
-            document.getElementById('device_2_button').innerHTML = data;
-            document.getElementById('device_2_button').className = 'btn btn-warning btn-lg';
+            document.getElementById('device_2_temperature').innerHTML = data;
+            document.getElementById('device_2_temperature').className = 'btn btn-warning btn-lg';
 
         });
 
@@ -473,7 +473,10 @@
     <button id="check_device_button" type="button" class="btn btn-primary btn-lg " onclick="check_devices()" > 1</button>
     <h4>播放器運作狀態</h4>
     <button id="device_1_button" type="button" class="btn btn-primary btn-lg " onclick="switch1()" > 1</button>
-    <button id="device_2_button" type="button" class="btn btn-primary btn-lg " onclick="switch2()" > 2</button>
+    <button id="device_2_button" type="button" class="btn btn-primary btn-lg " onclick="switch2()" >
+        <p id="device_2_status"> 2 status</p>
+        <p id="device_2_temperature">30.0</p>
+        </button>
     <button id="device_3_button" type="button" class="btn btn-primary btn-lg " onclick="switch3()" > 3</button>
     <button id="device_4_button" type="button" class="btn btn-primary btn-lg " onclick="switch4()" > 4</button>
     <button id="device_5_button" type="button" class="btn btn-primary btn-lg " onclick="switch5()" > 5</button>
