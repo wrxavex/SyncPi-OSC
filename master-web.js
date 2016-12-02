@@ -653,95 +653,95 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
         }
 
         // 印出裝置狀態
-        console.log(device_status);
+        // console.log(device_status);
 
         // 分別印出裝置狀態
-        console.log('1:' + device_status.id_1 +
-            ' 2:' + device_status.id_2 +
-            ' 3:' + device_status.id_3 +
-            ' 4:' + device_status.id_4 +
-            ' 5:' + device_status.id_5 +
-            ' 6:' + device_status.id_6 +
-            ' 7:' + device_status.id_7 +
-            ' 8:' + device_status.id_8 +
-            ' 9:' + device_status.id_9 +
-            '10:' + device_status.id_10 +
-            '11:' + device_status.id_11 +
-            '12:' + device_status.id_12);
+        // console.log('1:' + device_status.id_1 +
+        //     ' 2:' + device_status.id_2 +
+        //     ' 3:' + device_status.id_3 +
+        //     ' 4:' + device_status.id_4 +
+        //     ' 5:' + device_status.id_5 +
+        //     ' 6:' + device_status.id_6 +
+        //     ' 7:' + device_status.id_7 +
+        //     ' 8:' + device_status.id_8 +
+        //     ' 9:' + device_status.id_9 +
+        //     '10:' + device_status.id_10 +
+        //     '11:' + device_status.id_11 +
+        //     '12:' + device_status.id_12);
 
         // 設定送給tftdisplay的訊息
-        var message_to_TFT = osc.toBuffer({
-            oscType: 'message',
-            address: '/omxplayer',
-            args: [
-                {
-                    type: 'integer',
-                    value: 1
-                },
-                {
-                    type: 'integer',
-                    value: 3
-                },
-                {
-                  type: 'integer',
-                    value: parseInt(play_count)
-                },
-                {
-                    type: 'integer',
-                    value: parseInt(device_status.id_1)
-                },
-                {
-                    type: 'integer',
-                    value: parseInt(device_status.id_2)
-                },
-                {
-                    type: 'integer',
-                    value: parseInt(device_status.id_3)
-                },
-                {
-                    type: 'integer',
-                    value: parseInt(device_status.id_4)
-                },
-                {
-                    type: 'integer',
-                    value: parseInt(device_status.id_5)
-                },
-                {
-                    type: 'integer',
-                    value: parseInt(device_status.id_6)
-                },
-                {
-                    type: 'integer',
-                    value: parseInt(device_status.id_7)
-                },
-                {
-                    type: 'integer',
-                    value: parseInt(device_status.id_8)
-                },
-                {
-                    type: 'integer',
-                    value: parseInt(device_status.id_9)
-                },
-                {
-                    type: 'integer',
-                    value: parseInt(device_status.id_10)
-                },
-                {
-                    type: 'integer',
-                    value: parseInt(device_status.id_11)
-                },
-                {
-                    type: 'integer',
-                    value: parseInt(device_status.id_12)
-                },
-
-            ]
-        });
+        // var message_to_TFT = osc.toBuffer({
+        //     oscType: 'message',
+        //     address: '/omxplayer',
+        //     args: [
+        //         {
+        //             type: 'integer',
+        //             value: 1
+        //         },
+        //         {
+        //             type: 'integer',
+        //             value: 3
+        //         },
+        //         {
+        //           type: 'integer',
+        //             value: parseInt(play_count)
+        //         },
+        //         {
+        //             type: 'integer',
+        //             value: parseInt(device_status.id_1)
+        //         },
+        //         {
+        //             type: 'integer',
+        //             value: parseInt(device_status.id_2)
+        //         },
+        //         {
+        //             type: 'integer',
+        //             value: parseInt(device_status.id_3)
+        //         },
+        //         {
+        //             type: 'integer',
+        //             value: parseInt(device_status.id_4)
+        //         },
+        //         {
+        //             type: 'integer',
+        //             value: parseInt(device_status.id_5)
+        //         },
+        //         {
+        //             type: 'integer',
+        //             value: parseInt(device_status.id_6)
+        //         },
+        //         {
+        //             type: 'integer',
+        //             value: parseInt(device_status.id_7)
+        //         },
+        //         {
+        //             type: 'integer',
+        //             value: parseInt(device_status.id_8)
+        //         },
+        //         {
+        //             type: 'integer',
+        //             value: parseInt(device_status.id_9)
+        //         },
+        //         {
+        //             type: 'integer',
+        //             value: parseInt(device_status.id_10)
+        //         },
+        //         {
+        //             type: 'integer',
+        //             value: parseInt(device_status.id_11)
+        //         },
+        //         {
+        //             type: 'integer',
+        //             value: parseInt(device_status.id_12)
+        //         },
+        //
+        //     ]
+        // });
 
         // 送出訊息（port 9997)
-        udp.send(message_to_TFT, 0, message_to_TFT.length, 9997, "192.168.1.139");
-        udp.send(message_to_TFT, 0, message_to_TFT.length, 9997, "127.0.0.1");
-        console.log('tft message send')
+        // udp.send(message_to_TFT, 0, message_to_TFT.length, 9997, "192.168.1.139");
+        // udp.send(message_to_TFT, 0, message_to_TFT.length, 9997, "127.0.0.1");
+        // console.log('tft message send')
     }
 
     // 發生錯誤的話印出
