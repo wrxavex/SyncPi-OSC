@@ -176,7 +176,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
                 vp.is_playing = true;
                 console.log('video is playing , vp.is_playing = true');
                 udp.send(x, 0, x.length, 9999, master_id);
-                // client.publish('presence', 'lcd 4 is playing');
+                client.publish('presence', 'lcd 4 is playing');
 
                 console.log('send osc message to master');
 
@@ -249,7 +249,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
             if(vp.is_playing == true){
                 vp.is_playing = false;
                 console.log('vp.is_playing = false');
-                // client.publish('presence', 'lcd 4 movie play is end');
+                client.publish('presence', 'lcd 4 movie play is end');
                 udp.send(x_end, 0, x_end.length, 9999, master_id);
             }
             else{
