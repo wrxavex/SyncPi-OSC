@@ -37,7 +37,12 @@ client.publish('presence', vp.is_playing.toString());
 client.on('message', function(topic, message) {
     console.log(message.toString());
     if (message.toString() == 'playing') {
-        client.publish('presence', vp.is_playing.toString());
+        if(vp.is_playing == 0){
+            client.publish('presence', "0");
+        }
+        else {
+            client.publish('presence', "1");
+        }
     }
 
     //client.publish('presence', vp.is_playing.toString());
