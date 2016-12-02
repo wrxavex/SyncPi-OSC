@@ -127,6 +127,10 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
             {
                 type: 'integer',
                 value: 5
+            },
+            {
+                type: 'string',
+                value: vp.temperature
             }
         ]
     });
