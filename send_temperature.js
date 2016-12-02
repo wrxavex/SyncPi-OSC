@@ -16,6 +16,8 @@ var video_id = fs.readFileSync('/boot/sync_setting.txt', 'utf8');
 // 指定master位置
 var master_id = "192.168.1.201";
 
+var vp = new VideoPlayer(video_id);
+
 
 exec('/opt/vc/bin/vcgencmd measure_temp', function(error, stdout, stderr) {
 
