@@ -33,7 +33,7 @@ client.on('connect', function() {
 });
 
 client.on('message', function(topic, message){
-    console.log(message.toString());
+    console.log(message);
     //client.publish('presence', vp.is_playing.toString());
     client.end();
 });
