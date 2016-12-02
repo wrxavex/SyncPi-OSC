@@ -101,27 +101,34 @@
         socket.on('device_3', function(data){
             console.log('device_3'+data);
             if(data == 'waiting'){
-                document.getElementById('device_3_button').innerHTML = '3 waiting';
-                document.getElementById('device_3_button').className = 'btn btn-primary btn-lg';
+                document.getElementById('device_3_status').innerHTML = '3 waiting';
+                document.getElementById('device_3_status').className = 'btn btn-primary btn-lg';
             }
             if(data == 'rebooting'){
-                document.getElementById('device_3_button').innerHTML = '3 重開機中';
-                document.getElementById('device_3_button').className = 'btn btn-primary btn-lg';
+                document.getElementById('device_3_status').innerHTML = '3 重開機中';
+                document.getElementById('device_3_status').className = 'btn btn-primary btn-lg';
             }
             if(data == 'power_off'){
-                document.getElementById('device_3_button').innerHTML = '3 關機';
-                document.getElementById('device_3_button').className = 'btn btn-primary btn-lg';
+                document.getElementById('device_3_status').innerHTML = '3 關機';
+                document.getElementById('device_3_status').className = 'btn btn-primary btn-lg';
             }
 
             if(data == 'on'){
-                document.getElementById('device_3_button').innerHTML = '3 開';
-                document.getElementById('device_3_button').className = 'btn btn-default btn-lg';
+                document.getElementById('device_3_status').innerHTML = '3 開';
+                document.getElementById('device_3_status').className = 'btn btn-default btn-lg';
             }
 
             if(data == 'off'){
-                document.getElementById('device_3_button').innerHTML = '3 關';
-                document.getElementById('device_3_button').className = 'btn btn-primary btn-lg';
+                document.getElementById('device_3_status').innerHTML = '3 關';
+                document.getElementById('device_3_status').className = 'btn btn-primary btn-lg';
             }
+        });
+
+        socket.on('device_3_temperature', function(data){
+            console.log('device_3_temperature:'+ data);
+            document.getElementById('device_3_temperature').innerHTML = data;
+            document.getElementById('device_3_temperature').className = 'btn btn-warning btn-lg';
+
         });
 
         socket.on('device_4', function(data){
@@ -487,7 +494,10 @@
         <p id="device_2_status"> 2 status</p>
         <p id="device_2_temperature">30.0</p>
         </button>
-    <button id="device_3_button" type="button" class="btn btn-primary btn-lg " onclick="switch3()" > 3</button>
+    <button id="device_3_button" type="button" class="btn btn-primary btn-lg " onclick="switch3()" >
+        <p id="device_3_status"> 3 status</p>
+        <p id="device_3_temperature">30.0</p>
+        </button>
     <button id="device_4_button" type="button" class="btn btn-primary btn-lg " onclick="switch4()" > 4</button>
     <button id="device_5_button" type="button" class="btn btn-primary btn-lg " onclick="switch5()" > 5</button>
     <button id="device_6_button" type="button" class="btn btn-primary btn-lg " onclick="switch6()" > 6</button>
