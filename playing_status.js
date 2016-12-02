@@ -13,7 +13,7 @@ VideoPlayer.prototype.count = function() {
     return this.number;
 };
 
-VideoPlayer.prototype.count = function() {
+VideoPlayer.prototype.temperature = function() {
     exec('/opt/vc/bin/vcgencmd measure_temp', function(error, stdout, stderr) {
         return stdout;
         if (error !== null) {
