@@ -88,10 +88,10 @@
             console.log('device_2_temperature:'+ data);
 
 
-            if(data == 'waiting'){
+            if(data == 'waiting') {
                 document.getElementById('device_2_button').innerHTML = data;
                 document.getElementById('device_2_button').className = 'btn btn-primary btn-lg';
-
+            }
         });
 
         socket.on('device_3', function(data){
