@@ -27,10 +27,8 @@ video_id = video_id.substring(3, 5);
 var vp = new VideoPlayer(video_id);
 
 
-client.on('connect', function() {
-    client.subscribe('presence');
-    client.publish('presence', vp.is_playing.toString());
-});
+client.subscribe('presence');
+client.publish('presence', vp.is_playing.toString());
 
 client.on('message', function(topic, message){
     console.log(message);
