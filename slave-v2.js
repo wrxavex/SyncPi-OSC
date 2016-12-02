@@ -11,7 +11,7 @@ var osc = require('osc-min'),
 
 // 引入mqtt 建立client物件
 var mqtt = require('mqtt'),
-    client = mqtt.connect('mqtt://znh.tw');
+    client = mqtt.connect('mqtt://www.znh.tw');
 
 // 指定同步設定檔位置
 var video_id = fs.readFileSync('/boot/sync_setting.txt', 'utf8');
