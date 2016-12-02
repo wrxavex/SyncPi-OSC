@@ -30,10 +30,11 @@ var vp = new VideoPlayer(video_id);
 client.subscribe('presence');
 client.publish('presence', vp.is_playing.toString());
 
-client.on('message', function(topic, message){
+client.on('message', function(topic, message) {
     console.log(message.toString());
-
-    client.publish('presence', vp.is_playing.toString());
+    if (message.toString() == 'playing') {
+        client.publish('presence', vp.is_playing.toString());
+    }
 
     //client.publish('presence', vp.is_playing.toString());
 });
