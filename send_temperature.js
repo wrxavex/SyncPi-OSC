@@ -19,6 +19,11 @@ var master_id = "192.168.1.201";
 var vp = new VideoPlayer(video_id);
 
 
+var udp = dgram.createSocket('udp4', function(msg, rinfo) {
+});
+
+
+
 exec('/opt/vc/bin/vcgencmd measure_temp', function(error, stdout, stderr) {
 
     var x_poweroff = osc.toBuffer({
