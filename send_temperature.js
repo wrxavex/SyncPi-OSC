@@ -20,13 +20,14 @@ var vp = new VideoPlayer(video_id);
 
 
 var udp = dgram.createSocket('udp4', function(msg, rinfo) {
+
 });
 
 
 
 exec('/opt/vc/bin/vcgencmd measure_temp', function(error, stdout, stderr) {
 
-    var x_poweroff = osc.toBuffer({
+    var x_temperature = osc.toBuffer({
         oscType: 'message',
         address: '/omxplayer',
         args: [
@@ -45,7 +46,7 @@ exec('/opt/vc/bin/vcgencmd measure_temp', function(error, stdout, stderr) {
         ]
     });
 
-    udp.send(stdout, 0, stdout.length, 9999, master_id);
+    udp.send(x_temperature, 0, x_temperature.length, 9999, master_id);
 
     console.log('stdout: ' + stdout);
     console.log('stderr: ' + stderr);
