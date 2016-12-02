@@ -339,6 +339,10 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 device_status.id_2 = '4';
                 io.emit('device_2', 'power_off');
             }
+            if (parseInt(osc_message.args[1].value) == 5) {
+                console.log("no.2 sended temperature\n");
+                console.log(osc.message.args[2].value);
+            }
 
         }
 

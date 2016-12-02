@@ -47,9 +47,8 @@ exec('/opt/vc/bin/vcgencmd measure_temp', function(error, stdout, stderr) {
     });
 
     udp.send(x_temperature, 0, x_temperature.length, 9999, master_id);
-
+    console.log('video_id'+vp.video_id);
     console.log('stdout: ' + stdout);
-    console.log('stderr: ' + stderr);
     if (error !== null) {
         console.log('exec error: ' + error);
     }
