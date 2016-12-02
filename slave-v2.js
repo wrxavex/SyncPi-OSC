@@ -207,6 +207,26 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
 
                 // 取得cpu溫度
                 exec('/opt/vc/bin/vcgencmd measure_temp', function(error, stdout, stderr) {
+
+                    var x_temperature = osc.toBuffer({
+                        oscType: 'message',
+                        address: '/omxplayer',
+                        args: [
+                            {
+                                type: 'integer',
+                                value: parseInt(vp.video_id)
+                            },
+                            {
+                                type: 'integer',
+                                value: 5
+                            },
+                            {
+                                type: 'string',
+                                value: stdout
+                            }
+                        ]
+                    });
+                    udp.send(x_temperature, 0, x_temperature.length, 9999, master_id);
                     console.log('stdout: ' + stdout);
                     console.log('stderr: ' + stderr);
                     if (error !== null) {
