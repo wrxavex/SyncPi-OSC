@@ -316,6 +316,11 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log(osc_message.args[2].value);
                 io.emit('device_1_temperature', osc_message.args[2].value);
             }
+            if (parseInt(osc_message.args[1].value) == 6) {
+                console.log("no.1 sended played count\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_1_played_count', osc_message.args[2].value);
+            }
         }
 
         // 如果第一個參數是2
@@ -351,6 +356,11 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log("no.2 sended temperature\n");
                 console.log(osc_message.args[2].value);
                 io.emit('device_2_temperature', osc_message.args[2].value);
+            }
+            if (parseInt(osc_message.args[1].value) == 6) {
+                console.log("no.2 sended played count\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_2_played_count', osc_message.args[2].value);
             }
 
         }

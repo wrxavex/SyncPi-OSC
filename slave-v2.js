@@ -223,8 +223,27 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
                     ]
                 });
 
+                var slave_play_count = osc.toBuffer({
+                    oscType: 'message',
+                    address: '/omxplayer',
+                    args: [
+                        {
+                            type: 'integer',
+                            value: parseInt(vp.video_id)
+                        },
+                        {
+                            type: 'integer',
+                            value: 6
+                        },
+                        {
+                            type: 'integer',
+                            value: parseInt(vp.number)
+                        }
+                    ]
+                });
+
                 // send osc message to slave tft display status
-                udp.send(slave_play_status, 0, slave_play_status.length, 9997, "127.0.0.1");
+                udp.send(slave_play_count, 0, slave_play_count.length, 9997, "127.0.0.1");
 
                 // 取得現在時間
                 var time = new Date();
