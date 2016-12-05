@@ -390,32 +390,35 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
             console.log("no.3 callback " + time.getTime());
             device_status.id_3_lasttime = time.getTime();
             if (parseInt(osc_message.args[1].value) == 0) {
-                console.log("no.3 is get master message\n");
+                console.log("no.3 is waiting\n");
                 device_status.id_3 = '0';
                 io.emit('device_3', 'waiting');
+                client.publish('nmh/3', 'waiting');
 
             }
             if (parseInt(osc_message.args[1].value) == 1) {
-                console.log("no.3 is get master message\n");
+                console.log("no.3 is playing\n");
                 device_status.id_3 = '1';
                 io.emit('device_3', 'on');
+                client.publish('nmh/3', 'playing');
             }
             if (parseInt(osc_message.args[1].value) == 2) {
                 console.log("no.3 movie is end\n");
                 device_status.id_3 = '2';
                 io.emit('device_3', 'off');
+                client.publish('nmh/3', 'off');
             }
             if (parseInt(osc_message.args[1].value) == 3) {
                 console.log("no.3 rebooting\n");
                 device_status.id_3 = '3';
                 io.emit('device_3', 'rebooting');
-                client.publish('nmh/1', '');
+                client.publish('nmh/3', 'rebooting');
             }
             if (parseInt(osc_message.args[1].value) == 4) {
                 console.log("no.3 power off\n");
                 device_status.id_3 = '4';
                 io.emit('device_3', 'power_off');
-                client.publish('nmh/1', 'power off');
+                client.publish('nmh/3', 'power off');
             }
             if (parseInt(osc_message.args[1].value) == 5) {
                 console.log("no.3 sended temperature\n");
