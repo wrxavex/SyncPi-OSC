@@ -302,10 +302,12 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 io.emit('device_1', 'waiting');
                 //client.publish('nmh/1', 'waiting', [2 ,true]);
                 client.publish({
-                    topic: 'nmh/1',
-                    payload: 'waiting',
-                    qos: 2,
-                    retain: true
+                    will: {
+                        topic: 'nmh/1',
+                        payload: 'waiting',
+                        qos: 2,
+                        retain: true
+                    }
                 });
             }
             if (parseInt(osc_message.args[1].value) == 1) {
@@ -314,11 +316,14 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 io.emit('device_1', 'on');
                 //client.publish('nmh/1', 'playing', [2 ,true]);
                 client.publish({
-                    topic: 'nmh/1',
-                    payload: 'playing',
-                    qos: 2,
-                    retain: true
+                    will: {
+                        topic: 'nmh/1',
+                        payload: 'playing',
+                        qos: 2,
+                        retain: true
+                    }
                 });
+            }
 
             }
             if (parseInt(osc_message.args[1].value) == 2) {
@@ -327,11 +332,14 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 io.emit('device_1', 'off');
                 //client.publish('nmh/1', 'off', [2 ,true]);
                 client.publish({
-                    topic: 'nmh/1',
-                    payload: 'off',
-                    qos: 2,
-                    retain: true
+                    will: {
+                        topic: 'nmh/1',
+                        payload: 'off',
+                        qos: 2,
+                        retain: true
+                    }
                 });
+            }
                 send();
             }
             if (parseInt(osc_message.args[1].value) == 3) {
