@@ -300,7 +300,7 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log("no.1 is waiting\n");
                 device_status.id_1 = '0';
                 io.emit('device_1', 'waiting');
-                client.publish('nmh/1', 'waiting', { qos: 2, retained: true });
+                client.publish('nmh/1', 'waiting', { qos: 2, retain: true });
 
 
             }
@@ -308,14 +308,14 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log("no.1 is playing\n");
                 device_status.id_1 = '1';
                 io.emit('device_1', 'on');
-                client.publish('nmh/1', 'playing', { qos: 2, retained: true });
+                client.publish('nmh/1', 'playing', { qos: 2, retain: true });
 
             }
             if (parseInt(osc_message.args[1].value) == 2) {
                 console.log("no.1 movie is end\n");
                 device_status.id_1 = '2';
                 io.emit('device_1', 'off');
-                client.publish('nmh/1', 'off', { qos: 2, retained: true });
+                client.publish('nmh/1', 'off', { qos: 2, retain: true });
                 send();
             }
             if (parseInt(osc_message.args[1].value) == 3) {
