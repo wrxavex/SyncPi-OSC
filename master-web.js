@@ -309,6 +309,7 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                         retain: true
                     }
                 });
+
             }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.1 is playing\n");
@@ -324,8 +325,6 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                     }
                 });
             }
-
-            }
             if (parseInt(osc_message.args[1].value) == 2) {
                 console.log("no.1 movie is end\n");
                 device_status.id_1 = '2';
@@ -339,7 +338,6 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                         retain: true
                     }
                 });
-            }
                 send();
             }
             if (parseInt(osc_message.args[1].value) == 3) {
