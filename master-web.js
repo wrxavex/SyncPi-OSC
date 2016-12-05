@@ -4,6 +4,10 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var async = require('async');
 
+var mqtt = require('mqtt'),
+    client = mqtt.connect('mqtt://www.znh.tw');
+
+
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
@@ -286,40 +290,48 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
             console.log("no.1 callback " + time.getTime());
             device_status.id_1_lasttime = time.getTime();
             if (parseInt(osc_message.args[1].value) == 0) {
-                console.log("no.1 is get master message\n");
+                console.log("no.1 is waiting\n");
                 device_status.id_1 = '0';
                 io.emit('device_1', 'waiting');
+                client.publish('nmh/1', 'waiting');
             }
             if (parseInt(osc_message.args[1].value) == 1) {
-                console.log("no.1 is get master message\n");
+                console.log("no.1 is playing\n");
                 device_status.id_1 = '1';
                 io.emit('device_1', 'on');
+                client.publish('nmh/1', 'playing');
+
             }
             if (parseInt(osc_message.args[1].value) == 2) {
                 console.log("no.1 movie is end\n");
                 device_status.id_1 = '2';
                 io.emit('device_1', 'off');
+                client.publish('nmh/1', 'off');
                 send();
             }
             if (parseInt(osc_message.args[1].value) == 3) {
                 console.log("no.1 rebooting\n");
                 device_status.id_1 = '3';
                 io.emit('device_1', 'rebooting');
+                client.publish('nmh/1', 'rebooting');
             }
             if (parseInt(osc_message.args[1].value) == 4) {
                 console.log("no.1 power off\n");
                 device_status.id_1 = '4';
                 io.emit('device_1', 'power_off');
+                client.publish('nmh/1', 'poweroff');
             }
             if (parseInt(osc_message.args[1].value) == 5) {
                 console.log("no.1 sended temperature\n");
                 console.log(osc_message.args[2].value);
                 io.emit('device_1_temperature', osc_message.args[2].value);
+                client.publish('nmh/1/temperature',osc_message.args[2].value);
             }
             if (parseInt(osc_message.args[1].value) == 6) {
                 console.log("no.1 sended played count\n");
                 console.log(osc_message.args[2].value);
                 io.emit('device_1_played_count', osc_message.args[2].value);
+                client.publish('nmh/1/count', osc_message.args[2].value);
             }
         }
 
@@ -399,6 +411,11 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log(osc_message.args[2].value);
                 io.emit('device_3_temperature', osc_message.args[2].value);
             }
+            if (parseInt(osc_message.args[1].value) == 6) {
+                console.log("no.3 sended played count\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_3_played_count', osc_message.args[2].value);
+            }
         }
 
         // 如果第一個參數是4
@@ -430,6 +447,17 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 device_status.id_4 = '4';
                 io.emit('device_4', 'power_off');
             }
+            if (parseInt(osc_message.args[1].value) == 5) {
+                console.log("no.4 sended temperature\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_4_temperature', osc_message.args[2].value);
+            }
+            if (parseInt(osc_message.args[1].value) == 6) {
+                console.log("no.4 sended played count\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_4_played_count', osc_message.args[2].value);
+            }
+
         }
 
         // 如果第一個參數是5
@@ -460,6 +488,16 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log("no.5 power off\n");
                 device_status.id_5 = '4';
                 io.emit('device_5', 'power_off');
+            }
+            if (parseInt(osc_message.args[1].value) == 5) {
+                console.log("no.6 sended temperature\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_6_temperature', osc_message.args[2].value);
+            }
+            if (parseInt(osc_message.args[1].value) == 6) {
+                console.log("no.6 sended played count\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_6_played_count', osc_message.args[2].value);
             }
         }
 
@@ -492,6 +530,16 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 device_status.id_6 = '4';
                 io.emit('device_6', 'power_off');
             }
+            if (parseInt(osc_message.args[1].value) == 5) {
+                console.log("no.6 sended temperature\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_6_temperature', osc_message.args[2].value);
+            }
+            if (parseInt(osc_message.args[1].value) == 6) {
+                console.log("no.6 sended played count\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_6_played_count', osc_message.args[2].value);
+            }
         }
 
         // 如果第一個參數是7
@@ -523,6 +571,16 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 device_status.id_7 = '4';
                 io.emit('device_7', 'power_off');
             }
+            if (parseInt(osc_message.args[1].value) == 5) {
+                console.log("no.7 sended temperature\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_7_temperature', osc_message.args[2].value);
+            }
+            if (parseInt(osc_message.args[1].value) == 6) {
+                console.log("no.7 sended played count\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_7_played_count', osc_message.args[2].value);
+            }
         }
 
         if (parseInt(osc_message.args[0].value) == 8) {
@@ -552,6 +610,16 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log("no.8 power off\n");
                 device_status.id_8 = '4';
                 io.emit('device_8', 'power_off');
+            }
+            if (parseInt(osc_message.args[1].value) == 5) {
+                console.log("no.8 sended temperature\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_8_temperature', osc_message.args[2].value);
+            }
+            if (parseInt(osc_message.args[1].value) == 6) {
+                console.log("no.8 sended played count\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_8_played_count', osc_message.args[2].value);
             }
         }
 
@@ -583,6 +651,16 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 device_status.id_9 = '4';
                 io.emit('device_9', 'power_off');
             }
+            if (parseInt(osc_message.args[1].value) == 5) {
+                console.log("no.9 sended temperature\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_9_temperature', osc_message.args[2].value);
+            }
+            if (parseInt(osc_message.args[1].value) == 6) {
+                console.log("no.9 sended played count\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_9_played_count', osc_message.args[2].value);
+            }
         }
 
         if (parseInt(osc_message.args[0].value) == 10) {
@@ -612,6 +690,16 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log("no.10 power off\n");
                 device_status.id_10 = '4';
                 io.emit('device_10', 'power_off');
+            }
+            if (parseInt(osc_message.args[1].value) == 5) {
+                console.log("no.10 sended temperature\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_10_temperature', osc_message.args[2].value);
+            }
+            if (parseInt(osc_message.args[1].value) == 6) {
+                console.log("no.10 sended played count\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_10_played_count', osc_message.args[2].value);
             }
         }
 
@@ -643,6 +731,16 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 device_status.id_11 = '4';
                 io.emit('device_11', 'power_off');
             }
+            if (parseInt(osc_message.args[1].value) == 5) {
+                console.log("no.11 sended temperature\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_11_temperature', osc_message.args[2].value);
+            }
+            if (parseInt(osc_message.args[1].value) == 6) {
+                console.log("no.11 sended played count\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_11_played_count', osc_message.args[2].value);
+            }
         }
 
 
@@ -673,6 +771,16 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log("no.12 power off\n");
                 device_status.id_12 = '4';
                 io.emit('device_12', 'power_off');
+            }
+            if (parseInt(osc_message.args[1].value) == 5) {
+                console.log("no.12 sended temperature\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_12_temperature', osc_message.args[2].value);
+            }
+            if (parseInt(osc_message.args[1].value) == 6) {
+                console.log("no.12 sended played count\n");
+                console.log(osc_message.args[2].value);
+                io.emit('device_12_played_count', osc_message.args[2].value);
             }
         }
 
