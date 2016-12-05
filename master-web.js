@@ -348,7 +348,7 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.2 is playing\n");
                 device_status.id_2 = '1';
-                io.emit('device_2', 'playing');
+                io.emit('device_2', 'on');
                 client.publish('nmh/2', 'playing');
             }
             if (parseInt(osc_message.args[1].value) == 2) {
