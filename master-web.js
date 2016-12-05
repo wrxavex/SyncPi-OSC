@@ -300,33 +300,63 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log("no.1 is waiting\n");
                 device_status.id_1 = '0';
                 io.emit('device_1', 'waiting');
-                client.publish('nmh/1', 'waiting', [2 ,true]);
+                //client.publish('nmh/1', 'waiting', [2 ,true]);
+                client.publish({
+                    topic: 'nmh/1',
+                    payload: 'waiting',
+                    qos: 2,
+                    retain: true
+                });
             }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.1 is playing\n");
                 device_status.id_1 = '1';
                 io.emit('device_1', 'on');
-                client.publish('nmh/1', 'playing', [2 ,true]);
+                //client.publish('nmh/1', 'playing', [2 ,true]);
+                client.publish({
+                    topic: 'nmh/1',
+                    payload: 'playing',
+                    qos: 2,
+                    retain: true
+                });
 
             }
             if (parseInt(osc_message.args[1].value) == 2) {
                 console.log("no.1 movie is end\n");
                 device_status.id_1 = '2';
                 io.emit('device_1', 'off');
-                client.publish('nmh/1', 'off', [2 ,true]);
+                //client.publish('nmh/1', 'off', [2 ,true]);
+                client.publish({
+                    topic: 'nmh/1',
+                    payload: 'off',
+                    qos: 2,
+                    retain: true
+                });
                 send();
             }
             if (parseInt(osc_message.args[1].value) == 3) {
                 console.log("no.1 rebooting\n");
                 device_status.id_1 = '3';
                 io.emit('device_1', 'rebooting');
-                client.publish('nmh/1', 'rebooting', [2 ,true]);
+                //client.publish('nmh/1', 'rebooting', [2 ,true]);
+                client.publish({
+                    topic: 'nmh/1',
+                    payload: 'rebooting',
+                    qos: 2,
+                    retain: true
+                });
             }
             if (parseInt(osc_message.args[1].value) == 4) {
                 console.log("no.1 power off\n");
                 device_status.id_1 = '4';
                 io.emit('device_1', 'power_off');
-                client.publish('nmh/1', 'poweroff', [2 ,true]);
+                //client.publish('nmh/1', 'power off', [2 ,true]);
+                client.publish({
+                    topic: 'nmh/1',
+                    payload: 'power off',
+                    qos: 2,
+                    retain: true
+                });
             }
             if (parseInt(osc_message.args[1].value) == 5) {
                 console.log("no.1 sended temperature\n");
