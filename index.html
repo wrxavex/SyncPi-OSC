@@ -142,7 +142,12 @@
             console.log('device_3_temperature:'+ data);
             document.getElementById('device_3_temperature').innerHTML = data;
             document.getElementById('device_3_temperature').className = 'btn btn-warning btn-lg';
+        });
 
+        socket.on('device_3_played_count', function(data){
+            console.log('device_3_played_count:'+ data);
+            document.getElementById('device_3_played_count').innerHTML = data;
+            document.getElementById('device_3_played_count').className = 'btn btn-warning btn-lg';
         });
 
         socket.on('device_4', function(data){
@@ -171,6 +176,18 @@
             }
         });
 
+        socket.on('device_4_temperature', function(data){
+            console.log('device_4_temperature:'+ data);
+            document.getElementById('device_4_temperature').innerHTML = data;
+            document.getElementById('device_4_temperature').className = 'btn btn-warning btn-lg';
+        });
+
+        socket.on('device_4_played_count', function(data){
+            console.log('device_4_played_count:'+ data);
+            document.getElementById('device_4_played_count').innerHTML = data;
+            document.getElementById('device_4_played_count').className = 'btn btn-warning btn-lg';
+        });
+
         socket.on('device_5', function(data){
             console.log('device_5'+data);
             if(data == 'waiting'){
@@ -195,6 +212,18 @@
                 document.getElementById('device_5_button').innerHTML = '5 關';
                 document.getElementById('device_5_button').className = 'btn btn-primary btn-lg';
             }
+        });
+
+        socket.on('device_5_temperature', function(data){
+            console.log('device_5_temperature:'+ data);
+            document.getElementById('device_5_temperature').innerHTML = data;
+            document.getElementById('device_5_temperature').className = 'btn btn-warning btn-lg';
+        });
+
+        socket.on('device_5_played_count', function(data){
+            console.log('device_5_played_count:'+ data);
+            document.getElementById('device_5_played_count').innerHTML = data;
+            document.getElementById('device_5_played_count').className = 'btn btn-warning btn-lg';
         });
 
         socket.on('device_6', function(data){
@@ -223,6 +252,18 @@
             }
         });
 
+        socket.on('device_6_temperature', function(data){
+            console.log('device_6_temperature:'+ data);
+            document.getElementById('device_6_temperature').innerHTML = data;
+            document.getElementById('device_6_temperature').className = 'btn btn-warning btn-lg';
+        });
+
+        socket.on('device_6_played_count', function(data){
+            console.log('device_6_played_count:'+ data);
+            document.getElementById('device_6_played_count').innerHTML = data;
+            document.getElementById('device_6_played_count').className = 'btn btn-warning btn-lg';
+        });
+
         socket.on('device_7', function(data){
             console.log('device_7'+data);
             if(data == 'waiting'){
@@ -247,6 +288,18 @@
                 document.getElementById('device_7_button').innerHTML = '7 關';
                 document.getElementById('device_7_button').className = 'btn btn-primary btn-lg';
             }
+        });
+
+        socket.on('device_7_temperature', function(data){
+            console.log('device_7_temperature:'+ data);
+            document.getElementById('device_7_temperature').innerHTML = data;
+            document.getElementById('device_7_temperature').className = 'btn btn-warning btn-lg';
+        });
+
+        socket.on('device_7_played_count', function(data){
+            console.log('device_7_played_count:'+ data);
+            document.getElementById('device_7_played_count').innerHTML = data;
+            document.getElementById('device_7_played_count').className = 'btn btn-warning btn-lg';
         });
 
         socket.on('device_8', function(data){
@@ -275,6 +328,18 @@
             }
         });
 
+        socket.on('device_8_temperature', function(data){
+            console.log('device_8_temperature:'+ data);
+            document.getElementById('device_8_temperature').innerHTML = data;
+            document.getElementById('device_8_temperature').className = 'btn btn-warning btn-lg';
+        });
+
+        socket.on('device_8_played_count', function(data){
+            console.log('device_8_played_count:'+ data);
+            document.getElementById('device_8_played_count').innerHTML = data;
+            document.getElementById('device_8_played_count').className = 'btn btn-warning btn-lg';
+        });
+
         socket.on('device_9', function(data){
             console.log('device_9'+data);
             if(data == 'waiting'){
@@ -299,6 +364,18 @@
                 document.getElementById('device_9_button').innerHTML = '9 關';
                 document.getElementById('device_9_button').className = 'btn btn-primary btn-lg';
             }
+        });
+
+        socket.on('device_9_temperature', function(data){
+            console.log('device_9_temperature:'+ data);
+            document.getElementById('device_9_temperature').innerHTML = data;
+            document.getElementById('device_9_temperature').className = 'btn btn-warning btn-lg';
+        });
+
+        socket.on('device_9_played_count', function(data){
+            console.log('device_9_played_count:'+ data);
+            document.getElementById('device_9_played_count').innerHTML = data;
+            document.getElementById('device_9_played_count').className = 'btn btn-warning btn-lg';
         });
 
         socket.on('device_10', function(data){
@@ -327,6 +404,18 @@
             }
         });
 
+        socket.on('device_10_temperature', function(data){
+            console.log('device_10_temperature:'+ data);
+            document.getElementById('device_10_temperature').innerHTML = data;
+            document.getElementById('device_10_temperature').className = 'btn btn-warning btn-lg';
+        });
+
+        socket.on('device_10_played_count', function(data){
+            console.log('device_10_played_count:'+ data);
+            document.getElementById('device_10_played_count').innerHTML = data;
+            document.getElementById('device_10_played_count').className = 'btn btn-warning btn-lg';
+        });
+
         socket.on('device_11', function(data){
             console.log('device_11'+data);
             if(data == 'waiting'){
@@ -353,6 +442,18 @@
             }
         });
 
+        socket.on('device_11_temperature', function(data){
+            console.log('device_11_temperature:'+ data);
+            document.getElementById('device_11_temperature').innerHTML = data;
+            document.getElementById('device_11_temperature').className = 'btn btn-warning btn-lg';
+        });
+
+        socket.on('device_11_played_count', function(data){
+            console.log('device_11_played_count:'+ data);
+            document.getElementById('device_11_played_count').innerHTML = data;
+            document.getElementById('device_11_played_count').className = 'btn btn-warning btn-lg';
+        });
+
         socket.on('device_12', function(data){
             console.log('device_12'+data);
             if(data == 'waiting'){
@@ -377,6 +478,18 @@
                 document.getElementById('device_12_button').innerHTML = '12 關';
                 document.getElementById('device_12_button').className = 'btn btn-primary btn-lg';
             }
+        });
+
+        socket.on('device_12_temperature', function(data){
+            console.log('device_12_temperature:'+ data);
+            document.getElementById('device_12_temperature').innerHTML = data;
+            document.getElementById('device_12_temperature').className = 'btn btn-warning btn-lg';
+        });
+
+        socket.on('device_12_played_count', function(data){
+            console.log('device_12_played_count:'+ data);
+            document.getElementById('device_12_played_count').innerHTML = data;
+            document.getElementById('device_12_played_count').className = 'btn btn-warning btn-lg';
         });
 
 
@@ -512,18 +625,56 @@
         </button>
     <button id="device_3_button" type="button" class="btn btn-primary btn-lg " onclick="switch3()" >
         <p id="device_3_status"> 3 status</p>
+        <p id="device_3_played_count">0 times</p>
         <p id="device_3_temperature">30.0</p>
         </button>
-    <button id="device_4_button" type="button" class="btn btn-primary btn-lg " onclick="switch4()" > 4</button>
-    <button id="device_5_button" type="button" class="btn btn-primary btn-lg " onclick="switch5()" > 5</button>
-    <button id="device_6_button" type="button" class="btn btn-primary btn-lg " onclick="switch6()" > 6</button>
+    <button id="device_4_button" type="button" class="btn btn-primary btn-lg " onclick="switch4()" >
+        <p id="device_4_status"> 4 status</p>
+        <p id="device_4_played_count">0 times</p>
+        <p id="device_4_temperature">30.0</p>
 
-    <button id="device_7_button" type="button" class="btn btn-primary btn-lg " onclick="switch7()" > 7</button>
-    <button id="device_8_button" type="button" class="btn btn-primary btn-lg " onclick="switch8()" > 8</button>
-    <button id="device_9_button" type="button" class="btn btn-primary btn-lg " onclick="switch9()" > 9</button>
-    <button id="device_10_button" type="button" class="btn btn-primary btn-lg " onclick="switch10()" > 10</button>
-    <button id="device_11_button" type="button" class="btn btn-primary btn-lg " onclick="switch11()" > 11</button>
-    <button id="device_12_button" type="button" class="btn btn-primary btn-lg " onclick="switch12()" > 12</button>
+    </button>
+    <button id="device_5_button" type="button" class="btn btn-primary btn-lg " onclick="switch5()" >
+        <p id="device_5_status"> 4 status</p>
+        <p id="device_5_played_count">0 times</p>
+        <p id="device_5_temperature">30.0</p>
+    </button>
+    <button id="device_6_button" type="button" class="btn btn-primary btn-lg " onclick="switch6()" >
+        <p id="device_6_status"> 4 status</p>
+        <p id="device_6_played_count">0 times</p>
+        <p id="device_6_temperature">30.0</p>
+    </button>
+
+    <button id="device_7_button" type="button" class="btn btn-primary btn-lg " onclick="switch7()" >
+        <p id="device_7_status"> 4 status</p>
+        <p id="device_7_played_count">0 times</p>
+        <p id="device_7_temperature">30.0</p>
+    </button>
+    <button id="device_8_button" type="button" class="btn btn-primary btn-lg " onclick="switch8()" >
+        <p id="device_8_status"> 4 status</p>
+        <p id="device_8_played_count">0 times</p>
+        <p id="device_8_temperature">30.0</p>
+    </button>
+    <button id="device_9_button" type="button" class="btn btn-primary btn-lg " onclick="switch9()" >
+        <p id="device_9_status"> 9 status</p>
+        <p id="device_9_played_count">0 times</p>
+        <p id="device_9_temperature">30.0</p>
+    </button>
+    <button id="device_10_button" type="button" class="btn btn-primary btn-lg " onclick="switch10()" >
+        <p id="device_10_status"> 10 status</p>
+        <p id="device_10_played_count">0 times</p>
+        <p id="device_10_temperature">30.0</p>
+    </button>
+    <button id="device_11_button" type="button" class="btn btn-primary btn-lg " onclick="switch11()" >
+        <p id="device_11_status"> 11 status</p>
+        <p id="device_11_played_count">0 times</p>
+        <p id="device_11_temperature">30.0</p>
+    </button>
+    <button id="device_12_button" type="button" class="btn btn-primary btn-lg " onclick="switch12()" >
+        <p id="device_12_status"> 4 status</p>
+        <p id="device_12_played_count">0 times</p>
+        <p id="device_12_temperature">30.0</p>
+    </button>
 
     <h4>Power off</h4>
     <button id="device_1_power_off" type="button" class="btn btn-primary btn-lg " onclick="power_off1()" > 1</button>

@@ -340,39 +340,47 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
             console.log("no.2 callback " + time.getTime());
             device_status.id_2_lasttime = time.getTime();
             if (parseInt(osc_message.args[1].value) == 0) {
-                console.log("no.2 is get master message\n");
+                console.log("no.2 is waiting\n");
                 device_status.id_2 = '0';
                 io.emit('device_2', 'waiting');
+                client.publish('nmh/2', 'waiting');
             }
             if (parseInt(osc_message.args[1].value) == 1) {
-                console.log("no.2 is get master message\n");
+                console.log("no.2 is playing\n");
                 device_status.id_2 = '1';
-                io.emit('device_2', 'on');
+                io.emit('device_2', 'playing');
+                client.publish('nmh/2', 'playing');
             }
             if (parseInt(osc_message.args[1].value) == 2) {
                 console.log("no.2 movie is end\n");
                 device_status.id_2 = '2';
                 io.emit('device_2', 'off');
+                client.publish('nmh/2', 'off');
             }
             if (parseInt(osc_message.args[1].value) == 3) {
                 console.log("no.2 rebooting\n");
                 device_status.id_2 = '3';
                 io.emit('device_2', 'rebooting');
+                client.publish('nmh/2', 'rebooting');
             }
             if (parseInt(osc_message.args[1].value) == 4) {
                 console.log("no.2 power off\n");
                 device_status.id_2 = '4';
                 io.emit('device_2', 'power_off');
+                client.publish('nmh/2', 'power off');
             }
             if (parseInt(osc_message.args[1].value) == 5) {
                 console.log("no.2 sended temperature\n");
                 console.log(osc_message.args[2].value);
                 io.emit('device_2_temperature', osc_message.args[2].value);
+                client.publish('nmh/2/temperature', String(osc_message.args[2].value));
             }
             if (parseInt(osc_message.args[1].value) == 6) {
                 console.log("no.2 sended played count\n");
                 console.log(osc_message.args[2].value);
                 io.emit('device_2_played_count', osc_message.args[2].value);
+                client.publish('nmh/2/count', String(osc_message.args[2].value));
+
             }
 
         }
@@ -385,6 +393,7 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log("no.3 is get master message\n");
                 device_status.id_3 = '0';
                 io.emit('device_3', 'waiting');
+
             }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.3 is get master message\n");
@@ -400,21 +409,25 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log("no.3 rebooting\n");
                 device_status.id_3 = '3';
                 io.emit('device_3', 'rebooting');
+                client.publish('nmh/1', '');
             }
             if (parseInt(osc_message.args[1].value) == 4) {
                 console.log("no.3 power off\n");
                 device_status.id_3 = '4';
                 io.emit('device_3', 'power_off');
+                client.publish('nmh/1', 'power off');
             }
             if (parseInt(osc_message.args[1].value) == 5) {
                 console.log("no.3 sended temperature\n");
                 console.log(osc_message.args[2].value);
                 io.emit('device_3_temperature', osc_message.args[2].value);
+                client.publish('nmh/3/temperature', String(osc_message.args[2].value));
             }
             if (parseInt(osc_message.args[1].value) == 6) {
                 console.log("no.3 sended played count\n");
                 console.log(osc_message.args[2].value);
                 io.emit('device_3_played_count', osc_message.args[2].value);
+                client.publish('nmh/3/count', String(osc_message.args[2].value));
             }
         }
 
