@@ -325,13 +325,13 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log("no.1 sended temperature\n");
                 console.log(osc_message.args[2].value);
                 io.emit('device_1_temperature', osc_message.args[2].value);
-                client.publish('nmh/1/temperature',osc_message.args[2].value);
+                client.publish('nmh/1/temperature',String(osc_message.args[2].value));
             }
             if (parseInt(osc_message.args[1].value) == 6) {
                 console.log("no.1 sended played count\n");
                 console.log(osc_message.args[2].value);
                 io.emit('device_1_played_count', osc_message.args[2].value);
-                client.publish('nmh/1/count', osc_message.args[2].value);
+                client.publish('nmh/1/count', String(osc_message.args[2].value));
             }
         }
 
