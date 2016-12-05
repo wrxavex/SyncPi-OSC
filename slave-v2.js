@@ -243,7 +243,7 @@ var udp = dgram.createSocket('udp4', function(msg, rinfo) {
                 });
 
                 // send osc message to slave tft display status
-                udp.send(slave_play_count, 0, slave_play_count.length, 9999, "127.0.0.1");
+                udp.send(slave_play_count, 0, slave_play_count.length, 9999, master_id);
 
                 // 取得現在時間
                 var time = new Date();
