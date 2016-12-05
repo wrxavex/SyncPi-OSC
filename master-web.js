@@ -5,7 +5,14 @@ var io = require('socket.io')(http);
 var async = require('async');
 
 var mqtt = require('mqtt'),
-    client = mqtt.connect('mqtt://www.znh.tw');
+    client = mqtt.connect('mqtt://www.znh.tw', {
+        will: {
+            topic: 'presence',
+            payload: 'master-web',
+            qos: 2,
+            retain: true
+        }
+    });
 
 
 app.get('/', function(req, res) {
