@@ -334,25 +334,19 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log("no.1 power off\n");
                 device_status.id_1 = '4';
                 io.emit('device_1', 'power_off');
-                //client.publish('nmh/1', 'power off', [2 ,true]);
-                client.publish({
-                    topic: 'nmh/1',
-                    payload: 'power off',
-                    qos: 2,
-                    retain: true
-                });
+                client.publish('nmh/1', 'power off', { qos: 2, retain: true });
             }
             if (parseInt(osc_message.args[1].value) == 5) {
                 console.log("no.1 sended temperature\n");
                 console.log(osc_message.args[2].value);
                 io.emit('device_1_temperature', osc_message.args[2].value);
-                client.publish('nmh/1/temperature',String(osc_message.args[2].value), [2 ,true]);
+                client.publish('nmh/1/temperature',String(osc_message.args[2].value), { qos: 2, retain: true });
             }
             if (parseInt(osc_message.args[1].value) == 6) {
                 console.log("no.1 sended played count\n");
                 console.log(osc_message.args[2].value);
                 io.emit('device_1_played_count', osc_message.args[2].value);
-                client.publish('nmh/1/count', String(osc_message.args[2].value), [2 ,true]);
+                client.publish('nmh/1/count', String(osc_message.args[2].value), { qos: 2, retain: true });
             }
         }
 
@@ -364,43 +358,43 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log("no.2 is waiting\n");
                 device_status.id_2 = '0';
                 io.emit('device_2', 'waiting');
-                client.publish('nmh/2', 'waiting');
+                client.publish('nmh/2', 'waiting', { qos: 2, retain: true });
             }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.2 is playing\n");
                 device_status.id_2 = '1';
                 io.emit('device_2', 'on');
-                client.publish('nmh/2', 'playing');
+                client.publish('nmh/2', 'playing', { qos: 2, retain: true });
             }
             if (parseInt(osc_message.args[1].value) == 2) {
                 console.log("no.2 movie is end\n");
                 device_status.id_2 = '2';
                 io.emit('device_2', 'off');
-                client.publish('nmh/2', 'off');
+                client.publish('nmh/2', 'off', { qos: 2, retain: true });
             }
             if (parseInt(osc_message.args[1].value) == 3) {
                 console.log("no.2 rebooting\n");
                 device_status.id_2 = '3';
                 io.emit('device_2', 'rebooting');
-                client.publish('nmh/2', 'rebooting');
+                client.publish('nmh/2', 'rebooting', { qos: 2, retain: true });
             }
             if (parseInt(osc_message.args[1].value) == 4) {
                 console.log("no.2 power off\n");
                 device_status.id_2 = '4';
                 io.emit('device_2', 'power_off');
-                client.publish('nmh/2', 'power off');
+                client.publish('nmh/2', 'power off', { qos: 2, retain: true });
             }
             if (parseInt(osc_message.args[1].value) == 5) {
                 console.log("no.2 sended temperature\n");
                 console.log(osc_message.args[2].value);
                 io.emit('device_2_temperature', osc_message.args[2].value);
-                client.publish('nmh/2/temperature', String(osc_message.args[2].value));
+                client.publish('nmh/2/temperature', String(osc_message.args[2].value), { qos: 2, retain: true });
             }
             if (parseInt(osc_message.args[1].value) == 6) {
                 console.log("no.2 sended played count\n");
                 console.log(osc_message.args[2].value);
                 io.emit('device_2_played_count', osc_message.args[2].value);
-                client.publish('nmh/2/count', String(osc_message.args[2].value));
+                client.publish('nmh/2/count', String(osc_message.args[2].value), { qos: 2, retain: true });
 
             }
 
@@ -414,44 +408,44 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log("no.3 is waiting\n");
                 device_status.id_3 = '0';
                 io.emit('device_3', 'waiting');
-                client.publish('nmh/3', 'waiting');
+                client.publish('nmh/3', 'waiting', { qos: 2, retain: true });
 
             }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.3 is playing\n");
                 device_status.id_3 = '1';
                 io.emit('device_3', 'on');
-                client.publish('nmh/3', 'playing');
+                client.publish('nmh/3', 'playing', { qos: 2, retain: true });
             }
             if (parseInt(osc_message.args[1].value) == 2) {
                 console.log("no.3 movie is end\n");
                 device_status.id_3 = '2';
                 io.emit('device_3', 'off');
-                client.publish('nmh/3', 'off');
+                client.publish('nmh/3', 'off', { qos: 2, retain: true });
             }
             if (parseInt(osc_message.args[1].value) == 3) {
                 console.log("no.3 rebooting\n");
                 device_status.id_3 = '3';
                 io.emit('device_3', 'rebooting');
-                client.publish('nmh/3', 'rebooting');
+                client.publish('nmh/3', 'rebooting', { qos: 2, retain: true });
             }
             if (parseInt(osc_message.args[1].value) == 4) {
                 console.log("no.3 power off\n");
                 device_status.id_3 = '4';
                 io.emit('device_3', 'power_off');
-                client.publish('nmh/3', 'power off');
+                client.publish('nmh/3', 'power off', { qos: 2, retain: true });
             }
             if (parseInt(osc_message.args[1].value) == 5) {
                 console.log("no.3 sended temperature\n");
                 console.log(osc_message.args[2].value);
                 io.emit('device_3_temperature', osc_message.args[2].value);
-                client.publish('nmh/3/temperature', String(osc_message.args[2].value));
+                client.publish('nmh/3/temperature', String(osc_message.args[2].value), { qos: 2, retain: true });
             }
             if (parseInt(osc_message.args[1].value) == 6) {
                 console.log("no.3 sended played count\n");
                 console.log(osc_message.args[2].value);
                 io.emit('device_3_played_count', osc_message.args[2].value);
-                client.publish('nmh/3/count', String(osc_message.args[2].value));
+                client.publish('nmh/3/count', String(osc_message.args[2].value), { qos: 2, retain: true });
             }
         }
 
