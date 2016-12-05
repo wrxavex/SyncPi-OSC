@@ -293,7 +293,7 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
                 console.log("no.1 is waiting\n");
                 device_status.id_1 = '0';
                 io.emit('device_1', 'waiting');
-                client.publish('nmh/1', 'waiting');
+                client.publish('nmh/1', 'waiting', [2 ,true]);
             }
             if (parseInt(osc_message.args[1].value) == 1) {
                 console.log("no.1 is playing\n");
