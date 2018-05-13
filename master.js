@@ -13,6 +13,10 @@ var video_id = fs.readFileSync('/boot/sync_setting.txt', 'utf8');
 video_id = video_id.substring(3, 5);
 video_id = parseInt(video_id);
 
+start_ip = 201;
+device_quantity = 12;
+network_range = "10.0.4.";
+
 // 播次計數？
 var play_count = 0;
 
@@ -52,31 +56,12 @@ function send() {
 
     // 延時後send udp
     setTimeout(function(){
-        udp.send(x, 0, x.length, 9998, "192.168.1.201");
-        udp.send(x, 0, x.length, 9998, "192.168.1.202");
-        udp.send(x, 0, x.length, 9998, "192.168.1.203");
-        udp.send(x, 0, x.length, 9998, "192.168.1.204");
-        udp.send(x, 0, x.length, 9998, "192.168.1.205");
-        udp.send(x, 0, x.length, 9998, "192.168.1.206");
-        udp.send(x, 0, x.length, 9998, "192.168.1.207");
-        udp.send(x, 0, x.length, 9998, "192.168.1.208");
-        udp.send(x, 0, x.length, 9998, "192.168.1.209");
-        udp.send(x, 0, x.length, 9998, "192.168.1.210");
-        udp.send(x, 0, x.length, 9998, "192.168.1.211");
-        udp.send(x, 0, x.length, 9998, "192.168.1.212");
 
+        for(i=start_ip; i<start_ip+device_quantity; i++){
+            udp.send(x, 0, x.length, 9998, network_range+i.toString());
+        }
 
-        udp.send(x, 0, x.length, 9998, "192.168.1.231");
-        udp.send(x, 0, x.length, 9998, "192.168.1.232");
-        udp.send(x, 0, x.length, 9998, "192.168.1.233");
-        udp.send(x, 0, x.length, 9998, "192.168.1.234");
-        udp.send(x, 0, x.length, 9998, "192.168.1.235");
-        udp.send(x, 0, x.length, 9998, "192.168.1.236");
-        udp.send(x, 0, x.length, 9998, "192.168.1.237");
-        udp.send(x, 0, x.length, 9998, "192.168.1.238");
-        udp.send(x, 0, x.length, 9998, "192.168.1.239");
-
-        udp.send(x, 0, x.length, 9998, "192.168.1.139");
+        
 
     }, delay_time);
 }
@@ -359,7 +344,6 @@ omxcallback = dgram.createSocket('udp4', function (msg, rinfo) {
         });
 
         // 送出訊息（port 9997)
-        udp.send(message_to_TFT, 0, message_to_TFT.length, 9997, "192.168.1.139");
         udp.send(message_to_TFT, 0, message_to_TFT.length, 9997, "127.0.0.1");
         console.log('tft message send')
     }
